@@ -1,43 +1,54 @@
 /* ============================================================
    brand.css — single source of truth for the color system.
-   primary = derive from client logo.
-   Neutral graphite / slate placeholders — the template ships NO
-   brand color. Recolor a client by editing ONLY the tokens in the
-   first :root block below; everything else references these.
+   SUREPOINTE LAB — palette derived from brand_assets/logo.png
+   (deep crimson ring + blood drop; royal-blue EKG line + swoosh).
+   Recolor a client by editing ONLY the tokens in the first :root
+   block below; everything else references these.
    Recolor check (every build): accent-deep vs bg >=4.5:1 ·
    accent-bright vs dark >=4.5:1 · muted vs bg-2 >=4.5:1.
+
+   NOTE: --color-dark == --color-primary == crimson for this brand,
+   so "dark sections" are RED, not navy. Anything placed on a dark
+   section must be checked against #C0121A, not a neutral dark.
    ============================================================ */
 :root {
   /* — Core palette (hex) — */
-  --color-primary:      #232838;  /* brand primary slot (= dark) */
-  --color-primary-mid:  #313749;  /* first dark-elevation step + primary hover */
-  --color-accent:       #5E6675;  /* the "pop" / CTA accent — replace per client */
-  --color-accent-deep:  #4A515E;  /* accent hover / pressed — the on-LIGHT accent fallback */
-  --color-accent-bright:#A2AEC3;  /* on-DARK accent — every accent use on --color-dark; keep >=4.5:1 vs dark */
-  --color-dark:         #232838;  /* single canonical dark-section bg (== primary) */
-  --color-dark-3:       #363D4E;  /* deepest dark-elevation surface */
-  --color-ink:          #1A1D28;  /* body + heading text */
-  --color-muted:        #666D79;  /* muted / secondary text — clears 4.5:1 vs bg-2 (4.74) & bg (5.21) */
-  --color-muted-light:  #8A929E;  /* lighter muted text */
-  --color-line:         #D8DAE2;  /* hairlines / borders */
+  --color-primary:      #C0121A;  /* brand primary slot (= dark) — logo ring + blood drop */
+  --color-primary-mid:  #9E0F16;  /* first dark-elevation step + primary hover */
+  --color-accent:       #1852D4;  /* royal blue — EKG line + swoosh. ON LIGHT BACKGROUNDS ONLY */
+  --color-accent-deep:  #1240A8;  /* accent hover / pressed — the on-LIGHT accent fallback (9.03:1 vs bg) */
+  --color-accent-bright:#CFE0FF;  /* on-DARK accent — every accent use on --color-dark (4.71:1 vs dark) */
+  --color-dark:         #C0121A;  /* single canonical dark-section bg (== primary) */
+  --color-dark-3:       #8A0D12;  /* deepest dark-elevation surface */
+  --color-silver:       #E2E3E8;  /* cool neutral — chrome, secondary text on dark (4.90:1 vs dark) */
+  --color-ink:          #111214;  /* body + heading text */
+  --color-muted:        #6B6E7A;  /* muted / secondary text — clears 4.5:1 vs bg-2 (4.66) & bg (5.12) */
+  /* On-DARK secondary text. Every selector that consumes this token is a dark
+     context (.dark-section .text-muted, .hero-bg .text-muted, #insurance card copy),
+     so it is measured against --color-dark, not against --color-bg. CLAUDE.md assigns
+     #E2E3E8 the "secondary text on dark" role; it holds 4.90:1 on the crimson while
+     staying a visible step below white headings (6.28:1). #A0A3AD would read 2.49:1. */
+  --color-muted-light:  #E2E3E8;
+  --color-line:         #E2E3E8;  /* hairlines / borders */
   --color-bg:           #FFFFFF;  /* page background */
-  --color-bg-2:         #F3F4F7;  /* light section tint */
-  --color-rating:       #F59E0B;  /* star-rating gold — functional, not brand */
+  --color-bg-2:         #F5F5F7;  /* light section tint */
+  --color-rating:       #F5A623;  /* star-rating gold — functional, not brand */
 
   /* — Channel triplets (R, G, B) for rgba() tinting — */
-  --color-primary-rgb:     35, 40, 56;
-  --color-primary-mid-rgb: 49, 55, 73;
-  --color-accent-rgb:      94, 102, 117;
-  --color-accent-deep-rgb: 74, 81, 94;
-  --color-accent-bright-rgb: 162, 174, 195;
-  --color-dark-rgb:        35, 40, 56;
-  --color-dark-3-rgb:      54, 61, 78;
-  --color-ink-rgb:         26, 29, 40;
+  --color-primary-rgb:     192, 18, 26;
+  --color-primary-mid-rgb: 158, 15, 22;
+  --color-accent-rgb:      24, 82, 212;
+  --color-accent-deep-rgb: 18, 64, 168;
+  --color-accent-bright-rgb: 207, 224, 255;
+  --color-dark-rgb:        192, 18, 26;
+  --color-dark-3-rgb:      138, 13, 18;
+  --color-silver-rgb:      226, 227, 232;
+  --color-ink-rgb:         17, 18, 20;
 
   /* size the nav off the client logo — see CLAUDE.md logo rules */
-  --nav-height:         96px;   /* nav bar height — starting point, not fixed */
-  --nav-logo-height:    72px;   /* client logo <img> height in the nav */
-  --footer-logo-height: 116px;  /* client logo <img> height in the footer */
+  --nav-height:         72px;   /* nav bar height — clears the 48px logo with 12px breathing room */
+  --nav-logo-height:    48px;   /* client logo <img> height in the nav */
+  --footer-logo-height: 56px;   /* client logo <img> height in the footer */
 }
 
 /* ============================================================
