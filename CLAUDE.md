@@ -65,7 +65,7 @@ page.
 | `--color-primary` | `#C0121A` | Deep crimson red — hero/sections, footer, nav, primary buttons |
 | `--color-primary-mid` | `#9E0F16` | Darker crimson — hover states, secondary buttons, borders on dark |
 | `--color-accent` | `#1852D4` | Royal blue — use on LIGHT/WHITE backgrounds only (EKG/swoosh origin) |
-| `--color-accent-bright` | `#A8C8FF` | Light blue — use on DARK (red) backgrounds only; icons, eyebrow, highlights; ~6.9:1 on crimson ✅ AA |
+| `--color-accent-bright` | `#CFE0FF` | Light blue — use on DARK (red) backgrounds only; icons, eyebrow, highlights |
 | `--color-accent-deep` | `#1240A8` | Deeper blue — on-light fallback for small text, dividers on white |
 | `--color-dark` (canonical) | `#C0121A` | [= primary] THE single dark-section background token |
 | `--color-dark-3` | `#8A0D12` | Deepest crimson — pressed states, deepest card backgrounds on dark sections |
@@ -85,8 +85,8 @@ page.
 - **Accent split by background — CRITICAL:** `#1852D4` on `#C0121A` = 1.04:1 contrast
   (invisible). The two accent tokens have strictly split roles and must NEVER be swapped:
   — `--color-accent` (`#1852D4`) → LIGHT/WHITE backgrounds only
-  — `--color-accent-bright` (`#A8C8FF`) → DARK (red) backgrounds only; icons, eyebrow,
-    highlights; confirmed ~6.9:1 on crimson, passes AA
+  — `--color-accent-bright` (`#CFE0FF`) → DARK (red) backgrounds only; icons, eyebrow,
+    highlights; measured 4.71:1 on `#C0121A`, clears AA for small text
 - **Accent-deep on-light fallback:** `--color-accent-deep` (`#1240A8`) is the fallback for
   small accent text or thin dividers on white where `#1852D4` goes low-contrast.
 - **One canonical dark token:** `--color-dark` (`#C0121A`) is the only dark-section
@@ -96,7 +96,7 @@ page.
   This is NOT the template's decorative red; it IS the brand. Red stays as
   `--color-primary` and `--color-dark`. Never drift to a different red shade.
 - **Never use default Tailwind blue/indigo/sky/cyan.** The only blues allowed are
-  `#1852D4` (on light) and `#A8C8FF` (on dark). No other blue enters the design.
+  `#1852D4` (on light) and `#CFE0FF` (on dark). No other blue enters the design.
 
 ---
 
@@ -347,7 +347,7 @@ intro + unique "why [City] chooses us" per page.
 `robots.txt` (allow crawl, disallow thank-you, point to sitemap).
 
 **Title/description patterns — FILL:**
-- Homepage: `Lab Testing in Pharr, TX | Self-Pay & Insurance | Surepointe Lab` (57 chars)
+- Homepage: `Pharr Lab Testing | Self-Pay & Insurance | Surepointe Lab` (57 chars)
 - Service page: `[Service Name] in Pharr, TX | Surepointe Lab`
 - City page: `Affordable Lab Testing in [City], TX | Surepointe Lab`
 

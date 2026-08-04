@@ -463,7 +463,7 @@
     ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
   </style>
 
-  <!-- Homepage business schema — MedicalClinic (patient-facing diagnostic laboratory).
+  <!-- Homepage business schema — DiagnosticLab (schema.org subtype of MedicalOrganization).
        PostalAddress INCLUDED: public address confirmed (Pharr Medical Complex).
        NO aggregateRating: the 4.9 / 226 figures are confirmed but the GHL review
        widget is not yet wired, so nothing is displayed on-page — rating and widget
@@ -472,7 +472,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
+    "@type": "DiagnosticLab",
     "@id": "https://www.surepointelab.com/#business",
     "name": "Surepointe Lab",
     "description": "Walk-in diagnostic laboratory in Pharr, Texas. Blood work, drug testing, paternity testing, wellness panels, hormone testing and gender reveal testing. No doctor's order required. Most insurances and self-pay accepted.",
@@ -1121,7 +1121,8 @@
         </p>
       </div>
 
-      <!-- PENDING: all 8 tiles await real client photography (1200×900 each) -->
+      <!-- PENDING: all 4 tiles await real client photography (1200×900 each).
+           2×2 grid — the last row always fills, no orphaned tile. -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-up" style="transition-delay: 0.06s;">
         <figure class="photo-frame">
           <img src="https://placehold.co/1200x900" alt="Reception and check-in desk at Surepointe Lab in Pharr, Texas" loading="lazy" />
@@ -1134,18 +1135,6 @@
         </figure>
         <figure class="photo-frame">
           <img src="https://placehold.co/1200x900" alt="Centrifuge and sample processing equipment at Surepointe Lab" loading="lazy" />
-        </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Labeled blood samples ready for testing at Surepointe Lab in Pharr" loading="lazy" />
-        </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Waiting area for walk-in patients at Surepointe Lab in Pharr, Texas" loading="lazy" />
-        </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Drug testing collection area at Surepointe Lab in Pharr, Texas" loading="lazy" />
-        </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Exterior entrance of Surepointe Lab at the Pharr Medical Complex" loading="lazy" />
         </figure>
       </div>
     </div>
