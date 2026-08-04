@@ -1,37 +1,17 @@
-# CLAUDE-SKELETON.md — Nexor AI blank CLAUDE.md
-
-This is the **starting point for every client's `CLAUDE.md`**. Copy it to the new client
-repo, rename it `CLAUDE.md`, and fill it in from the onboarding form.
-
-## How to use this skeleton
-
-Two layers, marked throughout:
-
-- **FROZEN** — identical on every build. The proven Nexor conventions. Do NOT rewrite
-  these per client. If you improve one, improve it *here* and roll it to all future
-  builds — never fork it silently in one client's file.
-- **`[NEEDS INPUT — …]`** — a client fact to fill from the onboarding form. If the form
-  didn't provide it, leave the flag; do NOT invent it. `[DECIDE — …]` marks a judgment
-  call to resolve at strategy lock. `[DERIVE — …]` marks something computed from an asset
-  (e.g. palette from logo).
-
-Fill every `[NEEDS INPUT]` you can, flag the rest, resolve every `[DECIDE]` at the
-strategy-lock gate. When every flag is either filled or consciously deferred to backfill,
-`CLAUDE.md` is locked and the build (BUILD-PROMPTS.md, Code-only) begins.
-
----
+# CLAUDE.md — Surepointe Lab
 
 ## What This Is — FILL PER CLIENT (boilerplate frozen)
 
-This is the **[NEEDS INPUT — Business Name]** website, built on the Nexor AI template.
+This is the **Surepointe Lab** website, built on the Nexor AI template.
 The generic template placeholders are resolved to this client's real identity below;
 anything not yet confirmed is left `[NEEDS INPUT]` and must NOT be invented. Keep the
 template's structure, section rhythm, nav pattern, dark sections, footer layout, and
 design system intact — only content, brand, service area, colors, logo, photos, and copy
 are client-specific.
 
-Trade: **[NEEDS INPUT — industry/trade]**. Several template modules are home-services
-artifacts that may not apply to this trade — see "Template Sections to DELETE."
+Trade: **Medical diagnostic laboratory — accepts most insurances + self-pay; no doctor's
+order required; walk-ins welcome.** Several template modules are home-services artifacts
+that do not apply to this trade — see "Template Sections to DELETE."
 
 Treat any remaining `[NEEDS INPUT]` field as fill-in-the-blank. Do not invent client
 facts; confirm with the client / Juan before filling.
@@ -42,21 +22,34 @@ facts; confirm with the client / Juan before filling.
 
 | Token | Resolved value |
 |---|---|
-| Business name | [NEEDS INPUT] (short brand: [NEEDS INPUT]) |
-| Service One … Service Six | [NEEDS INPUT — the six locked service names] |
-| service slugs | [NEEDS INPUT — one slug per service] |
-| Primary city | [NEEDS INPUT — physical-location city; anchors NAP + homepage] |
-| City 2 … City 6 | [NEEDS INPUT — priority order below] |
-| city slugs | [NEEDS INPUT] |
-| Region | [NEEDS INPUT] |
-| State (full) | [NEEDS INPUT — e.g. Texas] |
-| State abbreviation | [NEEDS INPUT — e.g. TX] |
-| Phone (site) | [NEEDS INPUT — GHL tracking number ONLY; owner's personal line is never published] |
-| Email | [NEEDS INPUT] |
-| Domain | [NEEDS INPUT] — canonical host [NEEDS INPUT — www vs non-www, set as Vercel Primary day one] |
+| Business name | Surepointe Lab (short brand: Surepointe Lab) |
+| Service One | Blood Work & Lab Testing |
+| Service Two | Drug Testing |
+| Service Three | Paternity Testing |
+| Service Four | Wellness Panels |
+| Service Five | Hormone Testing |
+| Service Six | Gender Reveal Testing |
+| service slugs | blood-work-lab-testing / drug-testing / paternity-testing / wellness-panels / hormone-testing / gender-reveal-testing |
+| Primary city | Pharr (physical location; anchors NAP + homepage) |
+| City 2 | McAllen |
+| City 3 | Edinburg |
+| City 4 | Mission |
+| City 5 | Weslaco |
+| City 6 | San Juan |
+| City 7 | Alamo |
+| City 8 | Donna |
+| city slugs | pharr / mcallen / edinburg / mission / weslaco / san-juan / alamo / donna |
+| Region | Rio Grande Valley (RGV) / Hidalgo County, TX |
+| Phone (site) | [NEEDS INPUT — GHL tracking number; client is obtaining this before launch] |
+| Email | Surepointelab@jigmed.org |
+| Domain | www.surepointelab.com — canonical host confirmed as www; set as Vercel Primary day one |
 
-> ⚠️ **Email domain may differ from website domain.** If so, both can be correct — do NOT
-> "fix" one to match the other, and never build a URL off the email domain. Confirm.
+> ⚠️ **Email domain differs from website domain.** Email is @jigmed.org; website is
+> surepointelab.com. Both confirmed correct — do NOT "fix" one to match the other,
+> and never build a URL off the email domain.
+
+> ⚠️ **City count is 8**, flexed above the default 6. Justified by the RGV corridor
+> footprint. All 8 cities lie within ~30 miles along US-83 / Business 83.
 
 ---
 
@@ -69,89 +62,70 @@ page.
 
 | Token | Hex | Role |
 |---|---|---|
-| `--color-primary` | [DERIVE from logo] | Primary brand — dark hero/sections, footer, nav, primary buttons |
-| `--color-primary-mid` | [DERIVE] | Mid-tone — hover, secondary buttons, borders/dividers on dark |
-| `--color-accent` | [DERIVE] | Accent — icons, link accents, eyebrows, highlights on light |
-| `--color-accent-deep` | [DERIVE] | On-light fallback for the accent (see rule below) |
-| `--color-accent-bright` | [DERIVE] | On-dark counterpart of the accent (see rule below) |
-| `--color-silver` / neutral | [DERIVE] | Muted borders, secondary text on dark, chrome |
-| `--color-dark` (canonical) | [= primary] | THE single dark-section background token |
-| `--color-ink` | [DERIVE] | Near-black headings/body |
-| `--color-bg` | `#FFFFFF` | Body/content backgrounds |
-| `--color-muted` | [DERIVE] | Muted/secondary text |
+| `--color-primary` | `#C0121A` | Deep crimson red — hero/sections, footer, nav, primary buttons |
+| `--color-primary-mid` | `#9E0F16` | Darker crimson — hover states, secondary buttons, borders on dark |
+| `--color-accent` | `#1852D4` | Royal blue — use on LIGHT/WHITE backgrounds only (EKG/swoosh origin) |
+| `--color-accent-bright` | `#A8C8FF` | Light blue — use on DARK (red) backgrounds only; icons, eyebrow, highlights; ~6.9:1 on crimson ✅ AA |
+| `--color-accent-deep` | `#1240A8` | Deeper blue — on-light fallback for small text, dividers on white |
+| `--color-dark` (canonical) | `#C0121A` | [= primary] THE single dark-section background token |
+| `--color-dark-3` | `#8A0D12` | Deepest crimson — pressed states, deepest card backgrounds on dark sections |
+| `--color-silver` / neutral | `#E2E3E8` | Cool light gray — muted borders, secondary text on dark, chrome |
+| `--color-bg` | `#FFFFFF` | Primary body/content background |
+| `--color-bg-2` | `#F5F5F7` | Secondary background — alternating section tint, card backgrounds on light |
+| `--color-ink` | `#111214` | Near-black — primary headings/body text on light backgrounds |
+| `--color-muted` | `#6B6E7A` | Blue-gray muted secondary text |
+| `--color-muted-light` | `#A0A3AD` | Lighter muted — captions, helper text, placeholders |
+| `--color-line` | `#E2E3E8` | Borders and dividers (= silver; aliased for clarity in brand.css) |
+| `--color-rating` | `#F5A623` | Star rating gold — review widget stars only |
+| `--nav-height` | `72px` | Navbar height — consistent across all pages |
+| `--nav-logo-height` | `48px` | Logo height inside the navbar |
+| `--footer-logo-height` | `56px` | Logo height inside the footer |
 
 **FROZEN rules:**
-- **Accent-on-light fallback:** a bright accent is fine as fill / text-on-dark; as small
-  text or dividers on white it goes low-contrast — fall back to `--color-accent-deep`.
-- **Accent-on-dark fallback:** the same failure runs in reverse on dark sections — a deep
-  or mid-tone accent goes low-contrast on `--color-dark`. Every accent use on a dark
-  background (colored heading spans, dark-section eyebrows, step numbers, the footer
-  tagline, check strokes) uses `--color-accent-bright`, holding ≥4.5:1 against
-  `--color-dark` (≥3:1 covers large text/graphics, but the same token also sets small
-  text, so hold 4.5). Documented cross-build lesson — never ship raw `--color-accent` on
-  a dark section.
-- **Recolor contrast check (every build):** after deriving the palette and before any page
-  work, verify: `--color-accent-deep` vs `--color-bg` ≥4.5:1 · `--color-accent-bright` vs
-  `--color-dark` ≥4.5:1 · `--color-muted` vs `--color-bg-2` ≥4.5:1. Fix the token, never
-  the page.
-- **One canonical dark token:** `--color-dark` is the only dark-section background. Never
-  let a second near-identical dark hex drift in.
-- **Strip the template's red.** The template ships red as de-facto primary — remove it.
-  Red is semantic (emergency/urgency) only, and only if the brand actually uses it.
-  `[DECIDE — does this brand's palette include red at all? Default: no.]`
-- **Never use default Tailwind blue/indigo/sky/cyan.** Drive every color from the brand
-  tokens and derive shades from them.
-
----
-
-## Nav & logo sizing — FROZEN methodology, FILL the values
-
-Nav height is **sized off the client logo** — a documented cross-build issue: past builds
-needed a 96–104px nav to fit 76px+ logos, and the template never inherited it. It is now
-driven by three tokens in `brand.css` (the defaults are a **starting point, not a fixed
-value** — resize per client from the logo):
-
-| Token | Default | Role |
-|---|---|---|
-| `--nav-height` | `96px` | Nav bar height. |
-| `--nav-logo-height` | `72px` | Client logo `<img>` height in the nav (swap the `<span>` wordmark for `<img class="nav-logo">`). |
-| `--footer-logo-height` | `116px` | Client logo `<img>` height in the footer (`<img class="footer-logo">`). |
-
-**FROZEN rules:**
-- These tokens are the ONLY place nav/logo heights are set. Every page consumes them —
-  the sticky + scrolled nav state, the mobile nav, and the desktop dropdowns all key off
-  `--nav-height` — so per-client resizing is **one edit in `brand.css`, never a 15-file sweep.**
-- Size `--nav-height` off the logo: it must clear `--nav-logo-height` with breathing room.
-- Changing the token keeps the scrolled/solid nav, the transparent-at-top state, hero
-  clearance, the mobile toggle, and the dropdown menus aligned — verify these after a resize.
+- **Accent split by background — CRITICAL:** `#1852D4` on `#C0121A` = 1.04:1 contrast
+  (invisible). The two accent tokens have strictly split roles and must NEVER be swapped:
+  — `--color-accent` (`#1852D4`) → LIGHT/WHITE backgrounds only
+  — `--color-accent-bright` (`#A8C8FF`) → DARK (red) backgrounds only; icons, eyebrow,
+    highlights; confirmed ~6.9:1 on crimson, passes AA
+- **Accent-deep on-light fallback:** `--color-accent-deep` (`#1240A8`) is the fallback for
+  small accent text or thin dividers on white where `#1852D4` goes low-contrast.
+- **One canonical dark token:** `--color-dark` (`#C0121A`) is the only dark-section
+  background. Never let a second near-identical dark hex drift in.
+- **Red is the confirmed brand primary.** The Surepointe Lab logo is built entirely around
+  deep crimson red (`#C0121A`) — the outer ring, the blood drop icon, the whole identity.
+  This is NOT the template's decorative red; it IS the brand. Red stays as
+  `--color-primary` and `--color-dark`. Never drift to a different red shade.
+- **Never use default Tailwind blue/indigo/sky/cyan.** The only blues allowed are
+  `#1852D4` (on light) and `#A8C8FF` (on dark). No other blue enters the design.
 
 ---
 
 ## Integration placeholders — FROZEN insertion points, DECIDE per client
 
-- `<!-- GHL CONTACT FORM EMBED -->` — [NEEDS INPUT — form name]. Use the GHL embed; never a custom form.
-- `<!-- GHL CHAT WIDGET SCRIPT -->` — [NEEDS INPUT] (insert before `</body>`).
-- `<!-- GHL EXTERNAL TRACKING SCRIPT -->` — [NEEDS INPUT] (insert in `<head>`).
-- `<!-- GHL REVIEW WIDGET EMBED -->` — [DECIDE]. Wire ONLY if review count/rating is
-  confirmed AND displayed. Until then: no widget, no stars, no counts, no `aggregateRating`.
-- `<!-- GOOGLE MAPS EMBED -->` — [DECIDE — wire only if the client has a public address].
-- `<!-- INSURANCE CARRIER LOGO ROW -->` — [DECIDE]. DO NOT wire unless specific carrier
-  partnerships are confirmed. Shipping a logo row means fabricating logos (burned prior
-  builds). Cover insurance in copy, not a logo wall.
-- `<!-- FINANCING SECTION -->` — [DECIDE — delete unless financing is actually offered].
+- `<!-- GHL CONTACT FORM EMBED -->` — [NEEDS INPUT — GHL confirmed; embed code coming from client].
+- `<!-- GHL CHAT WIDGET SCRIPT -->` — [NEEDS INPUT — GHL confirmed; script coming from client] (insert before `</body>`).
+- `<!-- GHL EXTERNAL TRACKING SCRIPT -->` — [NEEDS INPUT — GHL confirmed; script coming from client] (insert in `<head>`).
+- `<!-- GHL REVIEW WIDGET EMBED -->` — INCLUDE. GHL review widget confirmed. Wire on build;
+  embed code coming from client. Once wired, `aggregateRating` (4.9 / 226 reviews) is
+  cleared for JSON-LD on the homepage.
+- `<!-- GOOGLE MAPS EMBED -->` — INCLUDE. Confirmed public address at Pharr Medical Complex.
+- `<!-- INSURANCE CARRIER LOGO ROW -->` — DELETE. "Accepts most insurances" — no specific
+  carrier partnerships confirmed. Copy only, never a logo wall.
+- `<!-- FINANCING SECTION -->` — DELETE. Not applicable to a diagnostic laboratory.
 - Social share image: `brand_assets/og-image.jpg` (1200×630) — [NEEDS INPUT — create before launch].
 
 ---
 
 ## Template Sections to DELETE for this client — FROZEN candidates, FILL the list
 
-Standard removable modules (delete any this trade doesn't offer):
-- Financing block / CTA — [DECIDE]
-- Insurance carrier-logo row — [DECIDE]
-- Review widget / star rating / review-count blocks — [DECIDE, default delete until confirmed]
-- Inventory / gallery page — [DECIDE — see gallery rules below]
+- Financing block / CTA — DELETE (not applicable)
+- Insurance carrier-logo row — DELETE (no specific carriers confirmed; copy only)
+- Review widget / star rating / review-count blocks — INCLUDE via GHL review widget
+  (embed code coming; wire on build)
+- Inventory / gallery page — DELETE (medical lab; no product inventory)
 - Trust-badge pill row in the hero — delete by default (redundant with the eyebrow)
-- [NEEDS INPUT — any other home-services artifact irrelevant to this trade]
+- Any home-services-specific artifact (roofing, HVAC, contracting, "free estimate,"
+  home-services framing) — DELETE and rewrite entirely for medical lab context
 
 ---
 
@@ -159,43 +133,67 @@ Standard removable modules (delete any this trade doesn't offer):
 
 Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inferred.
 
-- Business name / short brand: [NEEDS INPUT]
-- Industry / trade: [NEEDS INPUT]
-- Owner: [NEEDS INPUT]. **FROZEN rule:** owner name is referenced only in a dedicated
-  "About the Owner" section or where genuinely required — never threaded through general
-  body copy, headings, meta/OG, or CTAs.
-- Staff / team: [NEEDS INPUT — names + roles]. **Never infer staff or roles from social
-  posts. Confirm directly with the client.**
-- Relationship claims: **FROZEN** — no "family owned," "husband and wife," "couple," or
+- **Business name / short brand:** Surepointe Lab
+- **Industry / trade:** Medical diagnostic laboratory — accepts most insurances + self-pay;
+  no doctor's order required; walk-ins welcome; in-shop + Home Draws
+- **Owner:** Not published on this site. **FROZEN rule:** owner name is referenced only
+  in a dedicated "About the Owner" section or where genuinely required — never threaded
+  through general body copy, headings, meta/OG, or CTAs. Client has confirmed: do not
+  publish owner name. About page focuses on the business story and mission only.
+- **Staff / team:** [NEEDS INPUT — names + roles not published on current site].
+  **Never infer staff or roles from social posts. Confirm directly with the client.**
+- **Relationship claims:** **FROZEN** — no "family owned," "husband and wife," "couple," or
   any relationship structure without explicit written confirmation. "Family-run" is a
   tone signal (safe); a relationship *claim* is a fact (needs confirmation). [NEEDS INPUT]
-- Differentiator / ownership signal (e.g. veteran-owned): [NEEDS INPUT — confirmed only]
-- Owner background (for About page): [NEEDS INPUT]
+- **Differentiator / ownership signal** (e.g. veteran-owned): [NEEDS INPUT — confirmed only]
+- **Owner background (for About page):** Not published. About page tells the business
+  story — founding, mission, values — without referencing the owner by name or background.
 - **FROZEN framing rule:** an experience figure is a PERSONAL claim, not a business-age
-  claim. Write "[N] years in the [trade]" — never "[N] years serving [City]" (implies
-  business age). Founding year is separate and [NEEDS INPUT] until confirmed.
-- Supplier / franchise / dealer relationship: [NEEDS INPUT]
-- Physical address: [NEEDS INPUT — or "service-area only, no public address"]
-  → this sets the schema variant (PostalAddress included vs omitted; see SEO section).
-- Phone (site): [NEEDS INPUT — GHL tracking number]
-- Phone (owner personal — NOT FOR PUBLICATION): [NEEDS INPUT — recorded only so it's never
-  mistaken for the site number; must return zero grep hits before deploy]
-- Email: [NEEDS INPUT]
-- Domain + canonical host: [NEEDS INPUT]
-- Founded year: [NEEDS INPUT — do not state or compute until confirmed]
-- Licenses / certifications: [NEEDS INPUT — publish none until confirmed]
-- Official tagline: [NEEDS INPUT]
-- Review / reputation status: [NEEDS INPUT — until confirmed: no widget, no stars, no
-  counts, no `aggregateRating`, no testimonials. Unattributed testimonials are never published.]
-- Price range: [NEEDS INPUT — for JSON-LD `priceRange`]
+  claim. Current site states "over 25 years of experience" — write "over 25 years in
+  laboratory diagnostics" — never "over 25 years serving [City]" (implies business age).
+  [NEEDS INPUT — confirm "25 years" refers to personal/team experience before publishing]
+- **Supplier / franchise / dealer relationship:** SneakPeek® is a third-party branded
+  product used for Gender Reveal testing. See Locked Language for copy rules.
+- **Physical address:** 1002 W Sam Houston Blvd, Suite 9, Pharr, TX 78577 — inside
+  Pharr Medical Complex. Public address confirmed → PostalAddress INCLUDED in schema.
+- **Phone (site):** [NEEDS INPUT — GHL tracking number; client obtaining before launch.
+  Personal line must return zero grep hits before deploy.]
+- **Phone (owner personal — NOT FOR PUBLICATION):** [NEEDS INPUT — record here only so
+  it is never mistaken for the site number; must return zero grep hits before deploy]
+- **Email:** Surepointelab@jigmed.org [domain is jigmed.org, NOT surepointelab.com —
+  do not "fix"; do not build any URL off the email domain]
+- **Domain + canonical host:** www.surepointelab.com — confirmed; set as Vercel Primary day one
+- **Founded:** May 2013 — confirmed by client; cleared to publish in copy and schema
+- **Licenses / certifications:** None confirmed. Publish no certification claims.
+- **Official tagline:** [NEEDS INPUT — no official tagline identified]
+- **Review / reputation status:** 4.9 stars / 226 Google reviews (GBP confirmed).
+  GHL review widget confirmed for display. `aggregateRating` cleared for JSON-LD once
+  widget is wired.
+- **Price range:** [NEEDS INPUT — for JSON-LD `priceRange` only; never in copy]
 
-### Key operational facts — [NEEDS INPUT] (must be accurate everywhere once filled)
-- Service model (in-shop / mobile / both): [NEEDS INPUT]
-- Service-area / free-travel radius: [NEEDS INPUT]
-- Intake method / primary CTA framing: [NEEDS INPUT]
-- Any confirmed differentiators: [NEEDS INPUT]
+### Key operational facts — confirmed
+- **Service model:** In-shop walk-in (1002 W Sam Houston Blvd, Ste 9, Pharr, TX 78577) +
+  Home Draws (no service area or travel radius published)
+- **No doctor's order required** — confirmed; safe to publish
+- **Walk-ins welcome** — confirmed; safe to publish
+- **Insurance:** Accepts most insurances + self-pay. Never name specific carriers. Never
+  promise coverage outcomes. Route coverage questions to "call us to confirm your coverage."
+- **Intake method / primary CTA framing:** Walk in or call — [NEEDS INPUT — GHL number]
+- **Confirmed differentiators:** No doctor's order required · No referral needed · Accepts
+  most insurances · Self-pay option · Walk-in friendly · Located in Pharr Medical Complex ·
+  Home Draws available · Founded 2013
 
-### Hours — [NEEDS INPUT] (for `openingHoursSpecification`)
+### Hours — CONFIRMED (GMB is authoritative)
+
+| Day | Hours |
+|---|---|
+| Monday – Friday | 7 AM – 5 PM |
+| Saturday | 8 AM – 11:30 AM |
+| Sunday | Closed |
+
+Use these hours for `openingHoursSpecification` in JSON-LD and all on-page display.
+GMB hours are the confirmed source of truth. The after-hours appointment window
+(5:30PM–7PM) mentioned on the old site is NOT carried forward — not confirmed still active.
 
 ---
 
@@ -203,17 +201,48 @@ Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inf
 
 **FROZEN:** select service pages for search volume + lead intent (broad high-intent
 categories over narrow component terms). Minor/related services fold in as on-page
-sections or FAQ, not their own pages. Default is six pages; flex only if the client
-genuinely needs more/fewer.
+sections or FAQ, not their own pages.
 
-- Flagship (highest volume + call volume): [NEEDS INPUT]
-- Secondary push (differentiator / highest ticket): [NEEDS INPUT]
-- Standard ×4: [NEEDS INPUT]
-- Folded-in sub-services (sections/FAQ, not pages): [NEEDS INPUT]
+- **Flagship (highest volume + call volume):** Blood Work & Lab Testing
+- **Secondary push (differentiator / highest ticket):** Drug Testing
+- **Standard ×4:** Paternity Testing · Wellness Panels · Hormone Testing · Gender Reveal Testing
 
-> ⚠️ **FROZEN anti-cannibalization:** keep distinct search intents on distinct pages
-> (e.g. repair vs replacement). Never introduce a broad umbrella page that cannibalizes
-> two narrower ones.
+**Folded-in sub-services (sections/FAQ, NOT their own pages):**
+
+*Blood Work & Lab Testing page:*
+— Individual tests: CMP, CBC, Lipid Panel, Urinalysis, PSA, Hemoglobin A1C, Sed Rate,
+  Ca125, PT (Prothrombin Time), Microalbumin, HCG Serum, Free T4
+— Infectious disease: COVID-19 (Rapid & PCR), Strep A, Flu A&B, RSV,
+  H-Pylori (Breath & Blood), HIV, Pregnancy Testing (Blood & Urine)
+— Home Draws: mention here and on Wellness Panels + Hormone Testing pages;
+  no service area published; no dedicated page
+
+*Drug Testing page:*
+— Urine Drug Screen · Hair Follicle Drug Test · DOT Drug Testing (all three as sections)
+
+*Wellness Panels page:*
+— Branded packages: SurePower Check (Men Wellness) · Surepointe Check (Basic Wellness) ·
+  Wonder Woman Check (Women Wellness) · Surepointe Plus · Super Surepointe · Arthritis Profile
+— General Wellness Panels umbrella
+
+*Hormone Testing page:*
+— Free & Total Testosterone · Estrogen Panel · Thyroid Panel (T3 Uptake, T4, TSH,
+  Thyrox, Free T4)
+
+*Gender Reveal Testing page:*
+— SneakPeek® Early Gender Test — fetal sex detection as early as 6–7 weeks gestation.
+  See Locked Language for copy rules (no accuracy percentage).
+
+> ⚠️ **FROZEN anti-cannibalization:** keep distinct search intents on distinct pages.
+> Drug Testing and Blood Work are separate buyer intents — keep them separate.
+> Hormone Testing and Wellness Panels both involve blood draws but serve distinct search
+> intents (targeted health concern vs. general health screening) — keep them separate.
+
+> ✅ **"Wonder Woman Check"** — confirmed correct spelling throughout. The current site's
+> "Wonder Women" was a typo. Use "Wonder Woman Check" everywhere.
+
+> ✅ **"A1C"** — confirmed correct abbreviation throughout. The current site's "AIC" was
+> a typo. Use "A1C" everywhere (Hemoglobin A1C, A1C panel, etc.).
 
 ---
 
@@ -227,15 +256,37 @@ genuinely needs more/fewer.
 - Homepage `index.html`
 - About `about.html`
 - Contact / Thank-You `thank-you.html` (noindex, nofollow)
-- 6 service pages under `/services/`: [NEEDS INPUT — slugs]
-- 6 city pages under `/areas/`: [NEEDS INPUT — slugs]
-- Inventory/gallery page: [DECIDE — include only if applicable; see gallery rules]
+- 6 service pages under `/services/`:
+  - `blood-work-lab-testing.html`
+  - `drug-testing.html`
+  - `paternity-testing.html`
+  - `wellness-panels.html`
+  - `hormone-testing.html`
+  - `gender-reveal-testing.html`
+- 8 city pages under `/areas/`: *(city count flexed to 8 — justified by RGV corridor footprint)*
+  - `pharr.html`
+  - `mcallen.html`
+  - `edinburg.html`
+  - `mission.html`
+  - `weslaco.html`
+  - `san-juan.html`
+  - `alamo.html`
+  - `donna.html`
+- No inventory / gallery page
 
 ### City priority — FROZEN methodology, FILL the order
-Home city anchors the homepage + NAP. Deepest city page = highest-volume target and
+Pharr anchors the homepage + NAP. McAllen is the highest-volume keyword target and
 becomes the CITY-PAGE TEMPLATE. Order drives GSC indexing sequence.
-- [NEEDS INPUT — primary → secondary → … with a one-line rationale each]
-- [DECIDE — any cities pending real search-volume data]
+
+1. **Pharr** — physical location; anchors NAP, homepage, all schema. Home base.
+2. **McAllen** — largest RGV city; highest search volume; primary keyword prize;
+   CITY-PAGE TEMPLATE — all remaining city pages inherit this one.
+3. **Edinburg** — Hidalgo County seat; strong population; likely second-highest volume
+4. **Mission** — solid market; US-83 / Business 83 corridor
+5. **Weslaco** — east valley anchor; covers Donna/Weslaco corridor
+6. **San Juan** — close proximity to Pharr; strong Home Draws candidate
+7. **Alamo** — fills gap between San Juan and Weslaco
+8. **Donna** — easternmost city; completes the US-83 corridor coverage
 
 ---
 
@@ -262,24 +313,25 @@ implementation.
 twitter summary_large_image + title/description/image; images → 1200×630 (flag if not created).
 
 **Structured Data (JSON-LD) — FROZEN patterns:**
-- Homepage: the correct `@type` for the trade `[NEEDS INPUT — e.g. AutoRepair / HVACBusiness / LocalBusiness]`
-  (never a mismatched type, never bare LocalBusiness if a specific subtype fits). Include
-  name, telephone (GHL), email, priceRange (pending), `openingHoursSpecification`,
-  `areaServed` (full city list), `hasOfferCatalog` (the six services).
-- **PostalAddress:** INCLUDE only if the client has a public address; OMIT entirely for
-  service-area businesses. `[DECIDE per address field above]`
-- **`aggregateRating`:** include ONLY when real reviews are confirmed AND displayed.
-- License numbers → `additionalProperty`.
+- **Homepage:** `@type: "MedicalClinic"` (most accurate Schema.org subtype for a
+  patient-facing diagnostic laboratory; do NOT use bare LocalBusiness). Include name,
+  telephone (GHL number — pending), email, priceRange (pending), `openingHoursSpecification`
+  (GMB hours confirmed above), `areaServed` (all 8 cities), `hasOfferCatalog` (all 6
+  service pages).
+- **PostalAddress:** INCLUDE — confirmed public address (1002 W Sam Houston Blvd, Ste 9,
+  Pharr, TX 78577).
+- **`aggregateRating`:** INCLUDE once GHL review widget is wired. Values: ratingValue 4.9,
+  reviewCount 226, bestRating 5. Wire together with the widget — never one without the other.
+- License numbers → `additionalProperty` — none confirmed; omit until confirmed.
 - **Service pages:** 3 blocks — `Service` + `FAQPage` (min 6 Q&As) + `BreadcrumbList`.
-- **City pages:** 3 blocks — `LocalBusiness` ref (same `@id` as homepage, not a
+- **City pages:** 3 blocks — `MedicalClinic` ref (same `@id` as homepage, NOT a
   re-declaration) + `FAQPage` (min 4 city-scoped Q&As) + `BreadcrumbList`.
   `areaServed` = that city only, never the full list.
-- **Inventory/gallery pages:** `ImageGallery` or `CollectionPage` only — never `Service`.
 - **Thank-you trio (one atomic unit):** noindex/nofollow meta + excluded from `sitemap.xml`
   + Disallow in `robots.txt`.
 - **Per-page title collision:** the flagship service title must lead with a different
   phrase than the homepage title even when they share a keyword.
-- **Offer-catalog count == live service-page count.**
+- **Offer-catalog count == live service-page count (6).**
 - Validate at `search.google.com/test/rich-results` before launch.
 
 **Visible on-page SEO — FROZEN:** exactly one `<h1>`/page; H2/H3 hierarchy, no skipped
@@ -295,9 +347,9 @@ intro + unique "why [City] chooses us" per page.
 `robots.txt` (allow crawl, disallow thank-you, point to sitemap).
 
 **Title/description patterns — FILL:**
-- Homepage: [NEEDS INPUT]
-- Service page: [NEEDS INPUT]
-- City page: [NEEDS INPUT]
+- Homepage: `Lab Testing in Pharr, TX | Self-Pay & Insurance | Surepointe Lab` (57 chars)
+- Service page: `[Service Name] in Pharr, TX | Surepointe Lab`
+- City page: `Affordable Lab Testing in [City], TX | Surepointe Lab`
 
 ---
 
@@ -311,19 +363,19 @@ intro + unique "why [City] chooses us" per page.
   never promoted into either background. Ever.
 - Until the dedicated file exists, both stay on `https://placehold.co/1920x1080` at exact
   final dimensions. Flag as pending — never substitute another image to "fill" it.
-- **Off-limits on every content-photo and layout pass** (also enforced in WORKFLOW.md).
-  A photo/layout prompt must not touch these two backgrounds unless it is explicitly about
-  them.
+- **Off-limits on every content-photo and layout pass.**
 - Static full-bleed image is the default hero on every page including the homepage
   (`min-h-screen`, left-anchored text block, image + dark overlay ~0.7 + edge vignette +
   text-shadows).
 
 ### Hero video — enhancement, homepage only
-Only when the client provides a usable clip. Replaces the static homepage hero; the
-`hero-background` image becomes the poster/fallback. **FROZEN sequence, never skipped:**
-trim only → save preview → client approves in/out → compress separately (H.264, strip
-audio, ~2–3MB) → wire in last. `.gitignore` the raw source + trim preview; commit only the
-final compressed clip.
+**Confirmed: client will provide a hero video clip.** Client has a YouTube video at
+https://youtu.be/h7GuJlfmFrs (currently on About page) — raw clip is coming.
+Replaces the static homepage hero; `hero-background` image becomes the poster/fallback.
+**FROZEN sequence, never skipped:** trim only → save preview → client approves in/out →
+compress separately (H.264, strip audio, ~2–3MB) → wire in last. `.gitignore` the raw
+source + trim preview; commit only the final compressed clip. Build homepage with static
+hero first; swap to video when clip is delivered.
 
 ### Uniform photo sizing — every section, every page
 - **Every content photo uses the same-size aspect-ratio container** (`aspect-ratio` +
@@ -332,55 +384,24 @@ final compressed clip.
 - This is independent of the photo *tier* (which sets how MANY photos a page gets, below).
   Tiers govern count; this rule governs that every container is the same dimensions.
 
-### Split-section layout — FROZEN
-Interior page content is built from **alternating split sections**: two ~50/50 columns —
-a text column and **one** uniform `.photo-frame` photo — stacking text-first on mobile.
-The photo side alternates down the page (right, left, right…) and section backgrounds
-alternate light/dark. **One photo per split; never a photo grid inside a split.** Text
-column = optional eyebrow → H2 → 1–2 short paragraphs → optional 2×2 checklist → optional
-inline `link-arrow`. The photo *tier* (below) sets how many splits a page gets — one split
-per photo slot (flagship service = 5 splits, standard = 2, city = 1 coverage split).
-
-### Cards — icon-free, centered — FROZEN
-Service / feature / value cards ship **without icons or emblems** (no icon squares, no
-emblem circles) and with **centered text**. Card containers (border/shadow/radius) are
-unchanged. **Numbered step cards keep their 01–04 numbers** — those aren't icons. Cards on
-a dark section take a translucent dark-card treatment so text stays legible. The contact
-block keeps its functional call/email/address icons (contact affordances, not card emblems).
-
-**OPTIONAL MODULE accent sweep:** the commented-out OPTIONAL MODULE blocks (insurance carrier row, review widget) sit on dark sections and use raw `--color-accent` internally on their dark-card labels — any build that enables one must sweep those labels to `--color-accent-bright` per the accent-on-dark rule.
-
-### Homepage FAQ + gallery — FROZEN
-The homepage ships an **active** FAQ accordion (5–6 token Q&As, same `<details>` styling as
-service/city pages) and an **active** uniform gallery grid (8 `.photo-frame` tiles at 1-
-and 2-column breakpoints so the last row always fills). These are page sections, distinct
-from the optional inventory/gallery *page* below.
-
 ### Gallery / inventory section — uniform grid, no dead space
-If the client has a dedicated gallery or inventory section:
-- **Uniform grid:** equal cells, consistent gutters, every image the same size.
-- **No dead space and no ragged last row** — size the grid so the final row fills or is
-  balanced; never leave an orphaned single image floating in an empty row.
-- Inventory/gallery page is **blocked until real photos exist** — do not ship it against
-  placeholders.
-- Excluded photo types apply here too (see below).
+Not applicable — no inventory or gallery page for this client.
 
 ### Photo Tier Allocation — FROZEN default (override per client at strategy lock)
 | Page type | Body photos | Hero |
 |---|---|---|
-| Flagship service | 5 | ✓ |
-| Secondary push service | 3 | ✓ |
-| Standard service | 2 | ✓ |
-| City page | 1 | ✓ |
-| About | 2 (2 splits) | ✓ |
-| Inventory / gallery | No limit (reuse accepted) | ✓ |
+| Flagship service (Blood Work & Lab Testing) | 5 | ✓ |
+| Secondary push service (Drug Testing) | 3 | ✓ |
+| Standard service ×4 | 2 each | ✓ |
+| City page ×8 | 1 each | ✓ |
+| About | 2 (no owner portrait — owner not published) | ✓ |
 
 **FROZEN rules:** one-photo-one-slot on all non-inventory pages (no photo twice on a
-page); cross-page reuse minimized except on inventory; excluded types everywhere —
-readable license plates, strong tilt/rotation, stained/damaged subjects, anything
-privacy-sensitive; owner/people slots use `aspect-[3/4]` + `object-position: center top`
-(portrait is the norm for headshots); document EXACT asset filenames confirmed by
-`ls brand_assets/` — never assume naming.
+page); cross-page reuse minimized; excluded types everywhere — readable license plates,
+strong tilt/rotation, stained/damaged subjects, anything privacy-sensitive; owner/people
+slots use `aspect-[3/4]` + `object-position: center top` (portrait is the norm for
+headshots); document EXACT asset filenames confirmed by `ls brand_assets/` — never assume
+naming.
 
 ### City-page clone zones — FROZEN
 Four unique zones per city, everything else shared:
@@ -397,8 +418,9 @@ never modify it during a city clone pass:
 Code MUST save real PNG files to `./temporary screenshots/` and report the exact path — a
 prose description is never a substitute. **Number of rounds is tiered by page type:**
 
-- **Gated template pages — homepage, flagship service, deepest city: 2 comparison rounds.**
-  These set the pattern everything inherits; iterate until right.
+- **Gated template pages — homepage, flagship service (Blood Work & Lab Testing), deepest
+  city (McAllen): 2 comparison rounds.** These set the pattern everything inherits;
+  iterate until right.
 - **Clones and structural pages — remaining services/cities, about, thank-you: 1 round +
   a click-through.** They inherit an approved parent, so verify, don't re-iterate.
 - More rounds only if the 1-round check surfaces a real problem.
@@ -435,37 +457,51 @@ layer. Intentional spacing tokens. A base→elevated→floating depth system.
 
 ## Locked Language — FROZEN framework, FILL per client
 Freeze anything that must never drift:
-- Insurance framing: [NEEDS INPUT — e.g. "works with all carriers"; never name a carrier
-  or promise coverage outcomes / $0 deductible; route to "we'll help you file the claim"]
-- Warranty: [NEEDS INPUT — publish no warranty scope until confirmed in writing]
-- Certification/quality claims: [NEEDS INPUT — no cert claim until confirmed]
-- Ownership signal: [NEEDS INPUT — confirmed only]
-- Experience framing: [NEEDS INPUT — personal-experience wording, not business-age]
-- Testimonials/reviews: [NEEDS INPUT — none publishable until reputation confirmed]
-- **Guarantee / warranty scope, licensing & insurance status, and insurance-coverage
-  outcomes are `[NEEDS INPUT]` per client and must NEVER be asserted in base template
-  copy** — not in body, headings, cards, trust badges/pills, meta, or JSON-LD. Ship them
-  as claim-free or self-flagged placeholders (see the service-page guarantee-FAQ answer
-  for the pattern); the client confirms scope in writing before any such claim goes live.
-  Covers "satisfaction guarantee," "Licensed & Insured," and "we bill your carrier / most
-  claims cost little or nothing."
+- **Insurance framing:** "accepts most insurances" — never name a specific carrier; never
+  promise coverage outcomes or $0 amounts; route coverage questions to "call us to confirm
+  your coverage"
+- **Warranty:** [NEEDS INPUT — publish no warranty or guarantee scope until confirmed in writing]
+- **Certification/quality claims:** None confirmed. Publish no certification claims (no
+  CLIA, CAP, AABB, or other cert language) until confirmed in writing.
+- **Ownership signal:** [NEEDS INPUT — confirmed only; do not infer from social]
+- **Experience framing:** "over 25 years in laboratory diagnostics" — personal/team
+  experience, NOT business age. Never write "over 25 years serving [City]."
+  [NEEDS INPUT — confirm exact wording and that this is a personal/team claim]
+- **Founded year:** May 2013 — confirmed; cleared to use in copy and schema
+- **Owner name:** Not published on this site. About page tells business story only.
+- **Testimonials/reviews:** GHL review widget confirmed for display. No manually written
+  or unattributed testimonials. 4.9 / 226 cleared for `aggregateRating` once widget wired.
+- **SneakPeek® claims:** Reference the test by name and describe what it detects (fetal
+  sex, as early as 6–7 weeks into pregnancy). Do NOT state any specific accuracy
+  percentage (not "99.9%" or any other figure) — best approach is to let the service
+  description speak without a numerical claim.
+- **Pricing:** no price / range / "starting at" in copy, FAQ, or JSON-LD Offer blocks —
+  route all pricing intent to "call for pricing"
+- **No doctor's order / walk-ins:** "no doctor's order required" and "walk-ins welcome"
+  are confirmed and cleared to publish everywhere
+- **Social media:** Footer includes Facebook and Instagram only.
+  Facebook: https://www.facebook.com/profile.php?id=100093646171998
+  Instagram: https://www.instagram.com/surepointe_lab/
+  Twitter/X: dropped — do not include anywhere on the site.
 
 ## Hard Rules — FROZEN
 - No invented facts; confirm before filling any `[NEEDS INPUT]`.
 - No price / range / "starting at" unless explicitly confirmed here — route pricing intent
-  to the quote CTA (applies to copy, FAQ, AND JSON-LD Offer blocks).
+  to the call CTA (applies to copy, FAQ, AND JSON-LD Offer blocks).
 - No insurance coverage-outcome claims.
 - No relationship claim without written confirmation.
-- No review widgets/stars/counts/`aggregateRating` until reputation is confirmed.
 - Never infer ownership/roles/relationships from social posts.
 - Never publish the owner's personal number — GHL tracking number only; grep returns zero
   hits for the personal number before deploy.
 - Never promote a client photo into the `hero-background` / `cta-background` slots.
 - No readable license plates or privacy-sensitive photos.
-- Strip the template's red; no default Tailwind blue/indigo as primary.
+- Never use default Tailwind blue/indigo as primary — use `#1852D4` only.
 - No `transition-all`.
 - Follow the tiered screenshot rule above — don't stop after one pass on a *gated template
   page*; a single round + click-through is correct for clones.
+- Do NOT publish any SneakPeek® accuracy percentage.
+- Do NOT publish any certification claims — none confirmed.
+- Twitter/X link must not appear anywhere on the site.
 
 ## Git Discipline — FROZEN
 - Commit/push only when asked; branch first if on the default branch.
@@ -476,19 +512,49 @@ Freeze anything that must never drift:
 - Logical commit separation: CLAUDE.md → own commit; brand_assets → own commit; page
   builds grouped by phase. Never mix client-layer decisions with build work.
 - Commit assets immediately on placement (their own commit).
-- Set the canonical host as Vercel **Primary on day one**, not at launch.
-- Submit the sitemap to GSC as the full canonical URL. Indexing order: services → primary
-  city → remaining cities → about. ~10–12 URL inspections/day; spread across days. Re-check
-  the homepage canonical in GSC 3–5 days post-launch.
+- Set the canonical host (www.surepointelab.com) as Vercel **Primary on day one**, not at launch.
+- Submit the sitemap to GSC as the full canonical URL. Indexing order: services → Pharr →
+  McAllen → remaining cities → about. ~10–12 URL inspections/day; spread across days.
+  Re-check the homepage canonical in GSC 3–5 days post-launch.
 
 ---
 
-## Active Blockers — [NEEDS INPUT] summary (fill per client)
+## Active Blockers
 
-**Launch-blocking:** [NEEDS INPUT — e.g. GHL tracking number, GHL form embed, chat/tracking scripts, og-image]
+**Launch-blocking:**
+- GHL tracking phone number (client obtaining; placeholder until delivered)
+- GHL contact form embed code (confirmed coming)
+- GHL chat widget script (confirmed coming)
+- GHL external tracking script (confirmed coming)
+- GHL review widget embed code (confirmed coming)
+- og-image — `brand_assets/og-image.jpg` (1200×630; create before launch)
+- Hero video raw clip (confirmed coming; build with static hero first, swap on delivery)
 
-**Backfillable (build against placeholders, swap in one pass):** [NEEDS INPUT — e.g.
-photos, review status, certifications, founding year, social links, priceRange, warranty terms]
+**Backfillable (build against placeholders, swap in one pass):**
+- Hero background photo (`brand_assets/hero-background.*`)
+- CTA background photo (`brand_assets/cta-background.*`)
+- All content / body photos (per photo tier allocation above)
+- Staff names and roles (if client decides to add)
+- priceRange (for JSON-LD only — never in copy)
+- Warranty / guarantee terms
+- Official tagline
+- Experience framing exact wording (confirm "25 years" is personal/team claim)
+- Owner personal phone number (record here only for suppression — must never appear on site)
 
-**Open decisions for Juan (resolve at strategy lock):** [DECIDE — e.g. cities pending
-volume data, any framing calls, gallery/inventory page yes/no]
+**Pre-build structural work (Code does this before any page builds — confirmed by Prompt 0 audit):**
+- Branch off main before any commit (main is the default branch — branch first)
+- Commit CLAUDE.md + template-doc deletions (CLAUDE-SKELETON.md, TEMPLATE-SPEC.md) as
+  their own commit on the new branch
+- Drop `brand_assets/logo.png` in and verify brand.css tokens match this file's palette
+  before any recolor pass
+- Rename 6 template service stubs to real slugs (blood-work-lab-testing.html, etc.)
+- Rename 6 template city stubs (city-one…six.html) to real slugs; CREATE 2 new city pages
+  (alamo.html, donna.html) from the McAllen template — they do not exist on disk
+- Site-wide domain sweep: replace all `https://yourbusiness.com/` with
+  `https://www.surepointelab.com/` across all 15 HTML files + sitemap.xml + robots.txt
+- Update sitemap.xml from 6 city entries to 8
+- WORKFLOW.md does not exist in this repo — the copy methodology reference in CLAUDE.md
+  points to SEO-CONTENT-PROMPT.md (present at 5.5 KB), which is correct; no action needed
+
+**Nothing blocking the build structure.** All strategic decisions are locked.
+CLAUDE.md is ready for Code.
