@@ -1,86 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- thank-you.html is intentionally excluded (noindex/nofollow + Disallow in robots.txt). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yourbusiness.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/about.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/about.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/services/service-one.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/services/blood-work-lab-testing.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/services/service-two.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/services/drug-testing.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/services/service-three.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/services/paternity-testing.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/services/service-four.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/services/wellness-panels.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/services/service-five.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/services/hormone-testing.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/services/service-six.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/services/gender-reveal-testing.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/areas/city-one.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/areas/pharr.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/areas/city-two.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/areas/mcallen.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/areas/city-three.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/areas/edinburg.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/areas/city-four.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/areas/mission.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/areas/city-five.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/areas/weslaco.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourbusiness.com/areas/city-six.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://www.surepointelab.com/areas/san-juan.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.surepointelab.com/areas/alamo.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.surepointelab.com/areas/donna.html</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
