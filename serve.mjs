@@ -57,6 +57,10 @@ http.createServer((req, res) => {
         'Content-Length': fileSize,
         'Content-Type':   contentType,
         'Accept-Ranges':  'bytes',
+        // Dev server: never let the browser serve a stale build back during a
+        // screenshot/review pass.
+        'Cache-Control':  'no-store, no-cache, must-revalidate',
+        'Pragma':         'no-cache',
       });
       fs.createReadStream(filePath).pipe(res);
     }
