@@ -1276,7 +1276,14 @@
         </h2>
       </div>
 
-      <div class="max-w-3xl mx-auto fade-up" style="transition-delay: 0.06s;">
+      <!-- Full section width on purpose: no max-w cap here. The GHL widget is
+           responsive and collapses to a single stacked column when its container is
+           narrow — at the previous max-w-3xl (768px) it rendered as one column. It
+           now fills the max-w-6xl parent (1152px), which is the same full-width
+           container every other section on this page uses. Horizontal breathing room
+           comes from that parent's px-5, so the widget never touches the viewport
+           edge on small screens. Do not reintroduce a max-w here. -->
+      <div class="fade-up" style="transition-delay: 0.06s;">
         <!-- GHL REVIEW WIDGET EMBED — delivered by the client and wired as given.
              review-widget.js sits immediately before the iframe on purpose: it registers
              the postMessage listener the frame uses to report its own height, so it has
