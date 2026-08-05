@@ -40,7 +40,7 @@ facts; confirm with the client / Juan before filling.
 | City 8 | Donna |
 | city slugs | pharr / mcallen / edinburg / mission / weslaco / san-juan / alamo / donna |
 | Region | Rio Grande Valley (RGV) / Hidalgo County, TX |
-| Phone (site) | [NEEDS INPUT — GHL tracking number; client is obtaining this before launch] |
+| Phone (site) | (956) 586-6463 — GHL tracking number, delivered and live site-wide |
 | Email | Surepointelab@jigmed.org |
 | Domain | www.surepointelab.com — canonical host confirmed as www; set as Vercel Primary day one |
 
@@ -156,8 +156,10 @@ Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inf
   product used for Gender Reveal testing. See Locked Language for copy rules.
 - **Physical address:** 1002 W Sam Houston Blvd, Suite 9, Pharr, TX 78577 — inside
   Pharr Medical Complex. Public address confirmed → PostalAddress INCLUDED in schema.
-- **Phone (site):** [NEEDS INPUT — GHL tracking number; client obtaining before launch.
-  Personal line must return zero grep hits before deploy.]
+- **Phone (site):** (956) 586-6463 — GHL tracking number, delivered and wired site-wide.
+  NOTE: the hero video and the home2 storefront photo both show 956-586-0993, a
+  DIFFERENT number. Neither is the tracking number; confirm with the client whether
+  956-586-0993 is still in service before launch.
 - **Phone (owner personal — NOT FOR PUBLICATION):** [NEEDS INPUT — record here only so
   it is never mistaken for the site number; must return zero grep hits before deploy]
 - **Email:** Surepointelab@jigmed.org [domain is jigmed.org, NOT surepointelab.com —
@@ -178,7 +180,7 @@ Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inf
 - **Walk-ins welcome** — confirmed; safe to publish
 - **Insurance:** Accepts most insurances + self-pay. Never name specific carriers. Never
   promise coverage outcomes. Route coverage questions to "call us to confirm your coverage."
-- **Intake method / primary CTA framing:** Walk in or call — [NEEDS INPUT — GHL number]
+- **Intake method / primary CTA framing:** Walk in or call (956) 586-6463
 - **Confirmed differentiators:** No doctor's order required · No referral needed · Accepts
   most insurances · Self-pay option · Walk-in friendly · Located in Pharr Medical Complex ·
   Home Draws available · Founded 2013
@@ -522,7 +524,6 @@ Freeze anything that must never drift:
 ## Active Blockers
 
 **Launch-blocking:**
-- GHL tracking phone number (client obtaining; placeholder until delivered)
 - GHL contact form embed code (confirmed coming)
 - GHL chat widget script (confirmed coming)
 - GHL external tracking script (confirmed coming)
