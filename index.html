@@ -176,10 +176,21 @@
       transition: color 0.25s cubic-bezier(0.4,0,0.2,1);
     }
     #navbar.scrolled .nav-wordmark { color: var(--color-ink); }
+    /* The footer closes the page on --color-ink rather than the crimson
+       --color-dark. No footer background token exists in brand.css, so it is set
+       here; every footer text colour is re-measured against #111214 in the
+       brand.css header block. .dark-section's text mappings still apply and all
+       clear 14:1+ on ink. */
+    footer.dark-section { background: var(--color-ink); }
+
     .footer-wordmark {
       font-family: 'Barlow', sans-serif;
-      font-weight: 800; font-size: 24px;
-      letter-spacing: -0.02em; color: var(--color-bg); line-height: 1;
+      /* Scales with the column: at the md breakpoint the brand cell is only
+         ~178px wide, where a fixed 34px wordmark overruns it. */
+      font-weight: 800; font-size: clamp(26px, 2.4vw, 34px);
+      letter-spacing: -0.02em; line-height: 1.05;
+      /* On-dark red variant — the base brand red reads 2.98:1 on ink. */
+      color: var(--color-primary-bright);
     }
 
     /* Nav CTA. While the navbar is transparent it sits over the crimson hero, where
@@ -1429,7 +1440,10 @@
 
         <!-- Brand -->
         <div class="col-span-2 md:col-span-1">
-          <a href="/" class="flex items-center gap-3 mb-3" aria-label="Surepointe Lab home">
+          <!-- Stacked, not side-by-side: at --footer-logo-height the mark plus a
+               34px wordmark overruns this grid column and collides with the
+               Services list. Stacking gives the wordmark the full column width. -->
+          <a href="/" class="flex flex-col items-start gap-3 mb-4" aria-label="Surepointe Lab home">
             <img class="footer-logo" src="/brand_assets/logo.png" alt="" />
             <span class="footer-wordmark">Surepointe Lab</span>
           </a>

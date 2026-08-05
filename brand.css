@@ -16,11 +16,23 @@
      --color-silver 4.90:1   secondary text on dark
      accent-bright  4.71:1   eyebrows, icons, rules on dark — clears 4.5:1
      muted-light    2.49:1   light backgrounds only — never on dark
+
+   The FOOTER is the one section on --color-ink (#111214), not --color-dark.
+   Measured there:
+     white          18.74:1  headings
+     --color-silver 14.62:1  links + body
+     accent-bright  14.07:1  eyebrow
+     primary-bright  4.52:1  the "Surepointe Lab" wordmark
+     --color-primary 2.98:1  FAILS — do not put the base brand red on ink
    ============================================================ */
 :root {
   /* — Core palette (hex) — */
   --color-primary:      #C0121A;  /* brand primary slot (= dark) — logo ring + blood drop */
   --color-primary-mid:  #9E0F16;  /* first dark-elevation step + primary hover */
+  --color-primary-bright:#ED2F39; /* on-DARK red — same brand hue, raised for legibility on
+                                     --color-ink. #C0121A reads only 2.98:1 there, below even
+                                     the 3:1 large-text bar. Mirrors the accent/accent-bright
+                                     split: NEVER use this on a light background. */
   --color-accent:       #1852D4;  /* royal blue — EKG line + swoosh. ON LIGHT BACKGROUNDS ONLY */
   --color-accent-deep:  #1240A8;  /* accent hover / pressed — the on-LIGHT accent fallback (9.03:1 vs bg) */
   --color-accent-bright:#CFE0FF;  /* on-DARK accent — icons, eyebrow, highlights on --color-dark (4.71:1) */
@@ -38,6 +50,7 @@
   /* — Channel triplets (R, G, B) for rgba() tinting — */
   --color-primary-rgb:     192, 18, 26;
   --color-primary-mid-rgb: 158, 15, 22;
+  --color-primary-bright-rgb: 237, 47, 57;
   --color-accent-rgb:      24, 82, 212;
   --color-accent-deep-rgb: 18, 64, 168;
   --color-accent-bright-rgb: 207, 224, 255;
@@ -49,7 +62,7 @@
   /* size the nav off the client logo — see CLAUDE.md logo rules */
   --nav-height:         72px;   /* nav bar height — clears the 48px logo with 12px breathing room */
   --nav-logo-height:    48px;   /* client logo <img> height in the nav */
-  --footer-logo-height: 56px;   /* client logo <img> height in the footer */
+  --footer-logo-height: 112px;  /* client logo <img> height in the footer */
 }
 
 /* ============================================================
