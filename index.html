@@ -807,21 +807,22 @@
 
     <!-- OFF-LIMITS: hero-background — dedicated named slot, never a content photo.
          Homepage-only video enhancement (client-approved in/out 6.5–15s).
-         PENDING: brand_assets/hero-background.jpg (1920×1080) is not yet delivered,
-         so the poster + reduced-motion fallback stay on placehold.co at final size.
-         Swap both when the still lands. -->
+         hero-background.jpg is the poster AND the reduced-motion fallback: the video
+         is hidden under prefers-reduced-motion, so the still is all that renders for
+         those visitors. Both must point at the same file — never leave either on a
+         placeholder. -->
     <video
       class="hero-video absolute inset-0 w-full h-full object-cover"
       style="z-index: 0;"
       autoplay muted loop playsinline preload="auto"
-      poster="https://placehold.co/1920x1080"
+      poster="/brand_assets/hero-background.jpg"
       aria-hidden="true"
     >
       <source src="/brand_assets/hero-background.mp4" type="video/mp4" />
     </video>
     <img
       class="hero-video-fallback absolute inset-0 w-full h-full object-cover"
-      src="https://placehold.co/1920x1080"
+      src="/brand_assets/hero-background.jpg"
       alt="Surepointe Lab diagnostic laboratory in Pharr, Texas serving the Rio Grande Valley"
       style="z-index: 0;"
     />
