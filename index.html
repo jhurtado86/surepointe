@@ -548,9 +548,14 @@
 
   <!-- Homepage business schema — DiagnosticLab (schema.org subtype of MedicalOrganization).
        PostalAddress INCLUDED: public address confirmed (Pharr Medical Complex).
-       NO aggregateRating: the 4.9 / 226 figures are confirmed but the GHL review
-       widget is not yet wired, so nothing is displayed on-page — rating and widget
-       ship together or not at all.
+       aggregateRating INCLUDED: the GHL review widget is wired in #reviews and has
+       isAggregateRatingEnabled + isAggregateReviewCountEnabled set, so both figures
+       are displayed on-page. Rating and widget ship together — if the widget is ever
+       removed, this block goes with it.
+       reviewCount is 227, not the 226 in CLAUDE.md: the widget's own aggregateData
+       reported 227 at wire-up. Schema has to match what the page displays, so it
+       tracks the widget. This number drifts as reviews come in — re-check it against
+       the widget whenever the schema is touched. -->
        "priceRange" is omitted rather than faked — still [NEEDS INPUT]. -->
   <script type="application/ld+json">
   {
@@ -606,6 +611,12 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hormone Testing", "url": "https://www.surepointelab.com/services/hormone-testing.html" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gender Reveal Testing", "url": "https://www.surepointelab.com/services/gender-reveal-testing.html" } }
       ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "227",
+      "bestRating": "5"
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=100093646171998",
@@ -1247,21 +1258,13 @@
   </section>
 
   <!-- ============================================================
-       REVIEWS — GHL widget slot
-       The 4.9 / 226 review figures are confirmed but are NOT displayed until the
-       GHL widget is wired. No stars, no counts, no aggregateRating until then.
+       REVIEWS — GHL widget
+       Live. The widget renders the reviews itself; the confirmed 4.9 / 226 figures
+       are carried in the DiagnosticLab aggregateRating, wired in the same pass.
   ============================================================ -->
   <!-- Light section on purpose: #insurance directly above is crimson, and two
        adjacent dark sections read as one long red block at this saturation. -->
 
-  <!-- GHL REVIEW WIDGET EMBED — the #reviews section below is commented out until this
-       code arrives, so the site ships with no visible placeholder. To wire it: delete the
-       two comment delimiters around the section, then replace the contents of .embed-slot
-       with the embed. Add the JSON-LD aggregateRating (4.9 / 226 / bestRating 5) to the
-       DiagnosticLab block in the same pass — never one without the other.
-       The marker sits here rather than inside the block because HTML comments cannot
-       nest: a `-->` inside would close the wrapper early and render the rest. -->
-  <!--
   <section id="reviews" class="section-mid atmo wash-navy-br py-24" aria-label="Patient reviews">
     <div class="max-w-6xl mx-auto px-5 relative" style="z-index: 4;">
 
@@ -1274,11 +1277,16 @@
       </div>
 
       <div class="max-w-3xl mx-auto fade-up" style="transition-delay: 0.06s;">
-        <div class="embed-slot"></div>
+        <!-- GHL REVIEW WIDGET EMBED — delivered by the client and wired as given.
+             review-widget.js sits immediately before the iframe on purpose: it registers
+             the postMessage listener the frame uses to report its own height, so it has
+             to be parsed before the frame loads or the widget can settle at the wrong
+             height. Do not move it to the end of body. -->
+        <script type="text/javascript" src="https://reputationhub.site/reputation/assets/review-widget.js"></script>
+        <iframe class="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/AYQawKXm9Km6bifBJU3h?widgetId=6a73afed796dbac1b2d554c3" frameborder="0" scrolling="no" style="min-width: 100%; width: 100%;" title="Patient reviews for Surepointe Lab"></iframe>
       </div>
     </div>
   </section>
-  -->
 
   <!-- ============================================================
        FAQ
