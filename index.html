@@ -1413,13 +1413,13 @@
 
         <!-- NAP block — no card wrapper; the details sit directly on the section
              next to the form. The lg:pt-8 is not decorative: the GHL form iframe
-             carries ~32px of its own internal top padding, so with both columns
-             flush at the grid top the heading here rode visibly higher than the
-             form's. This pads the difference back out. Only at lg — below that the
-             columns stack and the offset would just be stray space. -->
+             carries ~32px of its own internal top padding before its first heading,
+             so this pads the left column down to match and the two columns start
+             level. Only at lg — below that the columns stack and the offset would
+             just be stray space.
+             The section h2 above already titles this block, so there is no heading
+             here; Call Us / Email Us / Visit Us / Hours are plain labels. -->
         <div class="lg:pt-8 lg:pr-8">
-          <h3 class="font-display font-bold text-lg mb-6" style="color: var(--color-ink);">Get in Touch</h3>
-
           <div class="space-y-6">
             <div class="flex items-start"><div>
                 <div class="text-xs font-bold uppercase tracking-widest mb-1" style="color: var(--color-accent-deep); font-family: 'Barlow', sans-serif;">Call Us</div>
