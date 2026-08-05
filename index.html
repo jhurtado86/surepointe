@@ -165,17 +165,27 @@
     .footer-logo { height: var(--footer-logo-height); width: auto; display: block; }
 
     /* The client logo is a 1:1 badge with its name set in a ring around the mark.
-       At --nav-logo-height (48px) that ring text is far too small to read, so the
-       mark is paired with a real wordmark. The <img> carries alt="" because the
-       wordmark beside it already supplies the accessible name. */
+       Even at --nav-logo-height that ring text is too small to read, so the mark
+       is paired with a real wordmark. The <img> carries alt="" because the
+       wordmark beside it already supplies the accessible name.
+
+       The wordmark goes red on the SCROLLED nav only. The footer could take red
+       because its background is a controlled near-black; the transparent nav sits
+       on the hero video, whose backdrop behind the lockup measures luminance
+       0.045-0.06. Against that, no red in the brand family clears the 3:1 a
+       26px/800 wordmark needs: #C0121A 1.53:1, #ED2F39 2.31:1, #F5424D 2.63:1.
+       The first passing red is #FF5A63 (3.15:1), a salmon that no longer reads as
+       the brand crimson. White is 9.59:1 there, so the transparent state stays
+       white and the red appears the moment the nav turns solid (6.16:1). */
     .nav-wordmark {
       font-family: 'Barlow', sans-serif;
-      font-weight: 800; font-size: 21px;
-      letter-spacing: -0.02em; color: var(--color-bg); line-height: 1;
+      font-weight: 800; font-size: 26px;
+      letter-spacing: -0.02em; line-height: 1;
       white-space: nowrap;
+      color: var(--color-bg);
       transition: color 0.25s cubic-bezier(0.4,0,0.2,1);
     }
-    #navbar.scrolled .nav-wordmark { color: var(--color-ink); }
+    #navbar.scrolled .nav-wordmark { color: var(--color-primary); }
     /* The footer closes the page on --color-ink rather than the crimson
        --color-dark. No footer background token exists in brand.css, so it is set
        here; every footer text colour is re-measured against #111214 in the
@@ -733,7 +743,7 @@
   <!-- ============================================================
        HERO
   ============================================================ -->
-  <section class="hero-bg relative min-h-screen flex items-center overflow-hidden" style="padding-top: clamp(88px, 14vw, 128px); padding-bottom: clamp(56px, 8vw, 96px);" aria-label="Lab testing in Pharr, Texas at Surepointe Lab">
+  <section class="hero-bg relative min-h-screen flex items-center overflow-hidden" style="padding-top: clamp(112px, 14vw, 128px); padding-bottom: clamp(56px, 8vw, 96px);" aria-label="Lab testing in Pharr, Texas at Surepointe Lab">
 
     <!-- OFF-LIMITS: hero-background — dedicated named slot, never a content photo.
          Homepage-only video enhancement (client-approved in/out 6.5–15s).
