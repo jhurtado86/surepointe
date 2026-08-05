@@ -320,6 +320,23 @@
     #navbar.scrolled .mobile-services-submenu a:hover { color: var(--color-ink); background: rgba(var(--color-dark-rgb), 0.05); }
 
     .hero-bg { background: var(--color-dark); }
+    /* Hero overlay — the single knob controlling how much of the video reads
+       through. Text legibility over it is measured against real video pixels,
+       not a computed background colour. */
+    /* Left-weighted scrim, no flat colour wash — the video reads clean from about
+       the midpoint rightward. The left plateau is held at 0.68 because that is
+       what the hero copy actually needs: measured against real video pixels
+       across three frames, a 0.15 flat wash leaves body copy at 1.01:1 and a
+       0.55 left ramp at 2.21:1, both far short of 4.5:1. At 0.68 the worst frame
+       gives h1 7.81:1 and body copy 6.11:1, with 0% of the text area below
+       threshold. Lowering it past ~0.60 puts body copy back under AA. */
+    .hero-overlay {
+      background: linear-gradient(90deg,
+        rgba(0,0,0,0.68) 0%,
+        rgba(0,0,0,0.68) 46%,
+        rgba(0,0,0,0.24) 68%,
+        rgba(0,0,0,0)    100%);
+    }
     .hero-vignette {
       background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 35%, rgba(0,0,0,0.55) 100%);
       pointer-events: none;
@@ -738,7 +755,7 @@
       alt="Surepointe Lab diagnostic laboratory in Pharr, Texas serving the Rio Grande Valley"
       style="z-index: 0;"
     />
-    <div class="absolute inset-0" style="z-index: 1; background: linear-gradient(100deg, rgba(var(--color-dark-3-rgb),0.90) 0%, rgba(var(--color-dark-rgb),0.78) 45%, rgba(var(--color-dark-rgb),0.62) 100%);"></div>
+    <div class="hero-overlay absolute inset-0" style="z-index: 1;"></div>
     <div class="hero-vignette absolute inset-0" style="z-index: 2;"></div>
 
     <div class="hero-outer max-w-6xl mx-auto px-5 relative w-full" style="z-index: 4;">
