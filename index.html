@@ -641,6 +641,12 @@
     ]
   }
   </script>
+  <!-- GHL external tracking -->
+  <script
+    src="https://link.msgsndr.com/js/external-tracking.js"
+    data-tracking-id="tk_66d783ec559749caa3c58905f92a864a">
+  </script>
+
 </head>
 <body class="font-body leading-body">
 
@@ -1428,16 +1434,34 @@
 
         <!-- Form + map -->
         <div class="space-y-6">
-          <!-- GHL CONTACT FORM EMBED -->
-          <div class="embed-slot">
-            PENDING &mdash; GHL contact form embed code.<br />
-            Use the GHL embed; never build a custom form.
-          </div>
+          <!-- GHL contact form -->
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/DVrISymh32XkCNULEbeI"
+            style="width:100%;height:692px;border:none;border-radius:10px"
+            id="inline-DVrISymh32XkCNULEbeI"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Website Form (Trial)"
+            data-height="692"
+            data-layout-iframe-id="inline-DVrISymh32XkCNULEbeI"
+            data-form-id="DVrISymh32XkCNULEbeI"
+            title="Website Form (Trial)">
+          </iframe>
+          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
-          <!-- GOOGLE MAPS EMBED -->
-          <div class="embed-slot" style="min-height: 220px;">
-            PENDING &mdash; Google Maps embed for<br />1002 W Sam Houston Blvd, Suite 9, Pharr, TX 78577.
-          </div>
+          <!-- Google Maps -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.206931855352!2d-98.20021642366673!3d26.18994597708547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a1d657f6d51b%3A0x6a30a55a29291555!2sSurepointe%20Lab!5e0!3m2!1sen!2sus!4v1785894180027!5m2!1sen!2sus"
+            width="100%" height="450" style="border:0;border-radius:10px;display:block"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Surepointe Lab location on Google Maps">
+          </iframe>
         </div>
 
       </div>
@@ -1617,9 +1641,11 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 
-  <!-- GHL CHAT WIDGET SCRIPT GOES HERE -->
-
-  <!-- GHL EXTERNAL TRACKING SCRIPT GOES HERE -->
+  <!-- GHL chat widget -->
+  <script src="https://widgets.leadconnectorhq.com/loader.js"
+    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+    data-widget-id="6a70ee6b0700923eba175b49">
+  </script>
 
 </body>
 </html>
