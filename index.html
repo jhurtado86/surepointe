@@ -555,8 +555,13 @@
        reviewCount is 227, not the 226 in CLAUDE.md: the widget's own aggregateData
        reported 227 at wire-up. Schema has to match what the page displays, so it
        tracks the widget. This number drifts as reviews come in — re-check it against
-       the widget whenever the schema is touched. -->
-       "priceRange" is omitted rather than faked — still [NEEDS INPUT]. -->
+       the widget whenever the schema is touched.
+       "priceRange" is omitted rather than faked — still [NEEDS INPUT].
+       NOTE: a single close-comment marker ends this whole block, and it is the one
+       on the line below. Never write that marker inline in this text or add a second
+       one when editing — an early close drops every remaining line into the DOM as
+       visible body text at the very top of the page.
+  -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
