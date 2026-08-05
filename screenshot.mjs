@@ -19,13 +19,17 @@ const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox']
 const page = await browser.newPage();
 await page.setViewport({ width, height: 900, deviceScaleFactor: 1, isMobile: width < 768 });
 await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-// Force all fade-up elements visible for screenshot
+// Force all fade-up elements visible for screenshot, and opt every lazy image into
+// eager loading. Scrolling alone is NOT enough: a fast programmatic scroll outruns
+// Chrome's lazy-load intersection observer, so images silently stay unloaded and the
+// full-page capture shows empty frames — which looks like a page bug that isn't one.
 await page.evaluate(() => {
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('img[loading="lazy"], iframe[loading="lazy"]')
+    .forEach(el => el.loading = 'eager');
 });
-// Auto-scroll to the bottom so lazy-loaded (loading="lazy") images below the initial
-// viewport are actually fetched and rendered, then return to the top so the full-page
-// capture is complete and correctly positioned.
+// Auto-scroll to the bottom so anything keyed to viewport entry still fires, then
+// return to the top so the full-page capture is complete and correctly positioned.
 await page.evaluate(async () => {
   await new Promise((resolve) => {
     let y = 0;
