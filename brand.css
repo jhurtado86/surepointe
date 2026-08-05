@@ -60,8 +60,8 @@
   --color-ink-rgb:         17, 18, 20;
 
   /* size the nav off the client logo — see CLAUDE.md logo rules */
-  --nav-height:         96px;   /* nav bar height — clears the 72px logo with 12px breathing room */
-  --nav-logo-height:    72px;   /* client logo <img> height in the nav */
+  --nav-height:         136px;  /* nav bar height — clears the 112px logo with 24px breathing room */
+  --nav-logo-height:    112px;  /* client logo <img> height in the nav — matches the footer */
   --footer-logo-height: 112px;  /* client logo <img> height in the footer */
 }
 
