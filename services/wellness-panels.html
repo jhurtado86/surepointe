@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wellness Panels in Pharr, TX | Surepointe Lab</title>
-  <meta name="description" content="Wellness panels in Pharr, TX covering men&rsquo;s, women&rsquo;s, and general health screening. No doctor&rsquo;s order required. Visit Surepointe Lab to get started." />
-  <meta name="keywords" content="Wellness Panels Pharr TX, Wellness Panels Pharr, Wellness Panels McAllen, Wellness Panels Edinburg, lab testing Pharr TX, walk-in lab Pharr, self-pay lab testing Pharr, Surepointe Lab" />
+  <meta name="description" content="Wellness panels in Pharr, TX for men, women and general health screening. No doctor's order needed. Home Draws available. Call (956) 586-6463." />
+  <meta name="keywords" content="wellness panel Pharr TX, health screening Pharr, mens wellness check Pharr, womens wellness panel Pharr, annual blood panel Pharr, wellness panels McAllen, Surepointe Lab" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://www.surepointelab.com/services/wellness-panels.html" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Wellness Panels in Pharr, TX | Surepointe Lab" />
-  <meta property="og:description" content="Wellness panels in Pharr, TX covering men&rsquo;s, women&rsquo;s, and general health screening. No doctor&rsquo;s order required. Visit Surepointe Lab to get started." />
+  <meta property="og:description" content="Wellness panels in Pharr, TX for men, women and general health screening. No doctor's order needed. Home Draws available. Call (956) 586-6463." />
   <meta property="og:url" content="https://www.surepointelab.com/services/wellness-panels.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://placehold.co/1200x630" /><!-- PLACEHOLDER: create 1200×630 social share image -->
+  <!-- PLACEHOLDER: brand_assets/og-image.jpg (1200×630) not yet created — launch blocker -->
+  <meta property="og:image" content="https://placehold.co/1200x630" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
@@ -23,8 +24,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Wellness Panels in Pharr, TX | Surepointe Lab" />
-  <meta name="twitter:description" content="Wellness panels in Pharr, TX covering men&rsquo;s, women&rsquo;s, and general health screening. No doctor&rsquo;s order required. Visit Surepointe Lab to get started." />
-  <meta name="twitter:image" content="https://placehold.co/1200x630" /><!-- PLACEHOLDER: same 1200×630 image -->
+  <meta name="twitter:description" content="Wellness panels in Pharr, TX for men, women and general health screening. No doctor's order needed. Home Draws available. Call (956) 586-6463." />
+  <meta name="twitter:image" content="https://placehold.co/1200x630" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/brand.css" />
@@ -39,10 +40,11 @@
           colors: {
             /* Semantic palette — values resolve from /brand.css tokens */
             primary: { DEFAULT: 'var(--color-primary)', mid: 'var(--color-primary-mid)' },
-            accent:  { DEFAULT: 'var(--color-accent)', deep: 'var(--color-accent-deep)' },
+            accent:  { DEFAULT: 'var(--color-accent)', deep: 'var(--color-accent-deep)', bright: 'var(--color-accent-bright)' },
             dark:    { DEFAULT: 'var(--color-dark)', 3: 'var(--color-dark-3)' },
             ink:     'var(--color-ink)',
             muted:   { DEFAULT: 'var(--color-muted)', light: 'var(--color-muted-light)' },
+            silver:  'var(--color-silver)',
             line:    'var(--color-line)',
             bg:      { DEFAULT: 'var(--color-bg)', 2: 'var(--color-bg-2)' },
             rating:  'var(--color-rating)',
@@ -72,7 +74,6 @@
     body { font-family: 'Nunito', sans-serif; background: var(--color-bg); color: var(--color-ink); }
     h1,h2,h3,h4 { font-family: 'Barlow', sans-serif; }
 
-    /* ── Section backgrounds ── */
     .section-dark { background: var(--color-bg); }
     .section-mid  {
       background:
@@ -81,44 +82,87 @@
     }
     .dark-section { background: var(--color-dark); }
 
-    /* ── Dark-section text overrides ── */
+    /* ---- Atmospheric depth for light sections (grain + corner wash) ---- */
+    .atmo { position: relative; overflow: hidden; }
+    .atmo > * { position: relative; z-index: 1; }
+    .atmo::before {
+      content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.05; background-size: 160px 160px;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .atmo::after {
+      content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: var(--wash, transparent);
+    }
+    .wash-navy-tr  { --wash: radial-gradient(ellipse 55% 48% at 100% 0%,   rgba(var(--color-dark-rgb), 0.06) 0%, transparent 60%); }
+    .wash-navy-br  { --wash: radial-gradient(ellipse 55% 48% at 100% 100%, rgba(var(--color-dark-rgb), 0.06) 0%, transparent 60%); }
+    .wash-navy-bl  { --wash: radial-gradient(ellipse 55% 48% at 0% 100%,   rgba(var(--color-dark-rgb), 0.06) 0%, transparent 60%); }
+    .wash-ember-tl { --wash: radial-gradient(ellipse 55% 48% at 0% 0%,     rgba(var(--color-accent-rgb), 0.05) 0%, transparent 60%); }
+    .wash-ember-tr { --wash: radial-gradient(ellipse 55% 48% at 100% 0%,   rgba(var(--color-accent-rgb), 0.05) 0%, transparent 60%); }
+
+    /* ---- Dark sections: crimson treatment (page rhythm) ---- */
+    #insurance.dark-section {
+      background:
+        radial-gradient(ellipse 90% 70% at 12% 0%,    rgba(var(--color-dark-3-rgb), 0.55) 0%, transparent 55%),
+        radial-gradient(ellipse 85% 65% at 100% 100%, rgba(var(--color-dark-3-rgb), 0.45) 0%, transparent 52%),
+        var(--color-dark);
+    }
+    /* Any area-card / feature-card that lands on a dark section takes the dark-card
+       treatment automatically. Scoped by .dark-section rather than by section id so
+       cloned service and city pages inherit it without per-page selectors. */
+    .dark-section .area-card,
+    .dark-section .feature-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0.03) 100%), rgba(var(--color-dark-3-rgb), 0.55);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.30), 0 20px 50px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .dark-section .area-card > .text-center span,
+    .dark-section .area-card p { color: var(--color-silver) !important; }
+
+    /* On-dark text mapping.
+       --color-silver is the on-dark secondary-text token (4.90:1 on crimson).
+       --color-muted-light is a LIGHT-background token (2.49:1 on crimson) and is
+       never used on a dark section. See the measurement block in brand.css. */
+    /* The area-dot gradient is built from the on-LIGHT accent; on a dark card it
+       disappears, so dark sections use the on-dark accent. */
+    .dark-section .area-dot { background: var(--color-accent-bright); }
     .dark-section .text-white        { color: var(--color-bg) !important; }
-    .dark-section .text-muted  { color: var(--color-muted-light) !important; }
-    .dark-section .btn-outline       { color: var(--color-bg); border-color: rgba(255,255,255,0.28); }
-    .dark-section .btn-outline:hover { border-color: rgba(255,255,255,0.60); background: rgba(255,255,255,0.06); }
-    .dark-section .divider           { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+    .dark-section .text-muted        { color: var(--color-silver) !important; }
+    .dark-section .btn-outline       { color: var(--color-bg); border-color: rgba(255,255,255,0.34); }
+    .dark-section .btn-outline:hover { border-color: rgba(255,255,255,0.70); background: rgba(255,255,255,0.08); }
+    .dark-section .divider           { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); }
     .dark-section .section-title-accent { background: linear-gradient(90deg, transparent 0%, var(--color-accent-bright) 25%, var(--color-accent-bright) 75%, transparent 100%); }
     .dark-section .link-arrow        { color: var(--color-accent-bright); }
-    .dark-section .link-arrow:hover  { color: var(--color-line); }
+    .dark-section .link-arrow:hover  { color: var(--color-bg); }
 
-    /* ── Light-section text overrides ── */
+    /* Primary button on a crimson section: the blue accent fill goes invisible on
+       red, so the on-dark variant inverts to a white fill with crimson label. */
+    .dark-section .btn-primary,
+    .hero-bg .btn-primary {
+      background: var(--color-bg); color: var(--color-primary);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+    }
+    .dark-section .btn-primary:hover,
+    .hero-bg .btn-primary:hover { background: var(--color-silver); color: var(--color-primary-mid); box-shadow: 0 8px 26px rgba(0,0,0,0.34); }
+    .dark-section .btn-primary:focus-visible,
+    .hero-bg .btn-primary:focus-visible { outline: 2px solid var(--color-bg); outline-offset: 3px; }
+
     .section-dark .text-white,
     .section-mid  .text-white       { color: var(--color-ink); }
     .section-dark .text-muted,
     .section-mid  .text-muted { color: var(--color-muted); }
-    .hero-bg .text-muted      { color: var(--color-muted-light); }
+    .hero-bg .text-muted      { color: var(--color-silver); }
 
-    /* ── Divider ── */
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, rgba(var(--color-dark-rgb), 0.12) 30%, rgba(var(--color-dark-rgb), 0.12) 70%, transparent 100%);
     }
 
-    /* ── Dark CTA ramp ── */
     .dark-cta-ramp {
       position: absolute; top: 0; left: 0; right: 0;
       height: 90px; pointer-events: none; z-index: 3;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
     }
-
-    /* ── Nav wordmark ── */
-    .nav-wordmark {
-      font-family: 'Barlow', sans-serif;
-      font-weight: 800; font-size: 24px;
-      letter-spacing: -0.02em; color: var(--color-bg); line-height: 1;
-      transition: color 0.25s cubic-bezier(0.4,0,0.2,1);
-    }
-    #navbar.scrolled .nav-wordmark { color: var(--color-ink); }
 
     /* Nav bar + logo sizing — driven by --nav-height / --nav-logo-height /
        --footer-logo-height in brand.css (size the nav off the client logo). */
@@ -126,13 +170,59 @@
     .nav-logo    { height: var(--nav-logo-height); width: auto; display: block; }
     .footer-logo { height: var(--footer-logo-height); width: auto; display: block; }
 
+    /* The client logo is a 1:1 badge with its name set in a ring around the mark.
+       Even at --nav-logo-height that ring text is too small to read, so the mark
+       is paired with a real wordmark. The <img> carries alt="" because the
+       wordmark beside it already supplies the accessible name.
+
+       The wordmark goes red on the SCROLLED nav only. The footer could take red
+       because its background is a controlled near-black; the transparent nav sits
+       on the hero video, whose backdrop behind the lockup measures luminance
+       0.045-0.06. Against that, no red in the brand family clears the 3:1 a
+       26px/800 wordmark needs: #C0121A 1.53:1, #ED2F39 2.31:1, #F5424D 2.63:1.
+       The first passing red is #FF5A63 (3.15:1), a salmon that no longer reads as
+       the brand crimson. White is 9.59:1 there, so the transparent state stays
+       white and the red appears the moment the nav turns solid (6.16:1). */
+    .nav-wordmark {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 800; font-size: 26px;
+      letter-spacing: -0.02em; line-height: 1;
+      white-space: nowrap;
+      color: var(--color-bg);
+      transition: color 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    #navbar.scrolled .nav-wordmark { color: var(--color-primary); }
+    /* The footer closes the page on --color-ink rather than the crimson
+       --color-dark. No footer background token exists in brand.css, so it is set
+       here; every footer text colour is re-measured against #111214 in the
+       brand.css header block. .dark-section's text mappings still apply and all
+       clear 14:1+ on ink. */
+    footer.dark-section { background: var(--color-ink); }
+
     .footer-wordmark {
       font-family: 'Barlow', sans-serif;
-      font-weight: 800; font-size: 28px;
-      letter-spacing: -0.02em; color: var(--color-bg); line-height: 1;
+      /* Scales with the column: at the md breakpoint the brand cell is only
+         ~178px wide, where a fixed 34px wordmark overruns it. */
+      font-weight: 800; font-size: clamp(26px, 2.4vw, 34px);
+      letter-spacing: -0.02em; line-height: 1.05;
+      /* White on --color-ink = 18.74:1. */
+      color: var(--color-bg);
     }
 
-    /* ── Nav ── */
+    /* Nav CTA. While the navbar is transparent it sits over the crimson hero, where
+       the blue accent fill drops to 1.05:1 against the background and the button
+       stops reading as a button. Invert to a white fill there; restore the accent
+       fill once the nav is scrolled onto a light surface (the accent-split rule). */
+    #navbar:not(.scrolled) .btn-primary {
+      background: var(--color-bg); color: var(--color-primary);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.30);
+    }
+    #navbar:not(.scrolled) .btn-primary:hover {
+      background: var(--color-silver); color: var(--color-primary-mid);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.36);
+    }
+    #navbar:not(.scrolled) .btn-primary:focus-visible { outline: 2px solid var(--color-bg); outline-offset: 3px; }
+
     #navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
       background: transparent;
@@ -141,38 +231,40 @@
                   border-color 0.40s cubic-bezier(0.4,0,0.2,1),
                   box-shadow 0.40s cubic-bezier(0.4,0,0.2,1);
     }
-    #navbar .text-muted          { color: rgba(255,255,255,0.68) !important; }
+    #navbar .text-muted          { color: rgba(255,255,255,0.82) !important; }
     #navbar .hover\:text-white:hover   { color: rgba(255,255,255,1) !important; }
-    #navbar #hamburger                 { color: rgba(255,255,255,0.80) !important; border-color: rgba(255,255,255,0.18) !important; }
-    #mobile-menu                       { background: rgba(var(--color-dark-rgb), 0.96); backdrop-filter: blur(18px); }
-    #mobile-menu a.mobile-nav-link     { color: rgba(255,255,255,0.68) !important; }
-    #mobile-menu a.mobile-nav-link:hover { color: rgba(255,255,255,1) !important; background: rgba(255,255,255,0.06) !important; }
-    #mobile-menu                       { border-top-color: rgba(255,255,255,0.08) !important; }
+    #navbar #hamburger                 { color: rgba(255,255,255,0.90) !important; border-color: rgba(255,255,255,0.28) !important; }
+    #mobile-menu                       { background: rgba(var(--color-dark-3-rgb), 0.97); backdrop-filter: blur(18px); }
+    #mobile-menu a.mobile-nav-link     { color: rgba(255,255,255,0.82) !important; }
+    #mobile-menu a.mobile-nav-link:hover { color: rgba(255,255,255,1) !important; background: rgba(255,255,255,0.08) !important; }
+    #mobile-menu                       { border-top-color: rgba(255,255,255,0.12) !important; }
 
     #navbar.scrolled {
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.82);
       backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
-      border-bottom-color: rgba(var(--color-dark-rgb), 0.07);
-      box-shadow: 0 1px 24px rgba(0,0,0,0.06);
+      border-bottom-color: rgba(var(--color-dark-rgb), 0.10);
+      box-shadow: 0 1px 24px rgba(var(--color-dark-rgb),0.10);
     }
     #navbar.scrolled .text-muted         { color: var(--color-muted) !important; }
     #navbar.scrolled .hover\:text-white:hover  { color: var(--color-ink) !important; }
-    #navbar.scrolled #hamburger                { color: var(--color-ink) !important; border-color: rgba(var(--color-dark-rgb), 0.16) !important; }
+    #navbar.scrolled #hamburger                { color: var(--color-ink) !important; border-color: rgba(var(--color-dark-rgb), 0.20) !important; }
     #navbar.scrolled #mobile-menu              { background: var(--color-bg); }
     #navbar.scrolled #mobile-menu a.mobile-nav-link       { color: var(--color-muted) !important; }
-    #navbar.scrolled #mobile-menu a.mobile-nav-link:hover { color: var(--color-ink) !important; background: rgba(var(--color-dark-rgb), 0.04) !important; }
-    #navbar.scrolled #mobile-menu { border-top-color: rgba(var(--color-dark-rgb), 0.08) !important; }
+    #navbar.scrolled #mobile-menu a.mobile-nav-link:hover { color: var(--color-ink) !important; background: rgba(var(--color-dark-rgb), 0.05) !important; }
+    #navbar.scrolled #mobile-menu { border-top-color: rgba(var(--color-dark-rgb), 0.10) !important; }
 
-    /* ── Nav animated underline ── */
     .nav-link { position: relative; }
     .nav-link::after {
       content: ''; position: absolute; bottom: -2px; left: 0;
-      width: 0; height: 2px; background: var(--color-accent);
+      width: 0; height: 2px; background: var(--color-accent-bright);
       transition: width 0.25s cubic-bezier(0.4,0,0.2,1);
     }
+    #navbar.scrolled .nav-link::after { background: var(--color-accent); }
     .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid var(--color-accent-bright); outline-offset: 4px; border-radius: 3px; }
+    #navbar.scrolled .nav-link:focus-visible { outline-color: var(--color-accent); }
 
-    /* ── Services dropdown (desktop) ── */
+    /* ── Dropdowns (desktop) ── */
     .nav-dropdown { position: relative; height: var(--nav-height); display: flex; align-items: center; }
     .nav-dropdown-trigger { display: inline-flex; align-items: center; gap: 5px; }
     .nav-dropdown-trigger .nav-chev { transition: transform 0.25s cubic-bezier(0.4,0,0.2,1); }
@@ -208,6 +300,7 @@
       transition: color 0.15s cubic-bezier(0.4,0,0.2,1), background 0.15s cubic-bezier(0.4,0,0.2,1);
     }
     .nav-dropdown-menu a:hover { color: var(--color-bg); background: var(--color-primary); }
+    .nav-dropdown-menu a:focus-visible { outline: 2px solid var(--color-accent-bright); outline-offset: -2px; }
     .nav-dropdown-menu a[aria-current="page"] { color: var(--color-bg); font-weight: 700; background: var(--color-primary); }
     #navbar.scrolled .nav-dropdown-menu {
       top: calc(100% - 50px);
@@ -216,48 +309,76 @@
     }
     #navbar.scrolled .nav-dropdown-menu a { color: rgba(255,255,255,0.86); }
     #navbar.scrolled .nav-dropdown-menu a:hover { color: var(--color-bg); background: var(--color-primary); }
+    #navbar.scrolled .nav-dropdown-menu a:focus-visible { outline-color: var(--color-accent-bright); }
     #navbar.scrolled .nav-dropdown-menu a[aria-current="page"] { color: var(--color-bg); background: var(--color-primary); }
 
-    /* ── Services dropdown (mobile) ── */
+    /* ── Dropdowns (mobile) ── */
     .mobile-services-toggle {
       display: flex; align-items: center; justify-content: space-between; width: 100%;
       background: none; border: none; cursor: pointer; font: inherit; text-align: left;
-      color: rgba(255,255,255,0.68);
+      color: rgba(255,255,255,0.82);
       transition: color 0.15s cubic-bezier(0.4,0,0.2,1), background 0.15s cubic-bezier(0.4,0,0.2,1);
     }
-    .mobile-services-toggle:hover { color: var(--color-bg); background: rgba(255,255,255,0.06); }
+    .mobile-services-toggle:hover { color: var(--color-bg); background: rgba(255,255,255,0.08); }
+    .mobile-services-toggle:focus-visible { outline: 2px solid var(--color-accent-bright); outline-offset: -2px; border-radius: 8px; }
     .mobile-services-toggle .nav-chev { transition: transform 0.25s cubic-bezier(0.4,0,0.2,1); flex-shrink: 0; }
     .mobile-services-toggle[aria-expanded="true"] .nav-chev { transform: rotate(180deg); }
     .mobile-services-submenu {
       display: none; flex-direction: column; gap: 2px;
       margin: 2px 0 2px 14px; padding-left: 10px;
-      border-left: 1px solid rgba(255,255,255,0.12);
+      border-left: 1px solid rgba(255,255,255,0.16);
     }
     .mobile-services-submenu.open { display: flex; }
     .mobile-services-submenu a {
       padding: 9px 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
-      color: rgba(255,255,255,0.58);
+      color: rgba(255,255,255,0.72);
       transition: color 0.15s cubic-bezier(0.4,0,0.2,1), background 0.15s cubic-bezier(0.4,0,0.2,1);
     }
-    .mobile-services-submenu a:hover { color: var(--color-bg); background: rgba(255,255,255,0.06); }
+    .mobile-services-submenu a:hover { color: var(--color-bg); background: rgba(255,255,255,0.08); }
     .mobile-services-submenu a[aria-current="page"] { color: var(--color-bg); font-weight: 700; }
     #navbar.scrolled .mobile-services-toggle { color: var(--color-muted); }
-    #navbar.scrolled .mobile-services-toggle:hover { color: var(--color-ink); background: rgba(var(--color-dark-rgb), 0.04); }
-    #navbar.scrolled .mobile-services-submenu { border-left-color: rgba(var(--color-dark-rgb), 0.10); }
+    #navbar.scrolled .mobile-services-toggle:hover { color: var(--color-ink); background: rgba(var(--color-dark-rgb), 0.05); }
+    #navbar.scrolled .mobile-services-submenu { border-left-color: rgba(var(--color-dark-rgb), 0.12); }
     #navbar.scrolled .mobile-services-submenu a { color: var(--color-muted); }
-    #navbar.scrolled .mobile-services-submenu a:hover { color: var(--color-ink); background: rgba(var(--color-dark-rgb), 0.04); }
+    #navbar.scrolled .mobile-services-submenu a:hover { color: var(--color-ink); background: rgba(var(--color-dark-rgb), 0.05); }
 
-    /* ── Hero — real photo background ── */
     .hero-bg { background: var(--color-dark); }
+    /* Split sections (About, Why Us): the photo column carries more weight than
+       the text column so the 4:3 frame reads at a real size. 1fr / 1.75fr with a
+       40px gap puts the photo at ~61% of the 1152px content container on desktop.
+       Below lg the grid collapses to one column and the photo goes full width. */
+    @media (min-width: 1024px) {
+      .split-photo.grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); gap: 40px; }
+      /* Why Us alternates the photo to the left column, so the wide track moves
+         with it — otherwise the photo lands in the narrow 1fr and shrinks. */
+      .split-photo--photo-left.grid { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+    }
+
+    /* Hero overlay — the single knob controlling how much of the video reads
+       through. Text legibility over it is measured against real video pixels,
+       not a computed background colour. */
+    /* Left-weighted scrim, no flat colour wash — the video reads clean from about
+       the midpoint rightward. The left plateau is held at 0.68 because that is
+       what the hero copy actually needs: measured against real video pixels
+       across three frames, a 0.15 flat wash leaves body copy at 1.01:1 and a
+       0.55 left ramp at 2.21:1, both far short of 4.5:1. At 0.68 the worst frame
+       gives h1 7.81:1 and body copy 6.11:1, with 0% of the text area below
+       threshold. Lowering it past ~0.60 puts body copy back under AA. */
+    .hero-overlay {
+      background: linear-gradient(90deg,
+        rgba(0,0,0,0.68) 0%,
+        rgba(0,0,0,0.68) 46%,
+        rgba(0,0,0,0.24) 68%,
+        rgba(0,0,0,0)    100%);
+    }
     .hero-vignette {
-      background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 35%, rgba(0,0,0,0.50) 100%);
+      background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 35%, rgba(0,0,0,0.55) 100%);
       pointer-events: none;
     }
-    .hero-bg .btn-outline { color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.20); }
-    .hero-bg .btn-outline:hover { border-color: rgba(var(--color-accent-rgb), 0.50); background: rgba(var(--color-dark-rgb), 0.14); transform: translateY(-2px); }
+    .hero-bg .btn-outline { color: rgba(255,255,255,0.94); border-color: rgba(255,255,255,0.34); }
+    .hero-bg .btn-outline:hover { border-color: rgba(255,255,255,0.70); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
     @media (max-width: 767px) { .hero-text-block h1 { font-size: 2.15rem !important; } }
 
-    /* ── Buttons ── */
     .btn-primary {
       background: var(--color-accent); color: var(--color-bg);
       font-weight: 700; border-radius: 8px; padding: 14px 28px; font-size: 15px;
@@ -265,7 +386,8 @@
       box-shadow: 0 4px 18px rgba(var(--color-accent-rgb), 0.30);
       transition: transform 0.18s cubic-bezier(0.4,0,0.2,1),
                   box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
-                  background 0.18s cubic-bezier(0.4,0,0.2,1);
+                  background 0.18s cubic-bezier(0.4,0,0.2,1),
+                  color 0.18s cubic-bezier(0.4,0,0.2,1);
       display: inline-flex; align-items: center; gap: 8px;
     }
     .btn-primary:hover  { background: var(--color-accent-deep); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(var(--color-accent-rgb), 0.38); }
@@ -285,7 +407,6 @@
     .btn-outline:active { transform: translateY(0); }
     .btn-outline:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
-    /* ── Cards ── */
     .service-card {
       background: var(--color-bg); border: 1px solid rgba(var(--color-dark-rgb), 0.07); border-radius: 16px; padding: 30px;
       box-shadow: 0 1px 2px rgba(var(--color-dark-rgb), 0.05), 0 6px 18px rgba(var(--color-dark-rgb), 0.10), 0 16px 40px rgba(var(--color-dark-rgb), 0.09), 0 0 0 1px rgba(var(--color-dark-rgb), 0.05);
@@ -307,36 +428,27 @@
     }
     .feature-card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 16px 36px rgba(var(--color-dark-rgb), 0.11); }
 
-    /* ── Insurance pill ── */
-    .insurer-pill {
-      background: rgba(var(--color-dark-rgb), 0.07); border: 1px solid rgba(var(--color-dark-rgb), 0.16);
-      border-radius: 100px; padding: 8px 20px; font-size: 14px; font-weight: 600;
-      color: var(--color-accent); display: inline-flex; align-items: center;
-      transition: background 0.18s, border-color 0.18s, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    .step-badge {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 20px;
+      background: var(--color-bg); color: var(--color-primary);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.60);
+      margin: 0 auto 16px;
     }
-    .insurer-pill:hover { background: rgba(var(--color-dark-rgb), 0.14); border-color: rgba(var(--color-dark-rgb), 0.30); transform: translateY(-1px); }
 
-    /* ── Badges & accents ── */
     .section-title-accent {
       display: inline-block; width: 64px; height: 3px;
       background: linear-gradient(90deg, transparent 0%, var(--color-accent) 25%, var(--color-accent) 75%, transparent 100%);
       border-radius: 2px; margin-bottom: 12px;
     }
-    .icon-wrap {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, rgba(var(--color-dark-rgb), 0.10) 0%, rgba(var(--color-dark-rgb), 0.06) 100%);
-      border: 1px solid rgba(var(--color-dark-rgb), 0.14); border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px; flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(var(--color-dark-rgb), 0.09), inset 0 1px 0 rgba(255,255,255,0.60);
+    .eyebrow {
+      font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--color-accent-deep); margin-bottom: 14px;
     }
-    .trust-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, rgba(var(--color-dark-rgb), 0.10) 0%, rgba(var(--color-dark-rgb), 0.06) 100%);
-      border: 1px solid rgba(var(--color-dark-rgb), 0.14); border-radius: 12px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(var(--color-dark-rgb), 0.09), inset 0 1px 0 rgba(255,255,255,0.60);
-    }
+    .dark-section .eyebrow, .hero-bg .eyebrow { color: var(--color-accent-bright); }
+
     .link-arrow {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 14px; font-weight: 600; color: var(--color-accent);
@@ -345,7 +457,6 @@
     .link-arrow:hover { color: var(--color-accent-deep); gap: 10px; }
     .link-arrow:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 4px; }
 
-    /* ── Area card ── */
     .area-card {
       background: linear-gradient(135deg, rgba(var(--color-dark-rgb), 0.04) 0%, rgba(var(--color-dark-rgb), 0.015) 100%), var(--color-bg);
       border: 1px solid rgba(var(--color-dark-rgb), 0.12); border-radius: 18px; padding: 36px 40px;
@@ -357,7 +468,18 @@
       box-shadow: 0 0 6px rgba(var(--color-dark-rgb), 0.40); flex-shrink: 0;
     }
 
-    /* ── Mobile menu ── */
+    /* Pending-asset / pending-integration placeholder frame */
+    .embed-slot {
+      border: 2px dashed rgba(var(--color-dark-rgb), 0.28);
+      border-radius: 16px; background: var(--color-bg-2);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 28px; min-height: 260px;
+      color: var(--color-muted); font-size: 14px; line-height: 1.7;
+    }
+    .dark-section .embed-slot {
+      border-color: rgba(255,255,255,0.30); background: rgba(0,0,0,0.16); color: var(--color-silver);
+    }
+
     #mobile-menu {
       display: none;
       max-height: calc(100vh - var(--nav-height) - 12px);
@@ -366,36 +488,20 @@
     }
     #mobile-menu.open { display: block; }
 
-    /* ── Scroll animations ── */
     .fade-up {
       opacity: 0; transform: translateY(24px);
       transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1);
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Phone pulse ── */
-    .phone-pulse { position: relative; }
-    .phone-pulse::after {
-      content: ""; position: absolute; inset: -3px; border-radius: 11px;
-      border: 2px solid rgba(var(--color-accent-rgb), 0.45);
-      opacity: 0; pointer-events: none;
-      animation: pulse-ring 2.5s cubic-bezier(0.4,0,0.6,1) infinite;
-    }
-    @keyframes pulse-ring {
-      0%        { transform: scale(0.98); opacity: 0.55; }
-      70%, 100% { transform: scale(1.15); opacity: 0; }
-    }
-
-    /* ── Hero layout left-aligned on desktop ── */
     @media (min-width: 1024px) {
       .hero-outer {
         max-width: none !important; margin-left: 0 !important; margin-right: 0 !important;
         padding-left: clamp(48px, 5vw, 96px) !important; padding-right: 0 !important;
       }
-      .hero-text-block { max-width: 580px !important; }
+      .hero-text-block { max-width: 620px !important; }
     }
 
-    /* ── Scrollbar ── */
     /* ── Skip link, anchor offset, FAQ chevron, reduced motion ── */
     .skip-link {
       position: absolute; top: 0; left: -9999px; z-index: 100;
@@ -407,96 +513,66 @@
     section[id] { scroll-margin-top: calc(var(--nav-height) + 8px); }
     .faq-chevron { transition: transform 0.22s cubic-bezier(0.4,0,0.2,1); }
     details[open] .faq-chevron { transform: rotate(180deg); }
+    details summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 8px; }
+    /* Hero video: the looping clip is the default; users who ask for reduced
+       motion get the static poster image instead of an autoplaying loop. */
+    .hero-video-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .phone-pulse::after { animation: none; opacity: 0; }
       .fade-up { opacity: 1; transform: none; transition: none; }
+      .hero-video { display: none; }
+      .hero-video-fallback { display: block; }
     }
 
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--color-bg-2); }
     ::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
-
-    /* ── Breadcrumb ── */
-    .breadcrumb { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; }
-    .breadcrumb a { color: rgba(255,255,255,0.55); transition: color 0.18s; }
-    .breadcrumb a:hover { color: rgba(255,255,255,0.90); }
-    .breadcrumb .sep { color: rgba(255,255,255,0.30); }
-    .breadcrumb .current { color: rgba(255,255,255,0.80); }
-  
-    /* ---- Atmospheric depth for light sections (grain + corner wash) ---- */
-    .atmo { position: relative; overflow: hidden; }
-    .atmo > * { position: relative; z-index: 1; }
-    .atmo::before {
-      content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      opacity: 0.05; background-size: 160px 160px;
-      background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-    .atmo::after {
-      content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: var(--wash, transparent);
-    }
-    .wash-navy-tr  { --wash: radial-gradient(ellipse 55% 48% at 100% 0%,   rgba(var(--color-dark-rgb), 0.06) 0%, transparent 60%); }
-    .wash-navy-br  { --wash: radial-gradient(ellipse 55% 48% at 100% 100%, rgba(var(--color-dark-rgb), 0.06) 0%, transparent 60%); }
-    .wash-navy-bl  { --wash: radial-gradient(ellipse 55% 48% at 0% 100%,   rgba(var(--color-dark-rgb), 0.06) 0%, transparent 60%); }
-    .wash-ember-tl { --wash: radial-gradient(ellipse 55% 48% at 0% 0%,     rgba(var(--color-accent-rgb), 0.05) 0%, transparent 60%); }
-    .wash-ember-tr { --wash: radial-gradient(ellipse 55% 48% at 100% 0%,   rgba(var(--color-accent-rgb), 0.05) 0%, transparent 60%); }
-
-    /* ---- Insurance section: deep-navy treatment (page rhythm) ---- */
-    #insurance.dark-section {
-      background:
-        radial-gradient(ellipse 90% 70% at 12% 0%,   rgba(var(--color-dark-rgb), 0.20) 0%, transparent 55%),
-        radial-gradient(ellipse 85% 65% at 100% 100%, rgba(var(--color-accent-rgb), 0.08) 0%, transparent 52%),
-        var(--color-dark);
-    }
-    #insurance .area-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.02) 100%), rgba(var(--color-dark-rgb), 0.45);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.30), 0 20px 50px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-    #insurance .area-card > .text-center span { color: var(--color-muted-light) !important; }
-    #insurance .area-card p { color: var(--color-muted-light) !important; }
-    #insurance .insurer-pill {
-      background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); color: var(--color-line);
-    }
-    #insurance .insurer-pill:hover {
-      background: rgba(255,255,255,0.12); border-color: rgba(var(--color-accent-rgb), 0.45); transform: translateY(-1px);
-    }
-    #insurance strong { color: var(--color-accent) !important; }
   </style>
 
-  <!-- Service Structured Data -->
+  <!-- 1/3 — Service. provider references the homepage DiagnosticLab @id rather than
+       re-declaring the business. No price, priceRange or Offer price anywhere. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wellness Panels",
-    "description": "Professional Service Four in [City], [ST] and across the [Region]. Same-day service, free estimates, and clear upfront pricing. Serving [City], [City 2], [City 3], [City 4], [City 5], and [City 6].",
+    "serviceType": "Preventive wellness blood panels",
+    "description": "Bundled wellness panels in Pharr, Texas for general health screening, including men's, women's and basic wellness checks. No doctor's order required. Home Draws available.",
     "url": "https://www.surepointelab.com/services/wellness-panels.html",
     "provider": {
-      "@type": "[BUSINESS @TYPE]",
+      "@type": "DiagnosticLab",
       "@id": "https://www.surepointelab.com/#business",
-      "name": "Your Business Name",
-      "telephone": "+19565866463",
-      "email": "Surepointelab@jigmed.org"
+      "name": "Surepointe Lab"
     },
     "areaServed": [
-      { "@type": "City", "name": "[City]",   "containedInPlace": { "@type": "State", "name": "[State]" } },
-      { "@type": "City", "name": "[City 2]",  "containedInPlace": { "@type": "State", "name": "[State]" } },
-      { "@type": "City", "name": "[City 3]",   "containedInPlace": { "@type": "State", "name": "[State]" } },
-      { "@type": "City", "name": "[City 4]",     "containedInPlace": { "@type": "State", "name": "[State]" } },
-      { "@type": "City", "name": "[City 5]",  "containedInPlace": { "@type": "State", "name": "[State]" } },
-      { "@type": "City", "name": "[City 6]", "containedInPlace": { "@type": "State", "name": "[State]" } }
+      { "@type": "City", "name": "Pharr", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "McAllen", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Edinburg", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Mission", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Weslaco", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "San Juan", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Alamo", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Donna", "containedInPlace": { "@type": "State", "name": "Texas" } }
     ],
-    "offers": {
-      "@type": "Offer",
-      "description": "Free estimates and clear, upfront pricing on Service Four across the [City] / [Region] service area - call for a quote."
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Wellness Panels",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SurePower Check (Men Wellness)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Surepointe Check (Basic Wellness)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wonder Woman Check (Women Wellness)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Surepointe Plus" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Super Surepointe" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arthritis Profile" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "General Wellness Panels" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Draws" } }
+      ]
     }
   }
   </script>
 
-  <!-- FAQPage Structured Data (min 6 Q&As — replace placeholder tokens per client) -->
+  <!-- 2/3 — FAQPage. Mirrors the visible #faq accordion exactly. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -504,50 +580,56 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "[Question 1 about Service Four in [City]?]",
-        "acceptedAnswer": { "@type": "Answer", "text": "[Answer 1]" }
+        "name": "Do I need a doctor's order for a wellness panel?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. You can order a wellness panel yourself. No doctor's order and no referral are needed. Walk in during our hours or call ahead with questions." }
       },
       {
         "@type": "Question",
-        "name": "[Question 2 about Service Four in [City]?]",
-        "acceptedAnswer": { "@type": "Answer", "text": "[Answer 2]" }
+        "name": "Which wellness panel should I pick?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SurePower Check is built for men and Wonder Woman Check for women, while Surepointe Check works as a general baseline. Surepointe Plus and Super Surepointe go broader. Call and tell us what you want to find out and we will point you to the right one." }
       },
       {
         "@type": "Question",
-        "name": "[Question 3 about Service Four in [City]?]",
-        "acceptedAnswer": { "@type": "Answer", "text": "[Answer 3]" }
+        "name": "Do I need to fast before a wellness panel?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Usually yes, because most wellness panels include tests that read differently after a meal. Call us with the panel you want and we will tell you whether to fast and for how long." }
       },
       {
         "@type": "Question",
-        "name": "[Question 4 about Service Four in [City]?]",
-        "acceptedAnswer": { "@type": "Answer", "text": "[Answer 4]" }
+        "name": "Can you come to my house for the draw?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer Home Draws for patients who cannot make it to the lab in Pharr. Call us to ask about setting one up." }
       },
       {
         "@type": "Question",
-        "name": "[Question 5 about Service Four in [City]?]",
-        "acceptedAnswer": { "@type": "Answer", "text": "[Answer 5]" }
+        "name": "How is a wellness panel different from hormone testing?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A wellness panel is a broad screen that looks at several systems at once. Hormone testing targets a specific concern such as thyroid or testosterone. If you already know what you are chasing, hormone testing is the better fit." }
       },
       {
         "@type": "Question",
-        "name": "[Question 6 about Service Four in [City]?]",
-        "acceptedAnswer": { "@type": "Answer", "text": "[Answer 6]" }
+        "name": "How long do wellness panel results take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends which panel you chose, since each bundles a different set of tests. We will tell you what to expect before you leave." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a wellness panel cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends which panel you choose and whether you are using insurance or paying yourself. Call us and we will give you the pricing before you commit to anything." }
       }
     ]
   }
   </script>
 
-  <!-- BreadcrumbList Structured Data -->
+  <!-- 3/3 — BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home",     "item": "https://www.surepointelab.com/" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surepointelab.com/" },
       { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.surepointelab.com/#services" },
       { "@type": "ListItem", "position": 3, "name": "Wellness Panels", "item": "https://www.surepointelab.com/services/wellness-panels.html" }
     ]
   }
   </script>
+
   <!-- GHL external tracking -->
   <script
     src="https://link.msgsndr.com/js/external-tracking.js"
@@ -559,15 +641,12 @@
 
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- ============================================================
-       STICKY NAVIGATION
-  ============================================================ -->
   <nav id="navbar">
     <div class="nav-row max-w-6xl mx-auto px-5 flex items-center justify-between">
 
-      <!-- LOGO PLACEHOLDER — swap the <span> for <img class="nav-logo" ...>; height comes from --nav-logo-height in brand.css -->
-      <a href="/" class="flex items-center group" aria-label="Your Business Name home">
-        <span class="nav-wordmark">Your Business Name</span>
+      <a href="/" class="flex items-center gap-2.5 group" aria-label="Surepointe Lab home">
+        <img class="nav-logo" src="/brand_assets/logo.png" alt="" />
+        <span class="nav-wordmark">Surepointe Lab</span>
       </a>
 
       <!-- Desktop Nav -->
@@ -605,17 +684,17 @@
           </div>
         </div>
         <!-- END SHARED ZONE: Areas We Serve dropdown -->
-        <!-- OPTIONAL MODULE LINK (desktop nav, #insurance): re-enable with the Insurance module: <a href="/#insurance"   class="nav-link text-sm font-medium text-muted hover:text-white transition-colors duration-150">Insurance</a> -->
         <a href="/about.html" class="nav-link text-sm font-medium text-muted hover:text-white transition-colors duration-150">About</a>
-        <!-- OPTIONAL MODULE LINK (desktop nav, #reviews): re-enable with the Review widget module: <a href="/#reviews"     class="nav-link text-sm font-medium text-muted hover:text-white transition-colors duration-150">Reviews</a> -->
-        <a href="/#contact"     class="nav-link text-sm font-medium text-muted hover:text-white transition-colors duration-150">Contact</a>
-        <a href="tel:+19565866463" class="btn-primary text-sm py-2.5 px-5 phone-pulse ml-4">
+        <a href="/#contact"   class="nav-link text-sm font-medium text-muted hover:text-white transition-colors duration-150">Contact</a>
+        <!-- PENDING: GHL tracking number. Do not publish any other number.
+             Swap href to tel:+1XXXXXXXXXX when the GHL number is delivered. -->
+        <a href="tel:+19565866463" class="btn-primary text-sm py-2.5 px-5 ml-4">
           (956) 586-6463
         </a>
       </div>
 
       <!-- Mobile hamburger -->
-      <button id="hamburger" class="md:hidden p-2 rounded-lg border border-white/10 text-white hover:border-white/30 transition-colors duration-150" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <button id="hamburger" class="md:hidden p-2 rounded-lg border text-white transition-colors duration-150" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg id="hamburger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
           <line x1="3" y1="12" x2="21" y2="12"/>
@@ -625,7 +704,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden px-5 pb-4 mt-3 border-t border-white/10">
+    <div id="mobile-menu" class="md:hidden px-5 pb-4 mt-3 border-t" style="border-color: rgba(255,255,255,0.12);">
       <div class="flex flex-col gap-1 pt-4">
         <button type="button" class="mobile-services-toggle py-3 px-3 rounded-lg font-medium" aria-expanded="false" aria-controls="mobile-services-submenu">
           Services
@@ -656,401 +735,317 @@
           <a href="/areas/donna.html">Donna</a>
         </div>
         <!-- END SHARED ZONE: Areas We Serve dropdown -->
-        <!-- OPTIONAL MODULE LINK (mobile nav, #insurance): re-enable with the Insurance module: <a href="/#insurance" class="mobile-nav-link py-3 px-3 rounded-lg font-medium">Insurance</a> -->
         <a href="/about.html" class="mobile-nav-link py-3 px-3 rounded-lg font-medium">About</a>
-        <!-- OPTIONAL MODULE LINK (mobile nav, #reviews): re-enable with the Review widget module: <a href="/#reviews"   class="mobile-nav-link py-3 px-3 rounded-lg font-medium">Reviews</a> -->
         <a href="/#contact"   class="mobile-nav-link py-3 px-3 rounded-lg font-medium">Contact</a>
-        <a href="tel:+19565866463" class="btn-primary mt-3 justify-center">
-          Call (956) 586-6463
-        </a>
+        <a href="tel:+19565866463" class="btn-primary mt-3 justify-center">Call (956) 586-6463</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
-    <section class="hero-bg relative min-h-screen flex items-center overflow-hidden" style="padding-top: clamp(160px, 14vw, 176px); padding-bottom: clamp(56px, 8vw, 96px);" aria-label="Service Four in [City]">
+  <section class="hero-bg relative min-h-screen flex items-center overflow-hidden" style="padding-top: clamp(160px, 14vw, 176px); padding-bottom: clamp(56px, 8vw, 96px);" aria-label="Wellness Panels in Pharr, Texas">
 
-    <!-- OFF-LIMITS: hero-background — dedicated named file only, never a content photo -->
-    <img
-      src="https://placehold.co/1920x1080"
-      alt="Service Four by Your Business Name in [City]"
-      fetchpriority="high"
-      style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; z-index: 0;"
-    />
+    <!-- OFF-LIMITS: hero-background — dedicated named slot, never a content photo.
+         PENDING: brand_assets/hero-background.jpg (1920×1080) not yet delivered. -->
+    <img src="https://placehold.co/1920x1080" alt="Wellness panel blood screening at Surepointe Lab in Pharr, Texas" class="absolute inset-0 w-full h-full object-cover" style="z-index: 0;" fetchpriority="high" />
+    <div class="hero-overlay absolute inset-0" style="z-index: 1;"></div>
+    <div class="hero-vignette absolute inset-0" style="z-index: 2;"></div>
 
-    <!-- Overlay -->
-    <div style="position: absolute; inset: 0; z-index: 1; background:
-      linear-gradient(180deg, rgba(var(--color-dark-rgb), 0.72) 0%, rgba(var(--color-dark-rgb), 0.32) 25%, rgba(var(--color-dark-rgb), 0.28) 65%, rgba(var(--color-dark-rgb), 0.75) 100%),
-      radial-gradient(ellipse 65% 100% at 0% 50%, rgba(var(--color-dark-rgb), 0.78) 0%, transparent 65%);
-    "></div>
-
-    <!-- Edge vignette -->
-    <div class="hero-vignette absolute inset-0 z-[2]"></div>
-
-    <div class="hero-outer relative z-10 max-w-5xl mx-auto px-5 w-full">
-      <div class="hero-text-block max-w-2xl fade-up">
-
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb mb-5" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="sep" aria-hidden="true">/</span>
-          <a href="/#services">Services</a>
-          <span class="sep" aria-hidden="true">/</span>
-          <span class="current">Service Four</span>
-        </nav>
-
-
-        <!-- Eyebrow -->
-        <p style="font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-line); margin-bottom: 20px; text-shadow: 0 1px 8px rgba(0,0,0,0.45);">Our Services — [City] &amp; [Region]</p>
-
-        <h1 class="font-display text-white mb-5" style="font-size: clamp(2.4rem, 6vw, 3.8rem); letter-spacing: -0.03em; line-height: 1.06; font-weight: 800; text-shadow: 0 2px 24px rgba(0,0,0,0.45);">
-          Service Four<br />
-          in [City] —<br />
-          <span style="color: var(--color-accent-bright);">Done Right the First Time.</span>
+    <div class="hero-outer max-w-6xl mx-auto px-5 relative w-full" style="z-index: 4;">
+      <div class="hero-text-block" style="text-shadow: 0 2px 18px rgba(0,0,0,0.45);">
+        <p class="eyebrow">Health Screening · Pharr, TX</p>
+        <h1 class="font-display font-extrabold text-white tracking-tight" style="font-size: clamp(2.4rem, 5.2vw, 4rem); line-height: 1.04; margin-bottom: 22px;">
+          Wellness Panels in Pharr
         </h1>
-
-        <p class="mb-8 max-w-xl" style="color: rgba(255,255,255,0.88); font-size: clamp(1rem, 2.2vw, 1.125rem); line-height: 1.72; text-shadow: 0 1px 8px rgba(0,0,0,0.35);">
-          Our team handles your Service Four from start to finish — clear, upfront pricing, careful work, and a result you'll be glad you called for. <strong style="color: var(--color-bg);">Serving [City] and the surrounding [Region]</strong>, with free estimates on every job.
+        <p class="text-muted" style="font-size: clamp(1.02rem, 1.6vw, 1.2rem); line-height: 1.72; max-width: 560px; margin-bottom: 14px;">
+          A broad look at your health in one visit. Bundled panels built for men, for women, and for anyone who wants a yearly baseline.
         </p>
-
-        <!-- CTAs -->
-        <div class="flex flex-wrap gap-4 mb-10">
-          <a href="tel:+19565866463" class="btn-primary text-base px-7 py-4">
-            Call Now — (956) 586-6463
+        <p class="text-muted" style="font-size: 0.98rem; line-height: 1.7; max-width: 560px; margin-bottom: 30px;">
+          No doctor's order needed, and Home Draws are available if you cannot make it in.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a href="tel:+19565866463" class="btn-primary justify-center">
+            Call (956) 586-6463
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="/#contact" class="btn-outline text-base px-7 py-4">
-            Get a Free Quote
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
+          <a href="#faq" class="btn-outline justify-center">Common Questions</a>
         </div>
-
-        <!-- Stats row -->
-        <div class="flex flex-wrap gap-8">
-          <div>
-            <div class="font-display font-bold text-2xl text-white" style="text-shadow: 0 1px 8px rgba(0,0,0,0.4);">Upfront</div>
-            <div class="text-muted text-sm mt-0.5">Honest Pricing</div>
-          </div>
-          <div class="w-px" style="background: rgba(255,255,255,0.14);"></div>
-          <div>
-            <div class="font-display font-bold text-2xl text-white" style="text-shadow: 0 1px 8px rgba(0,0,0,0.4);">Mobile</div>
-            <div class="text-muted text-sm mt-0.5">Service Available</div>
-          </div>
-          <div class="w-px" style="background: rgba(255,255,255,0.14);"></div>
-          <div>
-            <div class="font-display font-bold text-2xl text-white" style="text-shadow: 0 1px 8px rgba(0,0,0,0.4);">Free</div>
-            <div class="text-muted text-sm mt-0.5">Estimates</div>
-          </div>
-        </div>
+        <p class="text-muted" style="font-size: 0.86rem; margin-top: 26px; letter-spacing: 0.01em;">
+          Mon&ndash;Fri 7 AM&ndash;5 PM &nbsp;&middot;&nbsp; Sat 8 AM&ndash;11:30 AM &nbsp;&middot;&nbsp; Walk-ins welcome
+        </p>
       </div>
     </div>
-
-    <!-- Accent bridge -->
     <div class="absolute bottom-0 left-0 right-0 z-20" style="height: 4px; background: linear-gradient(90deg, transparent 0%, var(--color-accent-bright) 18%, var(--color-accent-bright) 82%, transparent 100%); opacity: 0.90;"></div>
   </section>
 
-  <!-- ============================================================
-       MAIN CONTENT
-  ============================================================ -->
   <main id="main-content">
 
-    <!-- SECTION: intro (single column, no photo) -->
-    <section class="section-mid atmo wash-navy-tr py-20" aria-label="About Service Four in [City]">
-      <div class="max-w-3xl mx-auto px-5 text-center fade-up">
-        <div class="flex justify-center mb-3"><div class="section-title-accent"></div></div>
-        <p style="font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 14px;">Service Four · [City], [ST]</p>
-        <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-5" style="letter-spacing: -0.03em; line-height: 1.1;">
-          Professional Service Four in [City]
-        </h2>
-        <p class="text-muted text-lg mb-4" style="line-height: 1.7;">
-          Your Business Name handles Service Four for homes and businesses across [City] and the surrounding [Region]. We come to you, quote up front, and stand behind clean, careful work.
-        </p>
-        <p class="text-muted text-lg" style="line-height: 1.7;">
-          Below is what the job covers, how our team works, and answers to the questions [City] customers ask most.
-        </p>
-      </div>
-    </section>
+  <section id="packages" class="section-dark atmo wash-navy-tr py-24" aria-label="Our wellness packages">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="split-photo grid gap-14 items-center">
 
-    <div class="divider"></div>
-
-    <section class="section-dark atmo wash-navy-tr py-24" aria-label="What Our Service Four Covers in [City]">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="grid lg:grid-cols-2 gap-14 items-center">
-
-          <div class="fade-up lg:order-1" style="transition-delay: 0.1s;">
-            <p style="font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 14px;">Service Four in [City]</p>
-            <h2 class="font-display text-4xl lg:text-[2.5rem] font-bold text-white mb-5" style="letter-spacing: -0.03em; line-height: 1.12;">
-              What Our Service Four Covers in [City]
-            </h2>
-            <p class="text-muted text-lg mb-5" style="line-height: 1.7;">This is placeholder copy for Service Four. Describe the problem this service solves for the customer, what's included, and why it matters — the way you'd explain it to a neighbor.</p>
-            <p class="text-muted text-lg mb-7" style="line-height: 1.7;">Our team handles Service Four across [City] and the surrounding [Region]. We come to you, work on schedule, and give you a clear quote before any work starts.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2 mb-2">
-              <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted); line-height: 1.6;">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                You've noticed the first warning signs
-              </div>
-              <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted); line-height: 1.6;">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                A quick fix hasn't held up
-              </div>
-              <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted); line-height: 1.6;">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                You want it handled right the first time
-              </div>
-              <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted); line-height: 1.6;">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                You'd rather not put it off any longer
-              </div>
-            </div>
-          </div>
-
-          <div class="fade-up lg:order-2">
-            <div class="photo-frame">
-              <img src="https://placehold.co/1200x900" alt="Service Four in [City] by Your Business Name" loading="lazy" />
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="dark-section py-24" aria-label="Why [City] Chooses Your Business Name for Service Four">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="grid lg:grid-cols-2 gap-14 items-center">
-
-          <div class="fade-up lg:order-1">
-            <div class="photo-frame">
-              <img src="https://placehold.co/1200x900" alt="Service Four completed in [City] by Your Business Name" loading="lazy" />
-            </div>
-          </div>
-
-          <div class="fade-up lg:order-2" style="transition-delay: 0.1s;">
-            <p style="font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent-bright); margin-bottom: 14px;">Why [City] Chooses Us</p>
-            <h2 class="font-display text-4xl lg:text-[2.5rem] font-bold text-white mb-5" style="letter-spacing: -0.03em; line-height: 1.12;">
-              Why [City] Chooses Your Business Name for Service Four
-            </h2>
-            <p class="text-muted text-lg mb-5" style="line-height: 1.7;">Placeholder copy for why customers pick your team for Service Four. Focus on honesty, attention to detail, and mobile service that comes to your door.</p>
-            <p class="text-muted text-lg mb-7" style="line-height: 1.7;">Mobile service is available across [City], [City 2], [City 3], [City 4], [City 5], and [City 6] — with same-day and next-day appointments when you need them.</p>
-            <a href="/#service-area" class="link-arrow mt-6">
-              See our service areas
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- SECTION: whats-included -->
-    <section id="included" class="section-mid atmo wash-ember-tl py-24" aria-label="What's included with every Service Four">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="text-center mb-12 fade-up">
-          <div class="flex justify-center mb-3"><div class="section-title-accent"></div></div>
-          <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-4" style="letter-spacing: -0.03em;">
-            What's Included with Every Service Four
+        <div class="fade-up">
+          <span class="section-title-accent"></span>
+          <p class="eyebrow">Pick Your Panel</p>
+          <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 20px;">
+            Our Wellness Packages
           </h2>
-          <p class="text-muted text-lg max-w-2xl mx-auto" style="line-height: 1.7;">
-            No shortcuts, no missing pieces. Every Service Four job covers the same complete process — whether you're in [City], [City 2], [City 3], or anywhere in the [Region].
+          <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 18px;">
+            A wellness panel bundles several tests into one visit so you get a broad picture instead of chasing one number at a time. It is the yearly check a lot of people mean when they say they want &ldquo;full blood work.&rdquo;
           </p>
+          <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 26px;">
+            We built ours around who is asking: SurePower Check for men, Wonder Woman Check for women, and Surepointe Check as a general baseline. Surepointe Plus and Super Surepointe go broader again.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              SurePower Check &mdash; men
+            </div>
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              Wonder Woman Check &mdash; women
+            </div>
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              Surepointe Check &mdash; basic
+            </div>
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              Arthritis Profile
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 fade-up" style="transition-delay: 0.06s;">
-
-          <div class="feature-card text-center">
-            <h3 class="font-display font-bold text-white text-lg mb-2">Upfront, Honest Quote</h3>
-            <p class="text-muted text-sm" style="line-height: 1.7;">A clear price before any work begins — what we quote is what you pay. No hidden fees, no surprises at the end.</p>
-          </div>
-
-          <div class="feature-card text-center">
-            <h3 class="font-display font-bold text-white text-lg mb-2">Quality Materials</h3>
-            <p class="text-muted text-sm" style="line-height: 1.7;">We use materials chosen to last — matched to the job and built to hold up to everyday wear in the [Region].</p>
-          </div>
-
-          <div class="feature-card text-center">
-            <h3 class="font-display font-bold text-white text-lg mb-2">Experienced Team</h3>
-            <p class="text-muted text-sm" style="line-height: 1.7;">The people who do the work know it inside out. You get a professional who explains each step and answers your questions.</p>
-          </div>
-
-          <div class="feature-card text-center">
-            <h3 class="font-display font-bold text-white text-lg mb-2">Clean Job, Start to Finish</h3>
-            <p class="text-muted text-sm" style="line-height: 1.7;">No mess left behind. We protect your space, tidy up completely, and leave it better than we found it.</p>
-          </div>
-
-          <div class="feature-card text-center">
-            <h3 class="font-display font-bold text-white text-lg mb-2">On-Time Service</h3>
-            <p class="text-muted text-sm" style="line-height: 1.7;">We show up when we say we will. Same-day and next-day appointments are available across [City] and the [Region].</p>
-          </div>
-
-          <div class="feature-card text-center">
-            <h3 class="font-display font-bold text-white text-lg mb-2">Straight Answers</h3>
-            <p class="text-muted text-sm" style="line-height: 1.7;">From the first call to the final walkthrough, our team explains what the job needs and why — no upsell, no runaround, no surprises.</p>
-          </div>
-
+        <div class="fade-up" style="transition-delay: 0.08s;">
+          <!-- PENDING: real photo (1200×900) -->
+          <figure class="photo-frame">
+            <img src="https://placehold.co/1200x900" alt="Blood samples processed for wellness panels at Surepointe Lab in Pharr, Texas" loading="lazy" />
+          </figure>
         </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="divider"></div>
+  <section id="home-draws" class="section-mid atmo wash-ember-tl py-24" aria-label="Home draws for wellness panels">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="split-photo split-photo--photo-left grid gap-14 items-center">
 
-    <!-- SECTION: faq -->
-    <section class="section-dark atmo wash-ember-tl py-20" aria-label="Service Four FAQ">
-      <div class="max-w-4xl mx-auto px-5">
-        <div class="text-center mb-12 fade-up">
-          <div class="flex justify-center mb-3"><div class="section-title-accent"></div></div>
-          <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-4" style="letter-spacing: -0.03em;">
-            Questions About Service Four
+        <div class="fade-up" style="transition-delay: 0.08s;">
+          <!-- PENDING: real photo (1200×900) -->
+          <figure class="photo-frame">
+            <img src="https://placehold.co/1200x900" alt="Mobile phlebotomy kit prepared for a Home Draw from Surepointe Lab in Pharr" loading="lazy" />
+          </figure>
+        </div>
+
+        <div class="fade-up">
+          <span class="section-title-accent"></span>
+          <p class="eyebrow">Cannot Make It In?</p>
+          <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 20px;">
+            Home Draws
           </h2>
+          <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 18px;">
+            A yearly panel is easy to keep putting off, especially if getting to the lab is the hard part. We can come to you instead.
+          </p>
+          <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 26px;">
+            Call to ask about setting up a Home Draw and we will walk you through how it works and what we need beforehand. If you are chasing one specific concern rather than a broad screen, our hormone testing page is probably the better fit.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              Home Draws available
+            </div>
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              One visit, several tests
+            </div>
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              No doctor's order needed
+            </div>
+            <div class="flex items-start gap-2.5 text-sm" style="color: var(--color-muted);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+              Walk in or call ahead
+            </div>
+          </div>
         </div>
 
-        <div class="space-y-4 fade-up" style="transition-delay: 0.06s;">
-
-          <details class="rounded-2xl border overflow-hidden" style="border-color: rgba(var(--color-dark-rgb), 0.09); background: var(--color-bg);" open>
-            <summary class="flex items-center justify-between gap-4 px-7 py-5 cursor-pointer select-none list-none font-display font-bold text-lg" style="color: var(--color-ink);">
-              How long does Service Four take?
-              <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="px-7 pb-6 text-sm" style="color: var(--color-muted); line-height: 1.75; border-top: 1px solid rgba(var(--color-dark-rgb), 0.06);">
-              <div class="pt-4">Placeholder answer. Set expectations on timing for Service Four — most jobs are completed quickly, and our team will give you a clear timeframe when you book so you can plan your day.</div>
-            </div>
-          </details>
-
-          <details class="rounded-2xl border overflow-hidden" style="border-color: rgba(var(--color-dark-rgb), 0.09); background: var(--color-bg);">
-            <summary class="flex items-center justify-between gap-4 px-7 py-5 cursor-pointer select-none list-none font-display font-bold text-lg" style="color: var(--color-ink);">
-              How much does Service Four cost in [City]?
-              <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="px-7 pb-6 text-sm" style="color: var(--color-muted); line-height: 1.75; border-top: 1px solid rgba(var(--color-dark-rgb), 0.06);">
-              <div class="pt-4">Placeholder answer. Every job is a little different, so we give you a free, upfront quote before any work starts — no hidden fees and no surprises. Call us with the details and we'll walk you through it.</div>
-            </div>
-          </details>
-
-          <details class="rounded-2xl border overflow-hidden" style="border-color: rgba(var(--color-dark-rgb), 0.09); background: var(--color-bg);">
-            <summary class="flex items-center justify-between gap-4 px-7 py-5 cursor-pointer select-none list-none font-display font-bold text-lg" style="color: var(--color-ink);">
-              Can you come to my home or office?
-              <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="px-7 pb-6 text-sm" style="color: var(--color-muted); line-height: 1.75; border-top: 1px solid rgba(var(--color-dark-rgb), 0.06);">
-              <div class="pt-4">Yes — mobile service is one of the most popular options. Our team brings everything to your home or workplace across [City], [City 2], [City 3], [City 4], [City 5], and [City 6]. You don't have to rearrange your day.</div>
-            </div>
-          </details>
-
-          <details class="rounded-2xl border overflow-hidden" style="border-color: rgba(var(--color-dark-rgb), 0.09); background: var(--color-bg);">
-            <summary class="flex items-center justify-between gap-4 px-7 py-5 cursor-pointer select-none list-none font-display font-bold text-lg" style="color: var(--color-ink);">
-              Do you offer a guarantee on Service Four?
-              <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="px-7 pb-6 text-sm" style="color: var(--color-muted); line-height: 1.75; border-top: 1px solid rgba(var(--color-dark-rgb), 0.06);">
-              <div class="pt-4">Placeholder answer. Our work is backed by a satisfaction guarantee — if something isn't right, we'll come back and make it right. Describe your specific guarantee or warranty terms here.</div>
-            </div>
-          </details>
-
-          <details class="rounded-2xl border overflow-hidden" style="border-color: rgba(var(--color-dark-rgb), 0.09); background: var(--color-bg);">
-            <summary class="flex items-center justify-between gap-4 px-7 py-5 cursor-pointer select-none list-none font-display font-bold text-lg" style="color: var(--color-ink);">
-              How soon can you get to me?
-              <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </summary>
-            <div class="px-7 pb-6 text-sm" style="color: var(--color-muted); line-height: 1.75; border-top: 1px solid rgba(var(--color-dark-rgb), 0.06);">
-              <div class="pt-4">Placeholder answer. Same-day and next-day appointments are often available across [City] and the [Region]. Call us and we'll find the soonest time that works for you.</div>
-            </div>
-          </details>
-
-        </div>
       </div>
-    </section>
-    <div class="divider"></div>
+    </div>
+  </section>
 
-    <!-- SECTION: related-services — compact in-body cross-links (local-SEO internal linking) -->
-    <section class="section-mid atmo wash-navy-tr py-12" aria-label="Other services at Your Business Name">
-      <div class="max-w-4xl mx-auto px-5 text-center fade-up">
-        <p style="font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px;">Explore More Services</p>
-        <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm">
-          <a href="/services/blood-work-lab-testing.html" class="font-semibold hover:underline transition-opacity" style="color: var(--color-ink);">Blood Work &amp; Lab Testing</a>
-          <span aria-hidden="true" style="color: var(--color-line);">·</span>
-          <a href="/services/drug-testing.html" class="font-semibold hover:underline transition-opacity" style="color: var(--color-ink);">Drug Testing</a>
-          <span aria-hidden="true" style="color: var(--color-line);">·</span>
-          <a href="/services/paternity-testing.html" class="font-semibold hover:underline transition-opacity" style="color: var(--color-ink);">Paternity Testing</a>
-          <span aria-hidden="true" style="color: var(--color-line);">·</span>
-          <a href="/services/hormone-testing.html" class="font-semibold hover:underline transition-opacity" style="color: var(--color-ink);">Hormone Testing</a>
-          <span aria-hidden="true" style="color: var(--color-line);">·</span>
-          <a href="/services/gender-reveal-testing.html" class="font-semibold hover:underline transition-opacity" style="color: var(--color-ink);">Gender Reveal Testing</a>
-        </div>
-      </div>
-    </section>
-    <div class="divider"></div>
-
-    <!-- SECTION: final-cta -->
-    <section class="dark-section relative py-24 overflow-hidden" aria-label="Get Service Four today">
-      <!-- OFF-LIMITS: cta-background — dedicated named file only, never a content photo -->
-      <div class="absolute inset-0" style="background: url('https://placehold.co/1920x1080') center center / cover no-repeat;"></div>
-      <div class="absolute inset-0" style="background: rgba(var(--color-dark-rgb), 0.62);"></div>
-      <div class="dark-cta-ramp"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(var(--color-accent-rgb), 0.44) 0%, transparent 65%);"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 50% 45% at 0% 100%, rgba(var(--color-accent-deep-rgb), 0.16) 0%, transparent 55%);"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 50% 45% at 100% 100%, rgba(var(--color-accent-deep-rgb), 0.12) 0%, transparent 55%);"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 45% 35% at 50% 78%, rgba(var(--color-accent-rgb), 0.12) 0%, transparent 55%);"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 120% 110% at 50% 50%, transparent 35%, rgba(0,0,0,0.36) 100%); pointer-events: none;"></div>
-
-      <div class="relative z-10 max-w-3xl mx-auto px-5 text-center fade-up">
-        <div class="flex justify-center mb-3"><div class="section-title-accent"></div></div>
-        <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-white mb-5" style="letter-spacing: -0.03em; line-height: 1.1;">
-          Ready for Service Four<br />in [City]?<br /><span style="color: var(--color-accent-bright);">Call Your Business Name Today.</span>
+  <section id="tests" class="dark-section relative py-24 overflow-hidden" aria-label="Wellness panels we offer">
+    <div class="dark-cta-ramp"></div>
+    <div class="max-w-6xl mx-auto px-5 relative" style="z-index: 4;">
+      <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+        <span class="section-title-accent"></span>
+        <p class="eyebrow">The Full List</p>
+        <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 16px;">
+          Panels We Offer
         </h2>
-        <p class="text-muted text-lg mb-10 max-w-xl mx-auto" style="line-height: 1.7;">
-          Same-day service, quality work, and a free estimate on every job. Our team covers all of [City] and the [Region] — call now or fill out the quote form and we'll be in touch right away.
+        <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75;">
+          Not sure which panel fits? Call and tell us what you are hoping to find out and we will point you to the right one.
         </p>
-        <div class="flex flex-wrap gap-4 justify-center mb-10">
-          <a href="tel:+19565866463" class="btn-primary text-base px-8 py-4">
-            Call Now — (956) 586-6463
-          </a>
-          <a href="/#contact" class="btn-outline text-base px-8 py-4">
-            Get a Free Quote
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 fade-up" style="transition-delay: 0.06s;">
+        <div class="area-card">
+          <h3 class="font-display font-bold text-white text-lg mb-5">Wellness Packages</h3>
+          <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>SurePower Check &mdash; Men Wellness</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Surepointe Check &mdash; Basic Wellness</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Wonder Woman Check &mdash; Women Wellness</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Surepointe Plus</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Super Surepointe</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Arthritis Profile</li>
+          </ul>
         </div>
-        <div class="flex flex-wrap items-center justify-center gap-5">
-          <span class="flex items-center gap-1.5 text-muted text-sm">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-bright)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Free estimates
-          </span>
-          <span style="color: rgba(255,255,255,0.20);">·</span>
-          <span class="flex items-center gap-1.5 text-muted text-sm">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-bright)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Quality workmanship
-          </span>
-          <span style="color: rgba(255,255,255,0.20);">·</span>
-          <span class="flex items-center gap-1.5 text-muted text-sm">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-bright)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Mobile service across the [Region]
-          </span>
-          <span style="color: rgba(255,255,255,0.20);">·</span>
-          <span class="flex items-center gap-1.5 text-muted text-sm">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-bright)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Same-day availability
-          </span>
+        <div class="area-card">
+          <h3 class="font-display font-bold text-white text-lg mb-5">Also Available</h3>
+          <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>General Wellness Panels</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Home Draws</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Walk-in visits</li>
+            <li class="text-sm flex items-start gap-2.5" style="color: var(--color-silver);"><span class="area-dot mt-1.5"></span>Self-pay option</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <section id="faq" class="section-dark atmo wash-navy-tr py-24" aria-label="Common questions about wellness panels">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-12 fade-up">
+        <span class="section-title-accent"></span>
+        <p class="eyebrow">Good to Know</p>
+        <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14;">
+          Common Questions About Wellness Panels
+        </h2>
+      </div>
+      <div class="space-y-3 fade-up" style="transition-delay: 0.06s;">
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            Do I need a doctor's order for a wellness panel?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            No. You can order a wellness panel yourself. No doctor's order and no referral are needed. Walk in during our hours or call ahead with questions.
+          </p>
+        </details>
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            Which wellness panel should I pick?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            SurePower Check is built for men and Wonder Woman Check for women, while Surepointe Check works as a general baseline. Surepointe Plus and Super Surepointe go broader. Call and tell us what you want to find out and we will point you to the right one.
+          </p>
+        </details>
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            Do I need to fast before a wellness panel?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            Usually yes, because most wellness panels include tests that read differently after a meal. Call us with the panel you want and we will tell you whether to fast and for how long.
+          </p>
+        </details>
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            Can you come to my house for the draw?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            Yes. We offer Home Draws for patients who cannot make it to the lab in Pharr. Call us to ask about setting one up.
+          </p>
+        </details>
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            How is a wellness panel different from hormone testing?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            A wellness panel is a broad screen that looks at several systems at once. Hormone testing targets a specific concern such as thyroid or testosterone. If you already know what you are chasing, hormone testing is the better fit.
+          </p>
+        </details>
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            How long do wellness panel results take?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            It depends which panel you chose, since each bundles a different set of tests. We will tell you what to expect before you leave.
+          </p>
+        </details>
+
+        <details class="rounded-xl border px-5 py-1" style="border-color: var(--color-line); background: var(--color-bg);">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-4 font-display font-bold text-base" style="color: var(--color-ink); list-style: none;">
+            How much does a wellness panel cost?
+            <svg class="faq-chevron flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="text-sm pb-5 pr-8" style="color: var(--color-muted); line-height: 1.75;">
+            It depends which panel you choose and whether you are using insurance or paying yourself. Call us and we will give you the pricing before you commit to anything.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
 
   </main>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="dark-section pt-16 pb-8 border-t" style="border-color: rgba(255,255,255,0.08);" aria-label="Footer">
+  <section class="final-cta dark-section relative py-28 overflow-hidden" aria-label="Visit Surepointe Lab for wellness panels">
+    <!-- OFF-LIMITS: cta-background — dedicated named slot, never a content photo. -->
+    <img src="/brand_assets/cta-background.jpg" alt="Gloved phlebotomist drawing a blood sample into a collection tube" class="absolute inset-0 w-full h-full object-cover" style="z-index: 0;" width="1376" height="768" loading="lazy" />
+    <div class="absolute inset-0" style="z-index: 1; background:
+      radial-gradient(ellipse 78% 92% at 50% 50%, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.12) 100%),
+      linear-gradient(100deg, rgba(var(--color-dark-3-rgb),0.14) 0%, rgba(var(--color-dark-rgb),0.12) 100%);"></div>
+    <div class="dark-cta-ramp" style="z-index: 3;"></div>
+    <div class="max-w-3xl w-full mx-auto px-5 text-center relative" style="z-index: 4; text-shadow: 0 2px 18px rgba(0,0,0,0.35);">
+      <p class="eyebrow">No Order. No Referral. No Appointment.</p>
+      <h2 class="font-display font-extrabold text-white tracking-tight" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; margin-bottom: 20px;">
+        Book Your Wellness Panel
+      </h2>
+      <p class="text-muted" style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 32px;">
+        One visit gives you a broad picture instead of one number at a time. Walk in during our hours, or call and ask about a Home Draw if getting here is the hard part.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <a href="tel:+19565866463" class="btn-primary justify-center">
+          Call (956) 586-6463
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="/#contact" class="btn-outline justify-center">Plan Your Visit</a>
+      </div>
+      <p class="text-muted" style="font-size: 0.86rem; margin-top: 26px;">
+        1002 W Sam Houston Blvd, Suite 9, Pharr, TX 78577 &nbsp;&middot;&nbsp; Mon&ndash;Fri 7 AM&ndash;5 PM &nbsp;&middot;&nbsp; Sat 8 AM&ndash;11:30 AM
+      </p>
+    </div>
+  </section>
+
+  <footer class="dark-section pt-16 pb-8 border-t" style="border-color: rgba(255,255,255,0.12);" aria-label="Footer">
     <div class="max-w-6xl mx-auto px-5">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
 
         <!-- Brand -->
         <div class="col-span-2 md:col-span-1">
-          <!-- LOGO PLACEHOLDER — swap the <span> for <img class="footer-logo" ...>; height comes from --footer-logo-height in brand.css -->
-          <a href="/" class="flex items-center mb-2" aria-label="Your Business Name home">
-            <span class="footer-wordmark">Your Business Name</span>
+          <!-- Stacked, not side-by-side: at --footer-logo-height the mark plus a
+               34px wordmark overruns this grid column and collides with the
+               Services list. Stacking gives the wordmark the full column width. -->
+          <a href="/" class="flex flex-col items-start gap-3 mb-4" aria-label="Surepointe Lab home">
+            <img class="footer-logo" src="/brand_assets/logo.png" alt="" />
+            <span class="footer-wordmark">Surepointe Lab</span>
           </a>
-          <p style="font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--color-accent-bright); margin-bottom: 14px; opacity: 0.85;">Trusted Local Home Services</p>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">Professional home services you can count on — serving [City] and the surrounding [Region].</p>
+          <p style="font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--color-accent-bright); margin-bottom: 14px;">Walk-In Lab Testing &middot; Pharr, TX</p>
+          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+            A local diagnostic lab serving Pharr and the Rio Grande Valley since 2013. No
+            doctor's order required.
+          </p>
           <div class="space-y-2">
             <a href="tel:+19565866463" class="flex items-center gap-2 text-white text-sm font-medium hover:opacity-80 transition-opacity duration-150">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-bright)" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.54 6.54l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1061,18 +1056,27 @@
               Surepointelab@jigmed.org
             </a>
           </div>
+
+          <div class="flex items-center gap-3 mt-5">
+            <a href="https://www.facebook.com/profile.php?id=100093646171998" target="_blank" rel="noopener noreferrer" aria-label="Surepointe Lab on Facebook" class="p-2 rounded-lg transition-colors duration-150" style="border: 1px solid rgba(255,255,255,0.18);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-silver)"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/surepointe_lab/" target="_blank" rel="noopener noreferrer" aria-label="Surepointe Lab on Instagram" class="p-2 rounded-lg transition-colors duration-150" style="border: 1px solid rgba(255,255,255,0.18);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-silver)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="var(--color-silver)" stroke="none"/></svg>
+            </a>
+          </div>
         </div>
 
         <!-- Services -->
         <div>
           <h2 class="font-display font-bold text-white text-sm uppercase tracking-widest mb-4">Services</h2>
           <ul class="space-y-2.5">
-            <li><a href="/services/blood-work-lab-testing.html"       class="text-muted text-sm hover:text-white transition-colors duration-150">Blood Work &amp; Lab Testing</a></li>
+            <li><a href="/services/blood-work-lab-testing.html" class="text-muted text-sm hover:text-white transition-colors duration-150">Blood Work &amp; Lab Testing</a></li>
             <li><a href="/services/drug-testing.html" class="text-muted text-sm hover:text-white transition-colors duration-150">Drug Testing</a></li>
-            <li><a href="/services/paternity-testing.html"        class="text-muted text-sm hover:text-white transition-colors duration-150">Paternity Testing</a></li>
-            <li><a href="/services/wellness-panels.html"    class="text-white text-sm font-semibold" aria-current="page">Wellness Panels</a></li>
-            <li><a href="/services/hormone-testing.html"           class="text-muted text-sm hover:text-white transition-colors duration-150">Hormone Testing</a></li>
-            <li><a href="/services/gender-reveal-testing.html"  class="text-muted text-sm hover:text-white transition-colors duration-150">Gender Reveal Testing</a></li>
+            <li><a href="/services/paternity-testing.html" class="text-muted text-sm hover:text-white transition-colors duration-150">Paternity Testing</a></li>
+            <li><a href="/services/wellness-panels.html" class="text-muted text-sm hover:text-white transition-colors duration-150">Wellness Panels</a></li>
+            <li><a href="/services/hormone-testing.html" class="text-muted text-sm hover:text-white transition-colors duration-150">Hormone Testing</a></li>
+            <li><a href="/services/gender-reveal-testing.html" class="text-muted text-sm hover:text-white transition-colors duration-150">Gender Reveal Testing</a></li>
           </ul>
         </div>
 
@@ -1080,12 +1084,11 @@
         <div>
           <h2 class="font-display font-bold text-white text-sm uppercase tracking-widest mb-4">Company</h2>
           <ul class="space-y-2.5">
-            <li><a href="/about.html"   class="text-muted text-sm hover:text-white transition-colors duration-150">About Us</a></li>
-            <!-- OPTIONAL MODULE LINK (footer, #reviews): re-enable with the Review widget module: <li><a href="/#reviews"      class="text-muted text-sm hover:text-white transition-colors duration-150">Reviews</a></li> -->
-            <!-- OPTIONAL MODULE LINK (footer, #insurance): re-enable with the Insurance module: <li><a href="/#insurance"    class="text-muted text-sm hover:text-white transition-colors duration-150">Insurance Partners</a></li> -->
-            <li><a href="/#service-area" class="text-muted text-sm hover:text-white transition-colors duration-150">Service Areas</a></li>
-            <li><a href="/#contact"      class="text-muted text-sm hover:text-white transition-colors duration-150">Contact</a></li>
-            <li><a href="#"              class="text-muted text-sm hover:text-white transition-colors duration-150">Privacy Policy</a></li>
+            <li><a href="/about.html" class="text-muted text-sm hover:text-white transition-colors duration-150">About Us</a></li>
+            <li><a href="/#service-area" class="text-muted text-sm hover:text-white transition-colors duration-150">Areas We Serve</a></li>
+            <li><a href="/#insurance" class="text-muted text-sm hover:text-white transition-colors duration-150">Insurance &amp; Self-Pay</a></li>
+            <li><a href="/#faq" class="text-muted text-sm hover:text-white transition-colors duration-150">Common Questions</a></li>
+            <li><a href="/#contact" class="text-muted text-sm hover:text-white transition-colors duration-150">Contact</a></li>
           </ul>
         </div>
 
@@ -1110,25 +1113,21 @@
 
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
         <p class="text-muted text-xs text-center sm:text-left">
-          © 2026 Your Business Name. All rights reserved. Serving [City] &amp; the [Region], [ST].
+          &copy; 2026 Surepointe Lab. All rights reserved. Serving Pharr &amp; the Rio Grande Valley, TX.
         </p>
-        <div class="flex items-center gap-4">
-          <a href="#" class="text-xs text-muted hover:text-white transition-colors duration-150">Privacy Policy</a>
-          <span style="color: rgba(255,255,255,0.20);">·</span>
-          <a href="#" class="text-xs text-muted hover:text-white transition-colors duration-150">Terms</a>
-        </div>
+        <address class="text-muted text-xs not-italic text-center sm:text-right">
+          1002 W Sam Houston Blvd, Suite 9, Pharr, TX 78577
+        </address>
       </div>
     </div>
   </footer>
 
   <script>
-    /* ── Sticky nav scrolled state ── */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
 
-    /* ── Mobile hamburger toggle ── */
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => {
@@ -1150,7 +1149,6 @@
       }
     });
 
-    /* ── Scroll-triggered fade-up ── */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
