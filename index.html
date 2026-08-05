@@ -1262,6 +1262,15 @@
   ============================================================ -->
   <!-- Light section on purpose: #insurance directly above is crimson, and two
        adjacent dark sections read as one long red block at this saturation. -->
+
+  <!-- GHL REVIEW WIDGET EMBED — the #reviews section below is commented out until this
+       code arrives, so the site ships with no visible placeholder. To wire it: delete the
+       two comment delimiters around the section, then replace the contents of .embed-slot
+       with the embed. Add the JSON-LD aggregateRating (4.9 / 226 / bestRating 5) to the
+       DiagnosticLab block in the same pass — never one without the other.
+       The marker sits here rather than inside the block because HTML comments cannot
+       nest: a `-->` inside would close the wrapper early and render the rest. -->
+  <!--
   <section id="reviews" class="section-mid atmo wash-navy-br py-24" aria-label="Patient reviews">
     <div class="max-w-6xl mx-auto px-5 relative" style="z-index: 4;">
 
@@ -1274,14 +1283,11 @@
       </div>
 
       <div class="max-w-3xl mx-auto fade-up" style="transition-delay: 0.06s;">
-        <!-- GHL REVIEW WIDGET EMBED -->
-        <div class="embed-slot">
-          PENDING &mdash; GHL review widget embed code.<br />
-          Wire the widget and the JSON-LD aggregateRating together, never one without the other.
-        </div>
+        <div class="embed-slot"></div>
       </div>
     </div>
   </section>
+  -->
 
   <!-- ============================================================
        FAQ
