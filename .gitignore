@@ -11,3 +11,6 @@ brand_assets/hero-trim.mp4
 # derivatives (home1.jpg, gallery1.jpg, gallery2.jpg).
 brand_assets/*.jpeg
 brand_assets/unnamed-*.jpg
+
+# CTA background raw source; commit only cta-background.jpg
+brand_assets/cta.png
