@@ -1,3 +1,8 @@
 node_modules/
 temporary screenshots/
 .DS_Store
+
+# Hero video: commit only the final compressed clip (hero-background.mp4).
+# The raw source and the trim preview stay local.
+brand_assets/hero.mp4
+brand_assets/hero-trim.mp4
