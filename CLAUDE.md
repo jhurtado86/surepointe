@@ -313,7 +313,7 @@ implementation.
 twitter summary_large_image + title/description/image; images → 1200×630 (flag if not created).
 
 **Structured Data (JSON-LD) — FROZEN patterns:**
-- **Homepage:** `@type: "MedicalClinic"` (most accurate Schema.org subtype for a
+- **Homepage:** `@type: "DiagnosticLab"` (most accurate Schema.org subtype for a
   patient-facing diagnostic laboratory; do NOT use bare LocalBusiness). Include name,
   telephone (GHL number — pending), email, priceRange (pending), `openingHoursSpecification`
   (GMB hours confirmed above), `areaServed` (all 8 cities), `hasOfferCatalog` (all 6
@@ -324,7 +324,7 @@ twitter summary_large_image + title/description/image; images → 1200×630 (fla
   reviewCount 226, bestRating 5. Wire together with the widget — never one without the other.
 - License numbers → `additionalProperty` — none confirmed; omit until confirmed.
 - **Service pages:** 3 blocks — `Service` + `FAQPage` (min 6 Q&As) + `BreadcrumbList`.
-- **City pages:** 3 blocks — `MedicalClinic` ref (same `@id` as homepage, NOT a
+- **City pages:** 3 blocks — `DiagnosticLab` ref (same `@id` as homepage, NOT a
   re-declaration) + `FAQPage` (min 4 city-scoped Q&As) + `BreadcrumbList`.
   `areaServed` = that city only, never the full list.
 - **Thank-you trio (one atomic unit):** noindex/nofollow meta + excluded from `sitemap.xml`
