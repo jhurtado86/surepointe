@@ -343,15 +343,16 @@
     #navbar.scrolled .mobile-services-submenu a:hover { color: var(--color-ink); background: rgba(var(--color-dark-rgb), 0.05); }
 
     .hero-bg { background: var(--color-dark); }
-    /* Split sections (About, Why Us): the photo column carries more weight than
-       the text column so the 4:3 frame reads at a real size. 1fr / 1.75fr with a
-       40px gap puts the photo at ~61% of the 1152px content container on desktop.
+    /* Split sections (About, Why Us): the TEXT column carries more weight than the
+       photo so the copy leads and the 4:3 frame supports it. 1.15fr / 1fr with a
+       40px gap puts the photo at ~47% of the 1152px content container on desktop.
+       At the earlier 1.75fr the photo ran ~61% and overpowered the text block.
        Below lg the grid collapses to one column and the photo goes full width. */
     @media (min-width: 1024px) {
-      .split-photo.grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); gap: 40px; }
-      /* Why Us alternates the photo to the left column, so the wide track moves
-         with it — otherwise the photo lands in the narrow 1fr and shrinks. */
-      .split-photo--photo-left.grid { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+      .split-photo.grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; }
+      /* Why Us alternates the photo to the left column, so the narrow track moves
+         with it — otherwise the photo lands in the wide track and dominates again. */
+      .split-photo--photo-left.grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
     }
 
     /* Hero overlay — the single knob controlling how much of the video reads
@@ -467,6 +468,21 @@
       background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
       box-shadow: 0 0 6px rgba(var(--color-dark-rgb), 0.40); flex-shrink: 0;
     }
+
+    /* Service-area city list — deliberately NOT a card. The eight cities read as a
+       plain directory on the section background: one hairline rule per entry, name,
+       one line of context. Rules sit at the top of each grid cell so they align
+       across a row at every breakpoint. */
+    .area-item { border-top: 1px solid rgba(var(--color-dark-rgb), 0.16); padding-top: 15px; }
+    .area-name {
+      display: inline-block; font-family: 'Barlow', sans-serif; font-weight: 700;
+      font-size: 1.05rem; letter-spacing: -0.01em; color: var(--color-ink);
+      transition: color 0.18s cubic-bezier(0.4,0,0.2,1);
+    }
+    .area-name:hover { color: var(--color-accent-deep); }
+    .area-name:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 3px; }
+    .area-name:active { color: var(--color-accent); }
+    .area-note { font-size: 0.845rem; line-height: 1.65; color: var(--color-muted); }
 
     /* Pending-asset / pending-integration placeholder frame */
     .embed-slot {
@@ -1110,79 +1126,52 @@
         </p>
       </div>
 
-      <div class="area-card fade-up" style="transition-delay: 0.06s;">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8">
+      <div class="fade-up" style="transition-delay: 0.06s;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-10">
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <div class="flex items-center gap-2 mb-1 flex-wrap">
-                <a href="/#contact" class="text-sm font-semibold hover:underline" style="color: var(--color-ink);">Pharr</a>
-                <span class="text-xs px-2 py-0.5 rounded-full font-semibold" style="background: rgba(var(--color-accent-rgb), 0.10); color: var(--color-accent-deep);">Our Lab</span>
-              </div>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">Inside the Pharr Medical Complex on W Sam Houston Blvd.</p>
-            </div>
+          <div class="area-item">
+            <a href="/#contact" class="area-name mb-1.5">Pharr</a>
+            <p class="area-note">Inside the Pharr Medical Complex on W Sam Houston Blvd.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/mcallen.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">McAllen</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">A straight run west on Business 83 to our door.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/mcallen.html" class="area-name mb-1.5">McAllen</a>
+            <p class="area-note">A straight run west on Business 83 to our door.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/edinburg.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">Edinburg</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">Patients drive down from the county seat most mornings.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/edinburg.html" class="area-name mb-1.5">Edinburg</a>
+            <p class="area-note">Patients drive down from the county seat most mornings.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/mission.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">Mission</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">West end of the corridor, still an easy drive over.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/mission.html" class="area-name mb-1.5">Mission</a>
+            <p class="area-note">West end of the corridor, still an easy drive over.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/weslaco.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">Weslaco</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">East valley patients heading in along Expressway 83.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/weslaco.html" class="area-name mb-1.5">Weslaco</a>
+            <p class="area-note">East valley patients heading in along Expressway 83.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/san-juan.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">San Juan</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">Our closest neighbor &mdash; minutes from the lab.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/san-juan.html" class="area-name mb-1.5">San Juan</a>
+            <p class="area-note">Our closest neighbor &mdash; minutes from the lab.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/alamo.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">Alamo</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">Just east of San Juan on the same stretch of 83.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/alamo.html" class="area-name mb-1.5">Alamo</a>
+            <p class="area-note">Just east of San Juan on the same stretch of 83.</p>
           </div>
 
-          <div class="flex items-start gap-3">
-            <div class="area-dot mt-1.5"></div>
-            <div>
-              <a href="/areas/donna.html" class="text-sm font-semibold hover:underline block mb-1" style="color: var(--color-ink);">Donna</a>
-              <p class="text-xs" style="color: var(--color-muted); line-height: 1.6;">Easternmost city we serve along the corridor.</p>
-            </div>
+          <div class="area-item">
+            <a href="/areas/donna.html" class="area-name mb-1.5">Donna</a>
+            <p class="area-note">Easternmost city we serve along the corridor.</p>
           </div>
 
         </div>
 
-        <p class="text-sm mt-8 pt-6 border-t" style="border-color: rgba(var(--color-dark-rgb), 0.12); color: var(--color-muted);">
+        <p class="text-sm text-center mt-14" style="color: var(--color-muted);">
           Cannot make it in? Ask about a <strong style="color: var(--color-ink);">Home Draw</strong> and we will come to you.
         </p>
       </div>
@@ -1240,14 +1229,16 @@
         </p>
       </div>
 
-      <div class="area-card max-w-3xl mx-auto fade-up" style="transition-delay: 0.06s;">
-        <p class="text-sm mb-4" style="line-height: 1.75;">
+      <!-- No card here on purpose: the copy sits directly on the crimson section and
+           is sized up to carry it. --color-silver is the on-dark secondary-text token. -->
+      <div class="max-w-3xl mx-auto text-center fade-up" style="transition-delay: 0.06s;">
+        <p style="font-size: 1.08rem; line-height: 1.8; color: var(--color-silver); margin-bottom: 22px;">
           Every plan covers testing a little differently, and what applies to one test may not
           apply to the next. Rather than guess, call us with your insurance information and the
           tests you are after. We will help you check what your plan covers before you come in,
           so there are no surprises after the draw.
         </p>
-        <p class="text-sm" style="line-height: 1.75;">
+        <p style="font-size: 1.08rem; line-height: 1.8; color: var(--color-silver);">
           Prefer to skip insurance altogether? Ask about self-pay when you call and we will walk
           you through your options.
         </p>
@@ -1399,8 +1390,13 @@
 
       <div class="grid lg:grid-cols-2 gap-8 fade-up" style="transition-delay: 0.06s;">
 
-        <!-- NAP block -->
-        <div class="area-card">
+        <!-- NAP block — no card wrapper; the details sit directly on the section
+             next to the form. The lg:pt-8 is not decorative: the GHL form iframe
+             carries ~32px of its own internal top padding, so with both columns
+             flush at the grid top the heading here rode visibly higher than the
+             form's. This pads the difference back out. Only at lg — below that the
+             columns stack and the offset would just be stray space. -->
+        <div class="lg:pt-8 lg:pr-8">
           <h3 class="font-display font-bold text-lg mb-6" style="color: var(--color-ink);">Get in Touch</h3>
 
           <div class="space-y-6">
