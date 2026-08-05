@@ -14,3 +14,8 @@ brand_assets/unnamed-*.jpg
 
 # CTA background raw source; commit only cta-background.jpg
 brand_assets/cta.png
+
+# Stock originals for service pages; commit only the optimised derivatives.
+brand_assets/front-view-scientist-*.jpg
+brand_assets/neurology-medical-clinic-*.jpg
+brand_assets/standard_resolution.jpg
