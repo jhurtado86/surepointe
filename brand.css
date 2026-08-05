@@ -98,13 +98,13 @@
 /* ============================================================
    Final call-to-action section.
    At py-24 alone the section rendered 443px — the shortest on the page, against
-   609–935px everywhere else — and its 16:9 cta-background slot only showed about
-   half its height. The min-height gives the close of the page real presence and
-   lets more of that background read. Flex-centred because the min-height now
-   exceeds the natural content height.
+   609–935px everywhere else. 70vh overshot at 630px, so this sits halfway:
+   ~540px at 1440x900. Enough presence to close the page and to show more of the
+   16:9 cta-background slot, without dominating. Flex-centred because the
+   min-height exceeds the natural content height.
    ============================================================ */
 .final-cta {
-  min-height: clamp(560px, 70vh, 760px);
+  min-height: clamp(480px, 60vh, 660px);
   display: flex;
   align-items: center;
 }
