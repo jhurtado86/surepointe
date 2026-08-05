@@ -90,3 +90,7 @@
 }
 .photo-frame--portrait { aspect-ratio: 3 / 4; }
 .photo-frame--portrait > img { object-position: center top; }
+/* Wide variant for the homepage gallery, which runs two large single-column
+   tiles rather than a grid of small ones. This is a deliberate exception to the
+   one-ratio-site-wide rule — every other content photo stays 4:3. */
+.photo-frame--wide { aspect-ratio: 16 / 9; }

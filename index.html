@@ -855,9 +855,8 @@
         </div>
 
         <div class="fade-up" style="transition-delay: 0.08s;">
-          <!-- PENDING: real interior photo (1200×900) -->
           <figure class="photo-frame">
-            <img src="https://placehold.co/1200x900" alt="Phlebotomy draw station at Surepointe Lab in Pharr, Texas" loading="lazy" />
+            <img src="/brand_assets/home1.jpg" alt="Blood collection tubes racked for lab testing at Surepointe Lab in Pharr, Texas" width="1200" height="900" loading="lazy" />
           </figure>
         </div>
 
@@ -1016,7 +1015,12 @@
       <div class="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
 
         <div class="fade-up order-2 lg:order-1">
-          <!-- PENDING: real interior photo (1200×900) -->
+          <!-- PENDING: body photo slot 2. No home2.* exists in brand_assets/. The two
+               candidates that were delivered are both blocked by CLAUDE.md hard rules:
+               photo.jpeg and IMG_3434.jpeg show a readable 956-586-0993 on the door
+               decal (site may carry the GHL tracking number only), and IMG_3434 also
+               shows hours contradicting the confirmed GMB hours plus an "at a fraction
+               of the cost" pricing claim. Stays on placehold.co until a clean photo lands. -->
           <figure class="photo-frame">
             <img src="https://placehold.co/1200x900" alt="Lab technician processing blood samples at Surepointe Lab in Pharr, Texas" loading="lazy" />
           </figure>
@@ -1175,20 +1179,13 @@
         </p>
       </div>
 
-      <!-- PENDING: all 4 tiles await real client photography (1200×900 each).
-           2×2 grid — the last row always fills, no orphaned tile. -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-up" style="transition-delay: 0.06s;">
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Reception and check-in desk at Surepointe Lab in Pharr, Texas" loading="lazy" />
+      <!-- Two real photos, single column, 16:9 frames for presence. -->
+      <div class="grid grid-cols-1 gap-6 fade-up" style="transition-delay: 0.06s;">
+        <figure class="photo-frame photo-frame--wide">
+          <img src="/brand_assets/gallery1.jpg" alt="Waiting area and reception window at Surepointe Lab in Pharr, Texas" width="1600" height="900" loading="lazy" />
         </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Blood draw chair in a private room at Surepointe Lab in Pharr" loading="lazy" />
-        </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Specimen collection supplies prepared for lab testing in Pharr, Texas" loading="lazy" />
-        </figure>
-        <figure class="photo-frame">
-          <img src="https://placehold.co/1200x900" alt="Centrifuge and sample processing equipment at Surepointe Lab" loading="lazy" />
+        <figure class="photo-frame photo-frame--wide">
+          <img src="/brand_assets/gallery2.jpg" alt="Private blood draw room with phlebotomy chair at Surepointe Lab in Pharr, Texas" width="1600" height="900" loading="lazy" />
         </figure>
       </div>
     </div>
