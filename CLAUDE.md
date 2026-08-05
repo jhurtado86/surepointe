@@ -77,9 +77,9 @@ page.
 | `--color-muted-light` | `#A0A3AD` | Lighter muted — captions, helper text, placeholders |
 | `--color-line` | `#E2E3E8` | Borders and dividers (= silver; aliased for clarity in brand.css) |
 | `--color-rating` | `#F5A623` | Star rating gold — review widget stars only |
-| `--nav-height` | `72px` | Navbar height — consistent across all pages |
-| `--nav-logo-height` | `48px` | Logo height inside the navbar |
-| `--footer-logo-height` | `56px` | Logo height inside the footer |
+| `--nav-height` | `136px` | Navbar height — consistent across all pages; clears the 112px logo with 24px breathing room |
+| `--nav-logo-height` | `112px` | Logo height inside the navbar — matches the footer |
+| `--footer-logo-height` | `112px` | Logo height inside the footer |
 
 **FROZEN rules:**
 - **Accent split by background — CRITICAL:** `#1852D4` on `#C0121A` = 1.04:1 contrast
