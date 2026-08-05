@@ -38,7 +38,7 @@ facts; confirm with the client / Juan before filling.
 | City 6 | San Juan |
 | City 7 | Alamo |
 | City 8 | Donna |
-| city slugs | pharr / mcallen / edinburg / mission / weslaco / san-juan / alamo / donna |
+| city slugs | mcallen / edinburg / mission / weslaco / san-juan / alamo / donna *(no pharr slug — homepage serves Pharr)* |
 | Region | Rio Grande Valley (RGV) / Hidalgo County, TX |
 | Phone (site) | (956) 586-6463 — GHL tracking number, delivered and live site-wide |
 | Email | Surepointelab@jigmed.org |
@@ -48,8 +48,9 @@ facts; confirm with the client / Juan before filling.
 > surepointelab.com. Both confirmed correct — do NOT "fix" one to match the other,
 > and never build a URL off the email domain.
 
-> ⚠️ **City count is 8**, flexed above the default 6. Justified by the RGV corridor
-> footprint. All 8 cities lie within ~30 miles along US-83 / Business 83.
+> ⚠️ **8 cities served, 7 city pages.** Flexed above the default 6 and justified by the
+> RGV corridor footprint — all 8 lie within ~30 miles along US-83 / Business 83. Pharr
+> has no city page of its own: the homepage serves that intent (see Site Architecture).
 
 ---
 
@@ -265,8 +266,7 @@ sections or FAQ, not their own pages.
   - `wellness-panels.html`
   - `hormone-testing.html`
   - `gender-reveal-testing.html`
-- 8 city pages under `/areas/`: *(city count flexed to 8 — justified by RGV corridor footprint)*
-  - `pharr.html`
+- 7 city pages under `/areas/`: *(8 cities served; Pharr has no page of its own — see below)*
   - `mcallen.html`
   - `edinburg.html`
   - `mission.html`
@@ -274,6 +274,11 @@ sections or FAQ, not their own pages.
   - `san-juan.html`
   - `alamo.html`
   - `donna.html`
+- **No `pharr.html`.** The homepage IS the Pharr page — it carries the NAP, the address,
+  the hours and the `DiagnosticLab` entity, and a separate city page would cannibalise it.
+  Pharr stays in the Areas We Serve dropdown and the footer, pointing at `/`; the
+  homepage service-area card points at `/#contact`. Pharr remains in `areaServed` in
+  schema and in body copy — it is a served city, just not a separate URL.
 - No inventory / gallery page
 
 ### City priority — FROZEN methodology, FILL the order
@@ -281,6 +286,7 @@ Pharr anchors the homepage + NAP. McAllen is the highest-volume keyword target a
 becomes the CITY-PAGE TEMPLATE. Order drives GSC indexing sequence.
 
 1. **Pharr** — physical location; anchors NAP, homepage, all schema. Home base.
+   NO separate city page — the homepage IS the Pharr page.
 2. **McAllen** — largest RGV city; highest search volume; primary keyword prize;
    CITY-PAGE TEMPLATE — all remaining city pages inherit this one.
 3. **Edinburg** — Hidalgo County seat; strong population; likely second-highest volume
