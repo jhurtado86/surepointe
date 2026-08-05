@@ -94,3 +94,17 @@
    tiles rather than a grid of small ones. This is a deliberate exception to the
    one-ratio-site-wide rule — every other content photo stays 4:3. */
 .photo-frame--wide { aspect-ratio: 16 / 9; }
+
+/* ============================================================
+   Final call-to-action section.
+   At py-24 alone the section rendered 443px — the shortest on the page, against
+   609–935px everywhere else — and its 16:9 cta-background slot only showed about
+   half its height. The min-height gives the close of the page real presence and
+   lets more of that background read. Flex-centred because the min-height now
+   exceeds the natural content height.
+   ============================================================ */
+.final-cta {
+  min-height: clamp(560px, 70vh, 760px);
+  display: flex;
+  align-items: center;
+}
