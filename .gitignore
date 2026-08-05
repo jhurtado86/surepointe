@@ -19,3 +19,16 @@ brand_assets/cta.png
 brand_assets/front-view-scientist-*.jpg
 brand_assets/neurology-medical-clinic-*.jpg
 brand_assets/standard_resolution.jpg
+
+# Canva raw exports behind the body-photo batches; commit only the optimised
+# derivatives (svc-*.jpg, city-*.jpg, about-*.jpg).
+brand_assets/Untitled design*.jpg
+brand_assets/Untitled design*.png
+brand_assets/Your paragraph text*.jpg
+brand_assets/Your paragraph text*.png
+brand_assets/dsf.jpg
+brand_assets/feds.jpg
+
+# Hero background raw source — note the transposed letters in the delivered
+# filename. Commit only hero-background.jpg.
+brand_assets/hero-backgorund.png
