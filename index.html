@@ -463,9 +463,14 @@
     .faq-chevron { transition: transform 0.22s cubic-bezier(0.4,0,0.2,1); }
     details[open] .faq-chevron { transform: rotate(180deg); }
     details summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 8px; }
+    /* Hero video: the looping clip is the default; users who ask for reduced
+       motion get the static poster image instead of an autoplaying loop. */
+    .hero-video-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .fade-up { opacity: 1; transform: none; transition: none; }
+      .hero-video { display: none; }
+      .hero-video-fallback { display: block; }
     }
 
     ::-webkit-scrollbar { width: 6px; }
@@ -713,14 +718,25 @@
   ============================================================ -->
   <section class="hero-bg relative min-h-screen flex items-center overflow-hidden" style="padding-top: clamp(88px, 14vw, 128px); padding-bottom: clamp(56px, 8vw, 96px);" aria-label="Lab testing in Pharr, Texas at Surepointe Lab">
 
-    <!-- OFF-LIMITS: hero-background — dedicated named file only, never a content photo.
-         PENDING: brand_assets/hero-background.jpg (1920×1080) not yet delivered. -->
+    <!-- OFF-LIMITS: hero-background — dedicated named slot, never a content photo.
+         Homepage-only video enhancement (client-approved in/out 6.5–15s).
+         PENDING: brand_assets/hero-background.jpg (1920×1080) is not yet delivered,
+         so the poster + reduced-motion fallback stay on placehold.co at final size.
+         Swap both when the still lands. -->
+    <video
+      class="hero-video absolute inset-0 w-full h-full object-cover"
+      style="z-index: 0;"
+      autoplay muted loop playsinline preload="auto"
+      poster="https://placehold.co/1920x1080"
+      aria-hidden="true"
+    >
+      <source src="/brand_assets/hero-background.mp4" type="video/mp4" />
+    </video>
     <img
+      class="hero-video-fallback absolute inset-0 w-full h-full object-cover"
       src="https://placehold.co/1920x1080"
       alt="Surepointe Lab diagnostic laboratory in Pharr, Texas serving the Rio Grande Valley"
-      class="absolute inset-0 w-full h-full object-cover"
       style="z-index: 0;"
-      fetchpriority="high"
     />
     <div class="absolute inset-0" style="z-index: 1; background: linear-gradient(100deg, rgba(var(--color-dark-3-rgb),0.90) 0%, rgba(var(--color-dark-rgb),0.78) 45%, rgba(var(--color-dark-rgb),0.62) 100%);"></div>
     <div class="hero-vignette absolute inset-0" style="z-index: 2;"></div>
