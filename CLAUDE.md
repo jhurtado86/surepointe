@@ -107,7 +107,7 @@ page.
 - `<!-- GHL CHAT WIDGET SCRIPT -->` — [NEEDS INPUT — GHL confirmed; script coming from client] (insert before `</body>`).
 - `<!-- GHL EXTERNAL TRACKING SCRIPT -->` — [NEEDS INPUT — GHL confirmed; script coming from client] (insert in `<head>`).
 - `<!-- GHL REVIEW WIDGET EMBED -->` — INCLUDE. GHL review widget confirmed. Wire on build;
-  embed code coming from client. Once wired, `aggregateRating` (4.9 / 226 reviews) is
+  embed code coming from client. Once wired, `aggregateRating` (4.9 / 232 reviews) is
   cleared for JSON-LD on the homepage.
 - `<!-- GOOGLE MAPS EMBED -->` — INCLUDE. Confirmed public address at Pharr Medical Complex.
 - `<!-- INSURANCE CARRIER LOGO ROW -->` — DELETE. "Accepts most insurances" — no specific
@@ -169,9 +169,13 @@ Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inf
 - **Founded:** May 2013 — confirmed by client; cleared to publish in copy and schema
 - **Licenses / certifications:** None confirmed. Publish no certification claims.
 - **Official tagline:** [NEEDS INPUT — no official tagline identified]
-- **Review / reputation status:** 4.9 stars / 226 Google reviews (GBP confirmed).
-  GHL review widget confirmed for display. `aggregateRating` cleared for JSON-LD once
-  widget is wired.
+- **Review / reputation status:** 4.9 stars / 232 Google reviews (as of 2026-08-17).
+  GHL review widget confirmed for display and wired. `aggregateRating` cleared for JSON-LD.
+  ⚠️ **reviewCount is a moving number — re-sync periodically.** It has drifted 226 → 227
+  → 232 across three checks. The live GHL widget is the source of truth, not this file:
+  read the count off the widget, then update BOTH the homepage `aggregateRating` and
+  this file in the same pass. Schema that disagrees with the on-page widget is a rich-
+  results problem. Re-check any time the homepage schema is touched.
 - **Price range:** [NEEDS INPUT — for JSON-LD `priceRange` only; never in copy]
 
 ### Key operational facts — confirmed
@@ -329,7 +333,9 @@ twitter summary_large_image + title/description/image; images → 1200×630 (fla
 - **PostalAddress:** INCLUDE — confirmed public address (1002 W Sam Houston Blvd, Ste 9,
   Pharr, TX 78577).
 - **`aggregateRating`:** INCLUDE once GHL review widget is wired. Values: ratingValue 4.9,
-  reviewCount 226, bestRating 5. Wire together with the widget — never one without the other.
+  reviewCount 232 (as of 2026-08-17), bestRating 5. Wire together with the widget — never
+  one without the other. reviewCount drifts upward as reviews accumulate — re-read it off
+  the live widget and re-sync it here and in Business Identity whenever this block is touched.
 - License numbers → `additionalProperty` — none confirmed; omit until confirmed.
 - **Service pages:** 3 blocks — `Service` + `FAQPage` (min 6 Q&As) + `BreadcrumbList`.
 - **City pages:** 3 blocks — `DiagnosticLab` ref (same `@id` as homepage, NOT a
@@ -478,7 +484,8 @@ Freeze anything that must never drift:
 - **Founded year:** May 2013 — confirmed; cleared to use in copy and schema
 - **Owner name:** Not published on this site. About page tells business story only.
 - **Testimonials/reviews:** GHL review widget confirmed for display. No manually written
-  or unattributed testimonials. 4.9 / 226 cleared for `aggregateRating` once widget wired.
+  or unattributed testimonials. 4.9 / 232 cleared for `aggregateRating` (count re-syncs
+  against the live widget — see Review / reputation status).
 - **SneakPeek® claims:** Reference the test by name and describe what it detects (fetal
   sex, as early as 6–7 weeks into pregnancy). Do NOT state any specific accuracy
   percentage (not "99.9%" or any other figure) — best approach is to let the service

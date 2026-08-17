@@ -438,6 +438,29 @@
       margin: 0 auto 16px;
     }
 
+    /* ── De-carded list treatments (client direction, homepage) ──
+       The services grid and the how-a-visit-works steps were boxed cards; the
+       client asked for both unboxed. Rather than invent a third idiom, both
+       reuse the directory pattern the service-area list already establishes
+       (.area-item): one hairline rule at the top of each cell, name, one line
+       of context, no background and no shadow. Rules sit at the top of the
+       grid cell so they align across a row at every breakpoint. */
+    .service-item {
+      display: block;
+      border-top: 1px solid rgba(var(--color-dark-rgb), 0.16);
+      padding-top: 18px;
+    }
+    .service-item h3 { transition: color 0.18s cubic-bezier(0.4,0,0.2,1); }
+    .service-item:hover h3 { color: var(--color-accent-deep); }
+    .service-item:hover .link-arrow { color: var(--color-accent-deep); gap: 10px; }
+    .service-item:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; border-radius: 4px; }
+
+    /* Same pattern on the crimson section, so the hairline is a white tint
+       rather than a crimson one, and the numbered badge moves off centre to
+       sit on the rule like the heading does. */
+    .step-item { border-top: 1px solid rgba(255,255,255,0.28); padding-top: 20px; }
+    .step-item .step-badge { margin: 0 0 16px; }
+
     .section-title-accent {
       display: inline-block; width: 64px; height: 3px;
       background: linear-gradient(90deg, transparent 0%, var(--color-accent) 25%, var(--color-accent) 75%, transparent 100%);
@@ -552,10 +575,11 @@
        isAggregateRatingEnabled + isAggregateReviewCountEnabled set, so both figures
        are displayed on-page. Rating and widget ship together — if the widget is ever
        removed, this block goes with it.
-       reviewCount is 227, not the 226 in CLAUDE.md: the widget's own aggregateData
-       reported 227 at wire-up. Schema has to match what the page displays, so it
-       tracks the widget. This number drifts as reviews come in — re-check it against
-       the widget whenever the schema is touched.
+       reviewCount tracks the widget, because schema has to match what the page
+       displays. It has drifted twice already: 226 at strategy lock, 227 at wire-up,
+       232 as of 2026-08-17. This number keeps climbing as reviews come in — re-read
+       it off the live widget and re-sync both here and in CLAUDE.md whenever the
+       schema is touched.
        "priceRange" is omitted rather than faked — still [NEEDS INPUT].
        NOTE: a single close-comment marker ends this whole block, and it is the one
        on the line below. Never write that marker inline in this text or add a second
@@ -620,7 +644,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "227",
+      "reviewCount": "232",
       "bestRating": "5"
     },
     "sameAs": [
@@ -838,12 +862,11 @@
         </h1>
 
         <p class="text-muted" style="font-size: clamp(1.02rem, 1.6vw, 1.2rem); line-height: 1.72; max-width: 560px; margin-bottom: 14px;">
-          You do not need a doctor's order and you do not need a referral. Walk in, tell us
-          what you need, and get your blood work handled by a local lab that has been part of
-          Pharr since 2013.
+          No doctor's order or referral needed. Walk in and have your blood work handled by a
+          local lab that has been part of Pharr since 2013.
         </p>
         <p class="text-muted" style="font-size: 0.98rem; line-height: 1.7; max-width: 560px; margin-bottom: 30px;">
-          Most insurances accepted, plus a self-pay option if you would rather keep it simple.
+          Most insurances accepted. Plus a low, affordable self-pay option is available.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -877,17 +900,20 @@
           <span class="section-title-accent"></span>
           <p class="eyebrow">Local &middot; Independent</p>
           <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 20px;">
-            A Lab in Pharr That Answers to You
+            What you need &mdash; Without the wait.
           </h2>
           <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 18px;">
-            Surepointe Lab opened in Pharr in 2013 and has run the same way ever since. You
-            decide what you want tested. You walk in when it works for you. Nobody sends you
-            back to a clinic first to get permission.
+            Surepointe Lab has been serving the community since 2013. Our patients save time and
+            effort by using Surepointe Lab's efficient services and experiencing short wait
+            times. Not only do we have every test you'll need, but you also don't need a
+            referral.
           </p>
           <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 26px;">
-            We are inside the Pharr Medical Complex on West Sam Houston Boulevard, which puts
-            us a few minutes from Business 83 and within a short drive of McAllen, San Juan
-            and Alamo. If getting to us is the hard part, ask about a Home Draw.
+            We are conveniently located inside the Pharr Medical Complex on West Sam Houston
+            Boulevard. Just a few minutes from Business 83 and a short drive from McAllen, San
+            Juan and Alamo. If transportation is an issue, we also have
+            <a href="/home-draw.html" class="underline decoration-1 underline-offset-2" style="color: var(--color-accent-deep); font-weight: 600;">Home Draw</a>
+            services.
           </p>
 
           <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-8">
@@ -933,21 +959,22 @@
 
       <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
         <span class="section-title-accent"></span>
-        <p class="eyebrow">What We Test</p>
+        <p class="eyebrow">Our Services</p>
         <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 16px;">
-          Lab Testing Services in Pharr, TX
+          Lab Testing Services at Surepointe Lab
         </h2>
         <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75;">
-          Six ways people use us most. Every one of them starts the same way &mdash; you walk in
-          and ask for it.
+          Our most popular services:
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-up" style="transition-delay: 0.06s;">
+      <!-- De-carded per client direction: plain columns on the section
+           background, not boxed cards. See .service-item in the style block. -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 fade-up" style="transition-delay: 0.06s;">
 
-        <a href="/services/blood-work-lab-testing.html" class="service-card block text-center">
+        <a href="/services/blood-work-lab-testing.html" class="service-item">
           <h3 class="font-display font-bold text-white text-xl mb-2">Blood Work &amp; Lab Testing</h3>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+          <p class="text-muted text-sm mb-4" style="line-height: 1.7;">
             The everyday panels people come in for &mdash; CMP, CBC, lipid panel, A1C, urinalysis,
             PSA and more. Order what you want without a doctor's note.
           </p>
@@ -957,9 +984,9 @@
           </span>
         </a>
 
-        <a href="/services/drug-testing.html" class="service-card block text-center">
+        <a href="/services/drug-testing.html" class="service-item">
           <h3 class="font-display font-bold text-white text-xl mb-2">Drug Testing</h3>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+          <p class="text-muted text-sm mb-4" style="line-height: 1.7;">
             Urine drug screens, hair follicle testing and DOT drug testing for employers,
             individuals and anyone who needs results on paper.
           </p>
@@ -969,9 +996,9 @@
           </span>
         </a>
 
-        <a href="/services/paternity-testing.html" class="service-card block text-center">
+        <a href="/services/paternity-testing.html" class="service-item">
           <h3 class="font-display font-bold text-white text-xl mb-2">Paternity Testing</h3>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+          <p class="text-muted text-sm mb-4" style="line-height: 1.7;">
             A private, straightforward process handled locally in Pharr. Come in together or
             separately &mdash; call us first and we will explain how it works.
           </p>
@@ -981,9 +1008,9 @@
           </span>
         </a>
 
-        <a href="/services/wellness-panels.html" class="service-card block text-center">
+        <a href="/services/wellness-panels.html" class="service-item">
           <h3 class="font-display font-bold text-white text-xl mb-2">Wellness Panels</h3>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+          <p class="text-muted text-sm mb-4" style="line-height: 1.7;">
             Bundled check-ups built for men, for women, and for anyone who wants a broad look
             at their health once a year &mdash; including our Wonder Woman Check.
           </p>
@@ -993,9 +1020,9 @@
           </span>
         </a>
 
-        <a href="/services/hormone-testing.html" class="service-card block text-center">
+        <a href="/services/hormone-testing.html" class="service-item">
           <h3 class="font-display font-bold text-white text-xl mb-2">Hormone Testing</h3>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+          <p class="text-muted text-sm mb-4" style="line-height: 1.7;">
             Testosterone, estrogen and full thyroid panels. Useful when you feel off and want
             numbers instead of guesses. Home Draws available.
           </p>
@@ -1005,9 +1032,9 @@
           </span>
         </a>
 
-        <a href="/services/gender-reveal-testing.html" class="service-card block text-center">
+        <a href="/services/gender-reveal-testing.html" class="service-item">
           <h3 class="font-display font-bold text-white text-xl mb-2">Gender Reveal Testing</h3>
-          <p class="text-muted text-sm mb-5" style="line-height: 1.7;">
+          <p class="text-muted text-sm mb-4" style="line-height: 1.7;">
             The SneakPeek&reg; Early Gender Test can tell you whether you are having a boy or a
             girl as early as 6 to 7 weeks into pregnancy.
           </p>
@@ -1032,15 +1059,17 @@
         <span class="section-title-accent"></span>
         <p class="eyebrow">Simple by Design</p>
         <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 16px;">
-          How a Visit Works
+          One visit.
         </h2>
         <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75;">
-          Three steps, start to finish. No paperwork trail before you can be seen.
+          Three easy steps, from start to finish:
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-3 gap-6 fade-up" style="transition-delay: 0.06s;">
-        <div class="feature-card text-center">
+      <!-- De-carded per client direction: the three steps sit directly on the
+           crimson section. See .step-item in the style block. -->
+      <div class="grid sm:grid-cols-3 gap-x-10 gap-y-10 fade-up" style="transition-delay: 0.06s;">
+        <div class="step-item">
           <div class="step-badge">1</div>
           <h3 class="font-display font-bold text-white text-lg mb-2">Walk In or Call</h3>
           <p class="text-muted text-sm" style="line-height: 1.7;">
@@ -1048,15 +1077,16 @@
             your insurance first.
           </p>
         </div>
-        <div class="feature-card text-center">
+        <div class="step-item">
           <div class="step-badge">2</div>
           <h3 class="font-display font-bold text-white text-lg mb-2">Get Your Draw</h3>
           <p class="text-muted text-sm" style="line-height: 1.7;">
             Our team handles the collection on site. If you cannot get to Pharr, ask us about a
-            Home Draw instead.
+            <a href="/home-draw.html" class="underline decoration-1 underline-offset-2" style="color: var(--color-bg); font-weight: 700;">Home Draw</a>
+            instead.
           </p>
         </div>
-        <div class="feature-card text-center">
+        <div class="step-item">
           <div class="step-badge">3</div>
           <h3 class="font-display font-bold text-white text-lg mb-2">Get Your Results</h3>
           <p class="text-muted text-sm" style="line-height: 1.7;">
@@ -1090,15 +1120,15 @@
           <span class="section-title-accent"></span>
           <p class="eyebrow">Why People Pick Us</p>
           <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 20px;">
-            Straight Answers, Same Day You Walk In
+            Results made simple.
           </h2>
           <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 18px;">
-            Most people who find us have already tried the long way around: call a clinic, wait
-            for an appointment, get sent somewhere else for the draw. We took those steps out.
+            Don't take the long route. At Surepointe Lab, one visit is all you'll need for
+            results.
           </p>
           <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75; margin-bottom: 26px;">
-            You tell us what you want run. We run it. If you are not sure what you need, call
-            and talk it through with us before you come in &mdash; that part is free.
+            And if you're not sure what you're looking for, call for a free consultation with
+            our friendly, knowledgeable staff.
           </p>
 
           <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
@@ -1135,11 +1165,12 @@
         <span class="section-title-accent"></span>
         <p class="eyebrow">Rio Grande Valley</p>
         <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 16px;">
-          Serving Pharr, McAllen &amp; the Rio Grande Valley
+          Proudly serving the Rio Grande Valley.
         </h2>
         <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75;">
-          Our lab sits in Pharr, and the cities below are all a short drive along the US-83
-          corridor. Patients come to us from across Hidalgo County.
+          Conveniently located in Pharr. Patients from across the valley still save time and
+          effort with Surepointe Lab, regardless of distance. Patients come to us from across
+          Hidalgo County. The cities below are all a short drive along the US-83 corridor.
         </p>
       </div>
 
@@ -1189,75 +1220,7 @@
         </div>
 
         <p class="text-sm text-center mt-14" style="color: var(--color-muted);">
-          Cannot make it in? Ask about a <strong style="color: var(--color-ink);">Home Draw</strong> and we will come to you.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       GALLERY
-  ============================================================ -->
-  <section id="gallery" class="section-dark atmo wash-ember-tr py-24" aria-label="Inside Surepointe Lab">
-    <div class="max-w-6xl mx-auto px-5">
-
-      <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
-        <span class="section-title-accent"></span>
-        <p class="eyebrow">Our Lab</p>
-        <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 16px;">
-          Inside Surepointe Lab
-        </h2>
-        <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75;">
-          A look around our Pharr location before your first visit.
-        </p>
-      </div>
-
-      <!-- Two real photos, single column, 16:9 frames for presence. -->
-      <div class="grid grid-cols-1 gap-6 fade-up" style="transition-delay: 0.06s;">
-        <figure class="photo-frame photo-frame--wide">
-          <img src="/brand_assets/gallery1.jpg" alt="Waiting area and reception window at Surepointe Lab in Pharr, Texas" width="1600" height="900" loading="lazy" />
-        </figure>
-        <figure class="photo-frame photo-frame--wide">
-          <img src="/brand_assets/gallery2.jpg" alt="Private blood draw room with phlebotomy chair at Surepointe Lab in Pharr, Texas" width="1600" height="900" loading="lazy" />
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       INSURANCE & SELF-PAY
-       NOTE: the template's insurance CARRIER LOGO ROW is deleted per CLAUDE.md —
-       no carrier partnerships are confirmed, so this is copy only. Never add a
-       logo wall or name a specific carrier here.
-  ============================================================ -->
-  <section id="insurance" class="dark-section relative py-24 overflow-hidden" aria-label="Insurance and self-pay">
-    <div class="dark-cta-ramp"></div>
-    <div class="max-w-6xl mx-auto px-5 relative" style="z-index: 4;">
-
-      <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
-        <span class="section-title-accent"></span>
-        <p class="eyebrow">Paying for Your Visit</p>
-        <h2 class="font-display font-bold text-white tracking-tight" style="font-size: clamp(1.85rem, 3.2vw, 2.6rem); line-height: 1.14; margin-bottom: 16px;">
-          Insurance &amp; Self-Pay
-        </h2>
-        <p class="text-muted" style="font-size: 1.02rem; line-height: 1.75;">
-          We accept most insurances. If you would rather not go through your plan, we have a
-          self-pay option instead.
-        </p>
-      </div>
-
-      <!-- No card here on purpose: the copy sits directly on the crimson section and
-           is sized up to carry it. --color-silver is the on-dark secondary-text token. -->
-      <div class="max-w-3xl mx-auto text-center fade-up" style="transition-delay: 0.06s;">
-        <p style="font-size: 1.08rem; line-height: 1.8; color: var(--color-silver); margin-bottom: 22px;">
-          Every plan covers testing a little differently, and what applies to one test may not
-          apply to the next. Rather than guess, call us with your insurance information and the
-          tests you are after. We will help you check what your plan covers before you come in,
-          so there are no surprises after the draw.
-        </p>
-        <p style="font-size: 1.08rem; line-height: 1.8; color: var(--color-silver);">
-          Prefer to skip insurance altogether? Ask about self-pay when you call and we will walk
-          you through your options.
+          Cannot make it in? Ask about a <a href="/home-draw.html" class="underline decoration-1 underline-offset-2" style="color: var(--color-accent-deep); font-weight: 700;">Home Draw</a> and we will come to you.
         </p>
       </div>
     </div>
@@ -1265,13 +1228,19 @@
 
   <!-- ============================================================
        REVIEWS — GHL widget
-       Live. The widget renders the reviews itself; the confirmed 4.9 / 226 figures
-       are carried in the DiagnosticLab aggregateRating, wired in the same pass.
+       Live. The widget renders the reviews itself; the 4.9 / 232 figures it reports
+       are mirrored in the DiagnosticLab aggregateRating. The count drifts as reviews
+       come in — re-read it off the widget and re-sync both whenever either is touched.
   ============================================================ -->
-  <!-- Light section on purpose: #insurance directly above is crimson, and two
-       adjacent dark sections read as one long red block at this saturation. -->
+  <!-- Section-background rhythm below this point was re-alternated when the client
+       removed the gallery and the insurance sections. Those two carried the
+       white / crimson beat between #service-area and #faq; without them the page
+       ran section-mid → section-mid → ... and adjacent same-tone sections merge
+       into one long block. Reviews, FAQ and Contact now alternate
+       section-dark (white) → section-mid (tint) → section-dark (white)
+       into the crimson final CTA. -->
 
-  <section id="reviews" class="section-mid atmo wash-navy-br py-24" aria-label="Patient reviews">
+  <section id="reviews" class="section-dark atmo wash-navy-br py-24" aria-label="Patient reviews">
     <div class="max-w-6xl mx-auto px-5 relative" style="z-index: 4;">
 
       <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
@@ -1304,7 +1273,7 @@
   <!-- ============================================================
        FAQ
   ============================================================ -->
-  <section id="faq" class="section-dark atmo wash-navy-tr py-24" aria-label="Common questions">
+  <section id="faq" class="section-mid atmo wash-navy-tr py-24" aria-label="Common questions">
     <div class="max-w-3xl mx-auto px-5">
 
       <div class="text-center mb-12 fade-up">
@@ -1395,7 +1364,7 @@
   <!-- ============================================================
        CONTACT / NAP
   ============================================================ -->
-  <section id="contact" class="section-mid atmo wash-ember-tl py-24" aria-label="Visit Surepointe Lab in Pharr">
+  <section id="contact" class="section-dark atmo wash-ember-tl py-24" aria-label="Visit Surepointe Lab in Pharr">
     <div class="max-w-6xl mx-auto px-5">
 
       <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
@@ -1608,7 +1577,6 @@
           <ul class="space-y-2.5">
             <li><a href="/about.html" class="text-muted text-sm hover:text-white transition-colors duration-150">About Us</a></li>
             <li><a href="/#service-area" class="text-muted text-sm hover:text-white transition-colors duration-150">Areas We Serve</a></li>
-            <li><a href="/#insurance" class="text-muted text-sm hover:text-white transition-colors duration-150">Insurance &amp; Self-Pay</a></li>
             <li><a href="/#faq" class="text-muted text-sm hover:text-white transition-colors duration-150">Common Questions</a></li>
             <li><a href="/#contact" class="text-muted text-sm hover:text-white transition-colors duration-150">Contact</a></li>
           </ul>
