@@ -40,7 +40,7 @@ facts; confirm with the client / Juan before filling.
 | City 8 | Donna |
 | city slugs | mcallen / edinburg / mission / weslaco / san-juan / alamo / donna *(no pharr slug — homepage serves Pharr)* |
 | Region | Rio Grande Valley (RGV) / Hidalgo County, TX |
-| Phone (site) | (956) 586-6463 — GHL tracking number, delivered and live site-wide |
+| Phone (site) | (956) 586-0993 — client-confirmed public number, live site-wide |
 | Email | Surepointelab@jigmed.org |
 | Domain | www.surepointelab.com — canonical host confirmed as www; set as Vercel Primary day one |
 
@@ -157,16 +157,23 @@ Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inf
   product used for Gender Reveal testing. See Locked Language for copy rules.
 - **Physical address:** 1002 W Sam Houston Blvd, Suite 9, Pharr, TX 78577 — inside
   Pharr Medical Complex. Public address confirmed → PostalAddress INCLUDED in schema.
-- **Phone (site):** (956) 586-6463 — GHL tracking number, delivered and wired site-wide.
-  NOTE: the hero video and the home2 storefront photo both show 956-586-0993, a
-  DIFFERENT number. Neither is the tracking number; confirm with the client whether
-  956-586-0993 is still in service before launch.
+- **Phone (site):** (956) 586-0993 — client-confirmed public number, wired site-wide
+  (2026-08-17). This SUPERSEDES the GHL tracking number (956) 586-6463, which was
+  previously published site-wide and is now fully removed. The earlier do-not-publish
+  flag on 956-586-0993 is REVERSED per explicit client direction — it is the correct
+  public number and matches the hero video and the home2 storefront decal.
+  ⚠️ The GHL tracking number must NOT be reintroduced without new client direction;
+  call-attribution routing through GHL is no longer wired to the site number.
+  ⚠️ The storefront decal also shows hours of 7am-7pm / Sat 7am-1pm, which still
+  differ from the confirmed GMB hours below. That conflict is unresolved and on the
+  record — GMB hours remain authoritative for copy and schema.
 - **Phone (owner personal — NOT FOR PUBLICATION):** [NEEDS INPUT — record here only so
   it is never mistaken for the site number; must return zero grep hits before deploy]
 - **Email:** Surepointelab@jigmed.org [domain is jigmed.org, NOT surepointelab.com —
   do not "fix"; do not build any URL off the email domain]
 - **Domain + canonical host:** www.surepointelab.com — confirmed; set as Vercel Primary day one
-- **Founded:** May 2013 — confirmed by client; cleared to publish in copy and schema
+- **Founded:** May 2023 — confirmed by client (corrected from 2013 on 2026-08-17);
+  cleared to publish in copy and schema
 - **Licenses / certifications:** None confirmed. Publish no certification claims.
 - **Official tagline:** [NEEDS INPUT — no official tagline identified]
 - **Review / reputation status:** 4.9 stars / 232 Google reviews (as of 2026-08-17).
@@ -185,10 +192,10 @@ Every field is confirmed from onboarding or flagged `[NEEDS INPUT]`. Nothing inf
 - **Walk-ins welcome** — confirmed; safe to publish
 - **Insurance:** Accepts most insurances + self-pay. Never name specific carriers. Never
   promise coverage outcomes. Route coverage questions to "call us to confirm your coverage."
-- **Intake method / primary CTA framing:** Walk in or call (956) 586-6463
+- **Intake method / primary CTA framing:** Walk in or call (956) 586-0993
 - **Confirmed differentiators:** No doctor's order required · No referral needed · Accepts
   most insurances · Self-pay option · Walk-in friendly · Located in Pharr Medical Complex ·
-  Home Draws available · Founded 2013
+  Home Draws available · Founded 2023
 
 ### Hours — CONFIRMED (GMB is authoritative)
 
@@ -481,7 +488,12 @@ Freeze anything that must never drift:
 - **Experience framing:** "over 25 years in laboratory diagnostics" — personal/team
   experience, NOT business age. Never write "over 25 years serving [City]."
   [NEEDS INPUT — confirm exact wording and that this is a personal/team claim]
-- **Founded year:** May 2013 — confirmed; cleared to use in copy and schema
+- **Founded year:** May 2023 — confirmed; cleared to use in copy and schema.
+  ⚠️ Corrected from 2013 on 2026-08-17. Because the business is ~3 years old, never
+  pair "since 2023" with decade/long-tenure phrasing ("more than a decade on," "for
+  decades," "long-established"). One such line was already caught and rewritten on
+  about.html. This also makes the experience-framing rule below load-bearing: "over
+  25 years" is a personal/team claim and must never read as business age.
 - **Owner name:** Not published on this site. About page tells business story only.
 - **Testimonials/reviews:** GHL review widget confirmed for display. No manually written
   or unattributed testimonials. 4.9 / 232 cleared for `aggregateRating` (count re-syncs
@@ -506,8 +518,8 @@ Freeze anything that must never drift:
 - No insurance coverage-outcome claims.
 - No relationship claim without written confirmation.
 - Never infer ownership/roles/relationships from social posts.
-- Never publish the owner's personal number — GHL tracking number only; grep returns zero
-  hits for the personal number before deploy.
+- Never publish the owner's personal number — the confirmed public number (956) 586-0993
+  only; grep returns zero hits for the personal number before deploy.
 - Never promote a client photo into the `hero-background` / `cta-background` slots.
 - No readable license plates or privacy-sensitive photos.
 - Never use default Tailwind blue/indigo as primary — use `#1852D4` only.
